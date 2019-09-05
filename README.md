@@ -1,27 +1,21 @@
-# NgWebsiteTemplate
+# Simple Angular Starter Template
+This is a simple Angular website utilizing Server Side Rendering (SSR) and Angular Material out of the box. It's nothing much, just a simple way to start with angular universal.
+As a bonus it contains most common (in my opinion) util methods aimed to ramp up your development speed.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.0.
+## Dependencies
+- You must have `node` and `npm` installed (via `brew install node` or [NodeJS.org](https://nodejs.org/en/));
+- You must also have `typings` installed globally via `npm i -g typings`
+- Be sure that you have `typings` version `1.x`
 
-## Development server
+## Getting Started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+```bash
+git clone https://github.com/ArtemWolynski/AngularWebsiteTemplate
+cd ngWebsiteTemplate
+npm i
+typings install
+npm start
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Then navigate your browser to [http://localhost:4200](http://localhost:4200) and use the app.
