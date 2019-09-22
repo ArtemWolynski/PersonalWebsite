@@ -5,5 +5,9 @@
     <li><a href="" target="_blank" about="CV">CV</a></li>
     <li><a href="https://github.com/ArtemWolynski" target="_blank" about="Github">Github</a></li>
   </ul>
-  <app-primary-button class="btn" [text1]="'Click me'" (clicked)="onButtonClicked($event)"></app-primary-button>
+  <app-primary-button class="btn"
+                      [style.opacity]="shouldShowButton? 1: 0"
+                      [text1]="buttonText"
+                      (clicked)="onButtonClicked($event)">
+  </app-primary-button>
 </div>

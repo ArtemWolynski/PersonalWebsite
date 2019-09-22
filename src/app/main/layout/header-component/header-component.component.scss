@@ -1,4 +1,56 @@
 .header {
   width: 100%;
-  background-color: black;
+
+  h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+  }
+
+  .content {
+    max-width: 975px;
+    margin: 29vh auto 0;
+  }
+
+  .name {
+    font-family: "Gotha Pro", sans-serif;
+    font-weight: lighter;
+    font-size: 36px;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    margin-bottom: -5px;
+  }
+
+  .surname{
+    font-family: "Gotha Pro Bold", sans-serif;
+    font-size: 94px;
+    color: #FF5252;
+    text-transform: uppercase;
+  }
+
+  .position{
+    padding-left: 372px;
+    font-family: "Gotha Pro", sans-serif;
+    font-weight: lighter;
+    font-size: 16px;
+  }
+
+  .description {
+    margin-left: 400px;
+    max-width: 521px;
+    line-height: 21px;
+    margin-top: 25px;
+    display: flex;
+
+    @media screen and (max-width: 1250px) {
+      margin-left: 20%;
+    }
+
+    .pillar{
+      margin-right: 25px;
+      width: 15px;
+      height: 88px;
+      background-color: #FF5252;
+      margin-top: 20px;
+    }
+  }
 }

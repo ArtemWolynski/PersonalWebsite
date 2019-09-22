@@ -18,4 +18,8 @@
       padding-bottom: 20px;
     }
   }
+
+  @media screen and (max-width: 1250px) {
+   display: none;
+  }
 }

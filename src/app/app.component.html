@@ -1,5 +1,5 @@
 <main>
-  <app-header-component *ngIf="currentScreen === ''">
+  <app-header-component *ngIf="currentScreen === 'About'">
   </app-header-component>
 
   <app-skills *ngIf="currentScreen === 'Skills'">
@@ -15,5 +15,5 @@
   </app-get-in-touch>
 </main>
 
-<app-sidebar [currentStep]="currentScreen"></app-sidebar>
-<app-progress-bar (activePath)="changeCurrentScreen($event)"></app-progress-bar>
+<app-sidebar></app-sidebar>
+<app-progress-bar></app-progress-bar>
