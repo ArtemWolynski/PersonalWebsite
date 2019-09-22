@@ -8,6 +8,6 @@ import { LogoComponent } from './logo.component';
   declarations: [LogoComponent],
   imports: [
     CommonModule
-  ]
+  ], exports: [LogoComponent]
 })
 export class LogoModule { }

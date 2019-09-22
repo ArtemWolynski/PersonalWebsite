@@ -8,6 +8,7 @@ import { PrimaryButtonComponent } from './primary-button/primary-button.componen
   declarations: [PrimaryButtonComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [PrimaryButtonComponent]
 })
 export class ButtonsModule { }
