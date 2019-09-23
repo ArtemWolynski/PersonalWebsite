@@ -1,1 +1,27 @@
-<p>portfolio works!</p>
+<section class="portfolio">
+  <div class="h2-container">
+    <h2>{{portfolio[currentIndex].name}}</h2>
+  </div>
+
+  <div class="description content-between">
+    <div class="text-container">
+      <p class="text">{{portfolio[currentIndex].description}}</p>
+    </div>
+
+    <div class="slides content-between">
+      <div class="slide active"></div>
+      <div class="slide"></div>
+      <div class="slide"></div>
+    </div>
+
+    <div class="pillar"></div>
+  </div>
+
+  <div class="controls content-between">
+    <p><a href="{{portfolio[currentIndex].link}}" target="_blank">View project</a></p>
+    <p class="active"
+       (click)="slideNext()">
+      Next project
+    </p>
+  </div>
+</section>

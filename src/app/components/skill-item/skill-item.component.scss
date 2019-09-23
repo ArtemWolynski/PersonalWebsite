@@ -1,0 +1,29 @@
+.skill-item {
+  width: 100%;
+  margin-top: 25px;
+  position: relative;
+
+  .mat-progress-bar {
+    height: 25px;
+    width: 415px;
+  }
+
+  .text {
+    position: absolute;
+    top: -12px;
+    left: 35px;
+  }
+
+  ::ng-deep .mat-progress-bar-buffer {
+    background-color: white !important;
+  }
+
+  ::ng-deep  .mat-progress-bar-fill {
+
+    &::after {
+      background-color: rgb(255,81,81) !important;
+      height: 35px !important;
+    }
+  }
+
+}

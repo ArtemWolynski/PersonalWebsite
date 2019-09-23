@@ -1,0 +1,105 @@
+.portfolio {
+  height: 800px;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  margin: auto auto auto 5%;
+
+  .h2-container {
+    margin-bottom: 30px;
+    margin-left: 45px;
+
+    h2 {
+      font-family: "Gotha Pro Bold", sans-serif;
+      font-size: 44px;
+
+    }
+  }
+
+
+  .description {
+    position: relative;
+    width: 100%;
+    flex-wrap: nowrap;
+
+    .text-container {
+      background-color: rgb(238,243,254);
+      width: 50%;
+      padding-top: 45px;
+      padding-left: 45px;
+      height: 440px;
+
+      .text {
+        width: 385px;
+        color: black;
+        line-height: 22px;
+      }
+    }
+
+    .slides {
+      position: absolute;
+      width: 960px;
+      height: 680px;
+      left: 470px;
+      top: -22%;
+      flex-wrap: nowrap;
+
+      :nth-child(1) {
+        background: url("../../../../assets/images/tp.png") no-repeat center;
+      }
+
+      :nth-child(2) {
+        background: url("../../../../assets/images/cd.png") no-repeat center;
+      }
+
+      :nth-child(3) {
+        background: url("../../../../assets/images/pp.png") no-repeat center;
+      }
+
+      .slide {
+        width: 33.5%;
+        height: available;
+        cursor: pointer;
+        transition: 150ms ease-in-out;
+
+        &:hover  {
+          transform: scale(1.03);
+        }
+
+        &.active {
+        }
+      }
+    }
+
+    .pillar {
+      height: available;
+      width: 50%;
+      background-color: #FF5252;
+    }
+  }
+
+  .controls {
+    width: 350px;
+    margin-left: 45px;
+
+    p {
+      cursor: pointer;
+
+      &.active {
+        color: #FF5252;
+
+        &::after {
+        background-color: #FF5252;
+        }
+      }
+
+      &::after {
+        content: '';
+        display: inline-block;
+        width: 50px;
+        height: 10px;
+        background-color: white;
+        margin-left: 10px;
+      }
+    }
+  }
+}

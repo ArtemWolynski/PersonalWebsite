@@ -1,0 +1,27 @@
+.tile {
+  width: 257px;
+  height: 217px;
+  background-color: rgb(55,55,54);
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  padding: 1px 0 0 0;
+  margin: -1px auto 0 auto;
+
+  .icon {
+    margin: 55px auto 0;
+  }
+
+  p {
+    padding-top: 15px;
+  }
+
+  .active {
+    width: 10px;
+    height: 55px;
+    position: absolute;
+    background-color: rgb(255,81,81);
+    left: 49.5%;
+    bottom: -35px
+  }
+}

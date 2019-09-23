@@ -1,1 +1,66 @@
-<p>skills works!</p>
+<div class="skills container">
+  <div class="content-between"   [@animateStagger]="{value:'50'}">
+    <app-skill-tile    (click)="setActiveSkillSet('General Skills')"
+                       [@animate]="{value:'*',params:{y:'100%'}}"
+                       [text]="'General Skills'">
+    </app-skill-tile>
+
+    <app-skill-tile [@animate]="{value:'*',params:{y:'100%'}}"
+                    (click)="setActiveSkillSet('Back End')"
+                    [text]="'Back End'">
+    </app-skill-tile>
+
+    <app-skill-tile [@animate]="{value:'*',params:{y:'100%'}}"
+                    (click)="setActiveSkillSet('Front End')"
+                    [text]="'Front End'">
+    </app-skill-tile>
+  </div>
+  <div class="content-between skills-description"  *ngIf="activeSkillSet === 'General Skills'">
+    <div class="description"   [@animate]="{value:'*',params:{y:'100%'}}">
+      <p>I have skills and I like em.</p>
+
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur..</p>
+    </div>
+    <div class="skills">
+      <app-skill-item [text]="'Spring Boot'" [maxValue]="80"></app-skill-item>
+      <app-skill-item [text]="'Hibernate'" [maxValue]="70"></app-skill-item>
+      <app-skill-item [text]="'Postgres'"  [maxValue]="75"></app-skill-item>
+    </div>
+  </div>
+
+  <div class="content-between skills-description"  *ngIf="activeSkillSet === 'Front End'">
+    <div class="description"   [@animate]="{value:'*',params:{y:'100%'}}">
+      <p>Creating wonderful interfaces for your companies. Like, subscribe.</p>
+
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur..</p>
+
+      <p>Excepteur sint occaecat cup idatat non proident, sunt in cu
+        lpa qui officia deser unt mollit animid est laborum..</p>
+    </div>
+    <div class="skills">
+      <app-skill-item [text]="'Spring Boot'" [maxValue]="80"></app-skill-item>
+      <app-skill-item [text]="'Hibernate'" [maxValue]="70"></app-skill-item>
+      <app-skill-item [text]="'Hibernate'" [maxValue]="70"></app-skill-item>
+      <app-skill-item [text]="'Postgres'"  [maxValue]="75"></app-skill-item>
+    </div>
+  </div>
+
+  <div class="content-between skills-description"  *ngIf="activeSkillSet === 'Back End'">
+    <div class="description"   [@animate]="{value:'*',params:{y:'100%'}}">
+      <p>Creating cook architecture for your companies. Like, subscribe.</p>
+
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur..</p>
+    </div>
+    <div class="skills">
+      <app-skill-item [text]="'Spring Boot'" [maxValue]="80"></app-skill-item>
+      <app-skill-item [text]="'Hibernate'" [maxValue]="70"></app-skill-item>
+      <app-skill-item [text]="'Postgres'"  [maxValue]="75"></app-skill-item>
+      <app-skill-item [text]="'Spring Boot'" [maxValue]="80"></app-skill-item>
+      <app-skill-item [text]="'Spring Boot'" [maxValue]="80"></app-skill-item>
+    </div>
+  </div>
+
+</div>

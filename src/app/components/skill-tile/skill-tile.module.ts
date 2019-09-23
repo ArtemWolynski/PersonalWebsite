@@ -8,6 +8,7 @@ import { SkillTileComponent } from './skill-tile.component';
   declarations: [SkillTileComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [SkillTileComponent]
 })
 export class SkillTileModule { }

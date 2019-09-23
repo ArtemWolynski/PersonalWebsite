@@ -1,0 +1,22 @@
+.skills {
+
+  margin: 25vh auto 0;
+
+  @media screen and (max-width: 1350px) {
+    margin: 10vh auto 0;
+  }
+
+  .description {
+    width: 418px;
+    margin-top: 25px;
+  }
+
+  .skills-description {
+    margin-top: 25px;
+  }
+
+  .skills {
+    margin-top: 10px;
+    width: 270px;
+  }
+}
