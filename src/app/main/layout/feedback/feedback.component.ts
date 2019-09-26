@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {feedbacks} from '../../../configs/feedbacks';
 
 @Component({
   selector: 'app-feedback',
@@ -6,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./feedback.component.scss']
 })
 export class FeedbackComponent implements OnInit {
+  feedback: any[];
+  currentIndex = 0;
 
   constructor() { }
 
   ngOnInit() {
+    this.feedback = feedbacks;
+  }
+
+  slideNext() {
+    if (this.currentIndex === this.feedback.length - 1) {
+      this.currentIndex = 0;
+    } else {
+      this.currentIndex++;
+    }
   }
 
 }

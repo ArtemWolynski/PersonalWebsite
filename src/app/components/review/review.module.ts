@@ -8,6 +8,7 @@ import { ReviewComponent } from './review.component';
   declarations: [ReviewComponent],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [ReviewComponent]
 })
 export class ReviewModule { }

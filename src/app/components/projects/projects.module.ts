@@ -9,6 +9,9 @@ import { ProjectItemComponent } from './project-item/project-item.component';
   declarations: [ProjectsComponent, ProjectItemComponent],
   imports: [
     CommonModule
+  ],
+  exports: [
+    ProjectsComponent
   ]
 })
 export class ProjectsModule { }

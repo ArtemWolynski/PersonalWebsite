@@ -1,0 +1,84 @@
+.portfolio {
+  height: 380px;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  margin: auto auto auto 5%;
+
+  .h2-container {
+    margin-bottom: 30px;
+    margin-left: 45px;
+
+    h2 {
+      font-family: "Gotha Pro Bold", sans-serif;
+      font-size: 44px;
+
+    }
+  }
+
+
+  .feedback-container {
+    position: relative;
+    width: 100%;
+    flex-wrap: nowrap;
+    background-color: #FF5252;
+    min-height: 320px;
+
+    .bio {
+      h2 {
+        margin-top: 30px;
+        margin-bottom: 0;
+      }
+
+      h3 {
+        margin-top: 10px;
+      }
+    }
+
+    .feedback-text {
+      max-width: 1000px;
+      width: 80%;
+      margin: 30px auto 0;
+    }
+
+    .pillar {
+      height: available;
+      background-color: rgb(238,243,254);
+      width: 10%;
+    }
+  }
+
+  .controls {
+    margin: 20px auto;
+    width: 350px;
+
+    p {
+      cursor: pointer;
+
+      &.active {
+        color: #FF5252;
+
+        &::after {
+          background-color: #FF5252;
+        }
+      }
+
+      &::after {
+        content: '';
+        display: inline-block;
+        width: 50px;
+        height: 10px;
+        background-color: white;
+        margin-left: 10px;
+      }
+
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 50px;
+        height: 10px;
+        background-color: white;
+        margin-right: 10px;
+      }
+    }
+  }
+}

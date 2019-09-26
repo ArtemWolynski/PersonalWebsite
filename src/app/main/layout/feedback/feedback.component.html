@@ -1,1 +1,14 @@
-<p>feedback works!</p>
+<section class="portfolio">
+
+  <div class="feedback-container content-between">
+   <app-review [feedback]="feedback[currentIndex]"></app-review>
+    <div class="pillar"></div>
+  </div>
+
+  <div class="controls content-between">
+    <p class="active"
+       (click)="slideNext()">
+      Next review
+    </p>
+  </div>
+</section>

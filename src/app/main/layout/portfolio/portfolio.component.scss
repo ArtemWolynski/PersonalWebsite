@@ -35,41 +35,6 @@
       }
     }
 
-    .slides {
-      position: absolute;
-      width: 960px;
-      height: 680px;
-      left: 470px;
-      top: -22%;
-      flex-wrap: nowrap;
-
-      :nth-child(1) {
-        background: url("../../../../assets/images/tp.png") no-repeat center;
-      }
-
-      :nth-child(2) {
-        background: url("../../../../assets/images/cd.png") no-repeat center;
-      }
-
-      :nth-child(3) {
-        background: url("../../../../assets/images/pp.png") no-repeat center;
-      }
-
-      .slide {
-        width: 33.5%;
-        height: available;
-        cursor: pointer;
-        transition: 150ms ease-in-out;
-
-        &:hover  {
-          transform: scale(1.03);
-        }
-
-        &.active {
-        }
-      }
-    }
-
     .pillar {
       height: available;
       width: 50%;

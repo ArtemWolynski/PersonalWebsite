@@ -13,6 +13,8 @@ import {ProgressBarModule} from './components/progress-bar/progress-bar.module';
 import {SkillItemModule} from './components/skill-item/skill-item.module';
 import {SkillTileModule} from './components/skill-tile/skill-tile.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ReviewModule} from './components/review/review.module';
+import {ProjectsModule} from './components/projects/projects.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     ProgressBarModule,
     SkillItemModule,
     SkillTileModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ReviewModule,
+    ProjectsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
