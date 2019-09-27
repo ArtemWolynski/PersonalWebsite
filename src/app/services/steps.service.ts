@@ -8,7 +8,7 @@ export class StepsService {
   currentStep: BehaviorSubject<string>;
 
   constructor() {
-    this.currentStep = new BehaviorSubject('Reviews');
+    this.currentStep = new BehaviorSubject('Contacts');
   }
 
 

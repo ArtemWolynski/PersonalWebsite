@@ -15,6 +15,9 @@ import {SkillTileModule} from './components/skill-tile/skill-tile.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReviewModule} from './components/review/review.module';
 import {ProjectsModule} from './components/projects/projects.module';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatFormFieldModule, MatInputModule} from '@angular/material';
+import {ButtonsModule} from './components/buttons/buttons.module';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,12 @@ import {ProjectsModule} from './components/projects/projects.module';
     SkillTileModule,
     BrowserAnimationsModule,
     ReviewModule,
-    ProjectsModule
+    ProjectsModule,
+
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ButtonsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

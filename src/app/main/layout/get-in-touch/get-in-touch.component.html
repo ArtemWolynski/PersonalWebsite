@@ -1,9 +1,30 @@
-<section class="portfolio">
+<section class="get-in-touch">
 
-  <div class="feedback-container content-between">
-    <div class="feedback">
+  <div class="form-container content-between">
+    <div class="form">
+      <form [formGroup]="getInTouchForm">
+        <div class="form-wrapper">
+          <mat-form-field>
+            <input formControlName="name" name="name" matInput placeholder="Name">
+          </mat-form-field>
 
+          <mat-form-field>
+            <input type="email" formControlName="email" name="email" matInput placeholder="Email">
+          </mat-form-field>
+
+          <mat-form-field>
+            <input formControlName="message" name="message" matInput placeholder="Your message">
+          </mat-form-field>
+        </div>
+      </form>
+      <app-primary-button [text1]="'Submit'" [disabled]="getInTouchForm.invalid" (clicked)="onSubmit($event)"></app-primary-button>
     </div>
-    <div class="pillar"></div>
+    <div class="text-container">
+      <div class="text-wrapper">
+        <p>Oh! Hi Mike!</p>
+        <p>Thanks for sharing your details! I'll be getting back to you in no time!</p>
+        <p>But maybe, just maybe... There is something that you want to say?</p>
+      </div>
+    </div>
   </div>
 </section>

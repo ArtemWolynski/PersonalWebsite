@@ -1,4 +1,4 @@
-.portfolio {
+.get-in-touch {
   height: 380px;
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
@@ -13,58 +13,53 @@
       font-size: 44px;
 
     }
+
+    p, input, mat-form-field, .mat-form-field {
+      color: white !important;
+    }
   }
 
-
-  .feedback-container {
+  .form-container {
     position: relative;
     width: 100%;
     flex-wrap: nowrap;
 
-    .feedback {
-      background-color: #FF5252;
-      width: 90%;
-      padding-top: 45px;
-      padding-left: 45px;
+    .form {
+      background-color: #22211E;
+      width: 50%;
       min-height: 320px;
       text-align: center;
       position: relative;
 
-      .photo {
-        margin: -110px auto 0;
-        overflow: hidden;
-        max-width: 120px;
-        max-height: 120px;
-        border-radius: 50%;
+      .form-wrapper {
+        margin: 5% 13% 3% 13%;
+        position: relative;
 
-        img {
-          max-width:100%;
-          max-height:100%;
+        .mat-form-field {
+          width: 100%;
+          margin-bottom: 4px;
+          margin-left: 0;
         }
       }
-    }
 
-    .bio {
-      h2 {
-        margin-top: 30px;
-        margin-bottom: 0;
-      }
-
-      h3 {
-        margin-top: 10px;
+      app-primary-button {
+        position: relative;
+        bottom: -25px;
       }
     }
 
-    .feedback-text {
-      max-width: 1000px;
-      width: 80%;
-      margin: 30px auto 0;
-    }
-
-    .pillar {
+    .text-container {
       height: available;
-      background-color: rgb(238,243,254);
-      width: 10%;
+      background-color: #FF5252;
+      width: 50%;
+
+      .text-wrapper {
+        margin: 8.3% 13% 3% 13%;
+
+        p {
+          margin-bottom: 48px;
+        }
+      }
     }
   }
 
@@ -102,4 +97,28 @@
       }
     }
   }
+}
+
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: white !important;
+}
+
+::ng-deep  .mat-form-field-label {
+  /*change color of label*/
+  color: white !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: white !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  /*change color of underline when focused*/
+  background-color: white !important;;
+}
+
+input.mat-input-element {
+  color: #de4c4c;
 }
