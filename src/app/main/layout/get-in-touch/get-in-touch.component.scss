@@ -122,3 +122,12 @@
 input.mat-input-element {
   color: #de4c4c;
 }
+
+
+@media screen and (max-width: 1200px) {
+  .get-in-touch {
+    position: relative;
+    padding-top: 1px;
+    margin-top: -1px;
+  }
+}

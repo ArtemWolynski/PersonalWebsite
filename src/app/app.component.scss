@@ -11,8 +11,8 @@ main {
     width: 80%;
   }
 
-  @media screen and (max-width: 1250px) {
-    margin-left: 0;
-    width: 100%;
+  @media screen and (max-width: 1200px) {
+    margin: 0 auto;
+    width: 95%;
   }
 }

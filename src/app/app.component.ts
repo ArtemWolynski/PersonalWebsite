@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, HostListener, OnDestroy, OnInit} from '@angular/core';
 import {StepsService} from './services/steps.service';
 import {Subject} from 'rxjs';
 import {filter, takeUntil} from 'rxjs/operators';
@@ -10,6 +10,8 @@ import {filter, takeUntil} from 'rxjs/operators';
 })
 export class AppComponent implements OnInit, OnDestroy{
   currentScreen;
+  classicMode: boolean;
+
   private _unsubscribeAll: Subject<any>;
   constructor(private stepsService: StepsService) {
     this._unsubscribeAll = new Subject<any>();
@@ -17,6 +19,12 @@ export class AppComponent implements OnInit, OnDestroy{
 
   ngOnInit() {
     this.subscribeToCurrentStep();
+    this.onResize();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.classicMode = window.innerWidth < 1200;
   }
 
   subscribeToCurrentStep() {

@@ -11,7 +11,6 @@ export class StepsService {
     this.currentStep = new BehaviorSubject('About');
   }
 
-
   setCurrentStep(stepName: string) {
     this.currentStep.next(stepName);
   }
