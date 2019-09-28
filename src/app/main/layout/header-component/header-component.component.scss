@@ -1,6 +1,13 @@
 .header {
   width: 100%;
-  margin: 0 auto;
+  max-width: 1000px;
+  margin: 29vh auto 0;
+  position: relative;
+  left: -5%;
+
+  @media screen and (max-width: 1480px) {
+    left: 0;
+  }
 
   @media screen and (max-width: 1250px) {
     margin: 18vh auto 0;
