@@ -21,12 +21,6 @@ a {
 .container {
   position: relative;
   max-width: 975px;
-  margin: 29vh auto 0;
-
-  @media screen and (max-width: 1250px) {
-    margin: 18vh auto 0;
-  }
-
 }
 
 button {

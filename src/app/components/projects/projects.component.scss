@@ -1,21 +1,40 @@
 .slides {
   position: absolute;
-  width: 960px;
+  width: 60%;
+  max-width: 960px;
   height: 640px;
   left: 470px;
   top: -18%;
   flex-wrap: nowrap;
 
+  @media screen and (max-width: 1720px) {
+    height: 550px;
+    top: -14%;
+  }
+
+  @media screen and (max-width: 1520px) {
+    width: 50%;
+  }
+
   :nth-child(1) {
     background: url("../../../assets/images/tp.png") no-repeat center;
+    background-size: cover;
   }
 
   :nth-child(2) {
     background: url("../../../assets/images/cd.png") no-repeat center;
+    background-size: cover;
   }
 
   :nth-child(3) {
     background: url("../../../assets/images/pp.png") no-repeat center;
+    background-size: cover;
+  }
+
+  @media screen and (max-width: 1520px) {
+    :nth-child(3) {
+      display: none;
+    }
   }
 
   .slide {
@@ -23,6 +42,10 @@
     height: available;
     cursor: pointer;
     transition: 150ms ease-in-out;
+
+    @media screen and (max-width: 1520px) {
+      width: 50%;
+    }
 
     &:hover  {
       transform: scale(1.03);

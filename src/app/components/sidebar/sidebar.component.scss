@@ -19,6 +19,10 @@
     }
   }
 
+  @media screen and (max-height: 950px) {
+    height: 85vh;
+  }
+
   @media screen and (max-width: 1250px) {
    display: none;
   }

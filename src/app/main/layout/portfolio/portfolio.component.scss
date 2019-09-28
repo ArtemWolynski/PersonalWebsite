@@ -4,6 +4,21 @@
   top: 0; left: 0; bottom: 0; right: 0;
   margin: auto auto auto 5%;
 
+  @media screen and (max-width: 1720px) {
+    height: 400px;
+    margin-top: 1%;
+  }
+
+  @media screen and (max-width: 1520px) {
+    height: 400px;
+    margin-top: 1%;
+  }
+
+  @media screen and (max-width: 1320px) {
+    height: 400px;
+    margin-top: -2%;
+  }
+
   .h2-container {
     margin-bottom: 30px;
     margin-left: 45px;
@@ -27,6 +42,11 @@
       padding-top: 45px;
       padding-left: 45px;
       height: 440px;
+      overflow-y: scroll;
+
+      @media screen and (max-width: 1720px) {
+        height: 380px;
+      }
 
       .text {
         width: 385px;
