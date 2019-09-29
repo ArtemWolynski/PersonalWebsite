@@ -2,16 +2,16 @@
   <app-header-component *ngIf="currentScreen === 'About' || classicMode">
   </app-header-component>
 
-  <app-skills *ngIf="currentScreen === 'Skills' || classicMode">
+  <app-skills [classicMode]="classicMode" *ngIf="currentScreen === 'Skills' || classicMode">
   </app-skills>
 
-  <app-portfolio *ngIf="currentScreen === 'Projects' || classicMode">
+  <app-portfolio  [classicMode]="classicMode"  *ngIf="currentScreen === 'Projects' || classicMode">
   </app-portfolio>
 
-  <app-feedback *ngIf="currentScreen === 'Reviews' || classicMode">
+  <app-feedback  [classicMode]="classicMode"  *ngIf="currentScreen === 'Reviews' || classicMode">
   </app-feedback>
 
-  <app-get-in-touch *ngIf="currentScreen === 'Contacts' || classicMode">
+  <app-get-in-touch  [classicMode]="classicMode"  *ngIf="currentScreen === 'Contacts' || classicMode">
   </app-get-in-touch>
 
   <app-footer *ngIf="classicMode">

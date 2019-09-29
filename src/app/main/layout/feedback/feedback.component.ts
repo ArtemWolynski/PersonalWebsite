@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {feedbacks} from '../../../configs/feedbacks';
 
 @Component({
@@ -7,6 +7,7 @@ import {feedbacks} from '../../../configs/feedbacks';
   styleUrls: ['./feedback.component.scss']
 })
 export class FeedbackComponent implements OnInit {
+  @Input() classicMode = false;
   feedback: any[];
   currentIndex = 0;
 

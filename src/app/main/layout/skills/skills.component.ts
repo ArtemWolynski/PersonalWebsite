@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {fuseAnimations} from '../../../animations';
 import {SkillsService} from '../../../services/skills.service';
 
@@ -9,6 +9,7 @@ import {SkillsService} from '../../../services/skills.service';
   animations: fuseAnimations
 })
 export class SkillsComponent implements OnInit {
+  @Input() classicMode = false;
   activeSkillSet = 'General Skills';
   constructor(private skillItemService: SkillsService) { }
 

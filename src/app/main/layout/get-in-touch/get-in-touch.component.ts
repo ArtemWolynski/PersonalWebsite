@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { FormBuilder, Validators} from '@angular/forms';
 
 @Component({
@@ -7,7 +7,7 @@ import { FormBuilder, Validators} from '@angular/forms';
   styleUrls: ['./get-in-touch.component.scss']
 })
 export class GetInTouchComponent implements OnInit {
-
+  @Input() classicMode = false;
   getInTouchForm;
 
   constructor(private _formBuilder: FormBuilder,) { }

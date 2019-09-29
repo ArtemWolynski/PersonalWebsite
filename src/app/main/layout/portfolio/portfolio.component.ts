@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {portfolio} from '../../../configs/portfolio';
 
 @Component({
@@ -7,6 +7,7 @@ import {portfolio} from '../../../configs/portfolio';
   styleUrls: ['./portfolio.component.scss'],
 })
 export class PortfolioComponent implements OnInit {
+  @Input() classicMode = false;
   currentIndex = 0;
 
   portfolio;
