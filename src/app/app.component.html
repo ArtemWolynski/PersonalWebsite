@@ -1,20 +1,24 @@
 <main>
-    <app-header-component *ngIf="currentScreen === 'About' || classicMode">
-    </app-header-component>
+  <app-header-component *ngIf="currentScreen === 'About' || classicMode">
+  </app-header-component>
 
-    <app-skills *ngIf="currentScreen === 'Skills' || classicMode">
-    </app-skills>
+  <app-skills *ngIf="currentScreen === 'Skills' || classicMode">
+  </app-skills>
 
-    <app-portfolio *ngIf="currentScreen === 'Projects' || classicMode">
-    </app-portfolio>
+  <app-portfolio *ngIf="currentScreen === 'Projects' || classicMode">
+  </app-portfolio>
 
-    <app-feedback *ngIf="currentScreen === 'Reviews' || classicMode">
-    </app-feedback>
+  <app-feedback *ngIf="currentScreen === 'Reviews' || classicMode">
+  </app-feedback>
 
-    <app-get-in-touch *ngIf="currentScreen === 'Contacts' || classicMode">
-    </app-get-in-touch>
+  <app-get-in-touch *ngIf="currentScreen === 'Contacts' || classicMode">
+  </app-get-in-touch>
+
+  <app-footer *ngIf="classicMode">
+  </app-footer>
+
 </main>
 
-<app-sidebar></app-sidebar>
-<app-progress-bar  *ngIf="!classicMode">
-</app-progress-bar>
+<app-sidebar [classicMode]="classicMode"></app-sidebar>
+<app-progress-bar  *ngIf="!classicMode"></app-progress-bar>
+

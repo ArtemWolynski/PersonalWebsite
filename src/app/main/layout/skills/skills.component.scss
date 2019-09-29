@@ -32,10 +32,28 @@
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1250px) {
   .skills-container {
     position: relative;
     padding-top: 1px;
     margin-top: -1px;
+    min-height: 65vh;
+
+    .container {
+      max-width: 750px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .skills-description {
+      flex-direction: column;
+
+      .description {
+        min-height: 160px;
+        margin: 30px auto 40px;
+        //margin-right: 0;
+        //margin-left: 0;
+      }
+    }
   }
 }

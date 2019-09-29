@@ -18,6 +18,8 @@ import {ProjectsModule} from './components/projects/projects.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatFormFieldModule, MatInputModule} from '@angular/material';
 import {ButtonsModule} from './components/buttons/buttons.module';
+import {MenuModule} from './components/menu/menu.module';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import {ButtonsModule} from './components/buttons/buttons.module';
     SkillsComponent,
     PortfolioComponent,
     FeedbackComponent,
-    GetInTouchComponent
+    GetInTouchComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ngWebsiteTemplate'}),
@@ -42,7 +45,8 @@ import {ButtonsModule} from './components/buttons/buttons.module';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    ButtonsModule
+    ButtonsModule,
+    MenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

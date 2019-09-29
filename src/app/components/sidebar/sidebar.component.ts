@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {StepsService} from '../../services/steps.service';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
@@ -9,9 +9,11 @@ import {takeUntil} from 'rxjs/operators';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit, OnDestroy {
+  @Input() classicMode = false;
   buttonText: string;
   shouldShowButton: boolean;
   private _unsubscribeAll: Subject<any>;
+
   constructor(private stepsService: StepsService) {
     this._unsubscribeAll = new Subject<any>();
   }

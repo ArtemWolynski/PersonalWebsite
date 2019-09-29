@@ -1,98 +1,151 @@
 .portfolio {
-  height: 800px;
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
-  margin: auto auto auto 5%;
-
-  @media screen and (max-width: 1720px) {
-    height: 400px;
-    margin-top: 1%;
-  }
-
-  @media screen and (max-width: 1520px) {
-    height: 400px;
-    margin-top: 1%;
-  }
-
-  @media screen and (max-width: 1320px) {
-    height: 400px;
-    margin-top: -2%;
-  }
-
-  .h2-container {
-    margin-bottom: 30px;
-    margin-left: 45px;
-
-    h2 {
-      font-family: "Gotha Pro Bold", sans-serif;
-      font-size: 44px;
-
-    }
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  position: relative;
 
 
-  .description {
-    position: relative;
+  .portfolio-container {
+    margin-top: -8%;
     width: 100%;
-    flex-wrap: nowrap;
 
-    .text-container {
-      background-color: rgb(238,243,254);
-      width: 50%;
-      padding-top: 45px;
-      padding-left: 45px;
-      height: 440px;
-      overflow-y: scroll;
+    .h2-container {
+      margin-bottom: 30px;
+      margin-left: 45px;
 
-      @media screen and (max-width: 1720px) {
-        height: 380px;
-      }
+      h2 {
+        font-family: "Gotha Pro Bold", sans-serif;
+        font-size: 44px;
 
-      .text {
-        width: 385px;
-        color: black;
-        line-height: 22px;
       }
     }
 
-    .pillar {
-      height: available;
-      width: 50%;
-      background-color: #FF5252;
-    }
-  }
+    .description {
+      position: relative;
+      width: 100%;
+      flex-wrap: nowrap;
 
-  .controls {
-    width: 350px;
-    margin-left: 45px;
+      .text-container {
+        background-color: rgb(238,243,254);
+        width: 50%;
+        padding-top: 45px;
+        padding-left: 45px;
+        height: 440px;
+        overflow-y: scroll;
 
-    p {
-      cursor: pointer;
+        @media screen and (max-width: 1720px) {
+          height: 380px;
+        }
 
-      &.active {
-        color: #FF5252;
-
-        &::after {
-        background-color: #FF5252;
+        .text {
+          width: 385px;
+          color: black;
+          line-height: 22px;
         }
       }
 
-      &::after {
-        content: '';
-        display: inline-block;
-        width: 50px;
-        height: 10px;
-        background-color: white;
-        margin-left: 10px;
+      .pillar {
+        height: available;
+        width: 50%;
+        background-color: #FF5252;
+      }
+    }
+
+    .controls {
+      width: 350px;
+      margin-left: 45px;
+
+      p {
+        cursor: pointer;
+
+        &.active {
+          color: #FF5252;
+
+          &::after {
+            background-color: #FF5252;
+          }
+        }
+
+        &::after {
+          content: '';
+          display: inline-block;
+          width: 50px;
+          height: 10px;
+          background-color: white;
+          margin-left: 10px;
+        }
       }
     }
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1250px) {
   .portfolio {
     position: relative;
     padding-top: 1px;
     margin-top: -1px;
+    width: 100%;
+    margin-left: 0;
+    height: auto;
+    margin-bottom: 150px;
+
+    .portfolio-container {
+      .description {
+
+        .text-container {
+          width: 55%;
+          padding-top: 45px;
+          padding-left: 45px;
+          height: 440px;
+
+          .text {
+            width: 95%;
+            line-height: 22px;
+          }
+        }
+
+        .pillar {
+          width: 45%;
+        }
+      }
+
+      .controls {
+        width: 350px;
+        margin-left: 45px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .portfolio {
+
+    .portfolio-container {
+      .description {
+
+        .text-container {
+          width: 65%;
+          padding-top: 45px;
+          padding-left: 45px;
+          height: 440px;
+
+          .text {
+            width: 95%;
+            line-height: 22px;
+          }
+        }
+
+        .pillar {
+          width: 35%;
+        }
+      }
+
+      .controls {
+        width: 350px;
+        margin-left: 45px;
+      }
+    }
   }
 }

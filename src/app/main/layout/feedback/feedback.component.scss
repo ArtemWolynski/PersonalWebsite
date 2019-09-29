@@ -83,11 +83,19 @@
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1250px) {
   .portfolio {
     position: relative;
     padding-top: 1px;
     margin-top: -1px;
+    margin-left: 0;
+    margin-bottom: 60px;
+
+    .controls {
+      p {
+        margin: 20px auto;
+      }
+    }
   }
 }
 

@@ -55,3 +55,33 @@
     }
   }
 }
+
+@media screen and (max-width: 1250px) {
+  .slides {
+    left: 55%;
+    width: 35%;
+    height: 650px;
+
+    top: -20%;
+
+    .slide {
+      width: 100%;
+    }
+
+    :nth-child(2) {
+      display: none;
+    }
+
+    .slide {
+      cursor: pointer;
+      transition: 150ms ease-in-out;
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .slides {
+    left: 65%;
+    width: 30%;
+  }
+}

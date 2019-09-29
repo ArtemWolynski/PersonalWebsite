@@ -1,22 +1,25 @@
 <section class="portfolio">
-  <div class="h2-container">
-    <h2>{{portfolio[currentIndex].name}}</h2>
-  </div>
+  <div class="portfolio-container">
 
-  <div class="description content-between">
-    <div class="text-container">
-      <p class="text">{{portfolio[currentIndex].description}}</p>
+    <div class="h2-container">
+      <h2>{{portfolio[currentIndex].name}}</h2>
     </div>
-    <app-projects></app-projects>
 
-    <div class="pillar"></div>
-  </div>
+    <div class="description content-between">
+      <div class="text-container">
+        <p class="text">{{portfolio[currentIndex].description}}</p>
+      </div>
+      <app-projects></app-projects>
 
-  <div class="controls content-between">
-    <p><a href="{{portfolio[currentIndex].link}}" target="_blank">View project</a></p>
-    <p class="active"
-       (click)="slideNext()">
-      Next project
-    </p>
+      <div class="pillar"></div>
+    </div>
+
+    <div class="controls content-between">
+      <p><a href="{{portfolio[currentIndex].link}}" target="_blank">View project</a></p>
+      <p class="active"
+         (click)="slideNext()">
+        Next project
+      </p>
+    </div>
   </div>
 </section>
