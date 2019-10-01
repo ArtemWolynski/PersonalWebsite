@@ -60,9 +60,9 @@
   .slides {
     left: 55%;
     width: 35%;
-    height: 800px;
+    height: 150%;
 
-    top: -36%;
+    top: -25%;
 
     .slide {
       width: 100%;
@@ -83,5 +83,24 @@
   .slides {
     left: 65%;
     width: 30%;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .slides {
+    left: 0;
+    width: 90%;
+    margin-left: 5%;
+    height: 120%;
+    top: -10%;
+
+    .slide {
+      width: 100%;
+      height: available;
+      cursor: pointer;
+      transition: 150ms ease-in-out;
+    }
+
   }
 }

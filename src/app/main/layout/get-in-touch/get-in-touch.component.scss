@@ -4,7 +4,7 @@
 }
 
 .get-in-touch {
-  height: 380px;
+  min-height: 380px;
   position: absolute;
   top: 0; left: 0; bottom: 0; right: 0;
   margin: auto auto auto 5%;
@@ -141,6 +141,65 @@ input.mat-input-element {
       position: relative;
       bottom: 0;
       margin-bottom: 50px;
+    }
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+
+  .headline {
+    width: 90%;
+    text-align: center;
+    font-size: 4vw;
+    margin: 0 auto 30px;
+    font-style: italic;
+  }
+
+  .get-in-touch {
+
+    .h2-container {
+      margin-bottom: 30px;
+      margin-left: 45px;
+
+      h2 {
+        font-size: 44px;
+
+      }
+    }
+
+    .form-container {
+      width: 100%;
+      flex-wrap: nowrap;
+      background-color: #3A3A39;
+
+      .form {
+        width: 95%;
+        position: relative;
+
+        .form-wrapper {
+          margin: 5% 13% 3% 13%;
+
+          .mat-form-field {
+            width: 100%;
+            margin-bottom: 4px;
+            margin-left: 0;
+          }
+        }
+      }
+
+      .text-container {
+        background-color: #FF5252;
+        width: 5%;
+
+        .text-wrapper {
+          margin: 0;
+
+          p {
+           display: none;
+          }
+        }
+      }
     }
   }
 }

@@ -11,6 +11,7 @@ import {filter, takeUntil} from 'rxjs/operators';
 export class AppComponent implements OnInit, OnDestroy{
   currentScreen;
   classicMode: boolean;
+  mobileMode: boolean;
 
   private _unsubscribeAll: Subject<any>;
   constructor(private stepsService: StepsService) {
@@ -25,6 +26,7 @@ export class AppComponent implements OnInit, OnDestroy{
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.classicMode = window.innerWidth < 1200;
+    this.mobileMode = window.innerWidth < 680;
   }
 
   subscribeToCurrentStep() {

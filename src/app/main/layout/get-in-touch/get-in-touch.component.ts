@@ -8,6 +8,7 @@ import { FormBuilder, Validators} from '@angular/forms';
 })
 export class GetInTouchComponent implements OnInit {
   @Input() classicMode = false;
+  @Input() mobileMode = false;
   getInTouchForm;
 
   constructor(private _formBuilder: FormBuilder,) { }

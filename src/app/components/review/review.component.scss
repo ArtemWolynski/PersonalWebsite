@@ -3,7 +3,10 @@
   padding-top: 45px;
   padding-left: 45px;
   text-align: center;
-  position: relative;
+
+  .feedback-text {
+    text-align: left;
+  }
 
   .photo {
     margin: -110px auto 0;
@@ -16,5 +19,14 @@
       max-width:100%;
       max-height:100%;
     }
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .feedback {
+    padding-top: 45px;
+    padding-bottom: 40px;
+    width: 85%;
+    margin: 0 auto;
   }
 }

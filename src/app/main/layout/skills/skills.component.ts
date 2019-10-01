@@ -10,6 +10,7 @@ import {SkillsService} from '../../../services/skills.service';
 })
 export class SkillsComponent implements OnInit {
   @Input() classicMode = false;
+  @Input() mobileMode = false;
   activeSkillSet = 'General Skills';
   constructor(private skillItemService: SkillsService) { }
 

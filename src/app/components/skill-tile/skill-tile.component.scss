@@ -26,16 +26,17 @@
   }
 }
 
-@media screen and (max-width: 1250px){
+@media screen and (max-width: 1250px) {
   .tile {
     width: 217px;
     height: 197px;
-    background-color: rgb(55,55,54);
-    text-align: center;
-    position: relative;
-    cursor: pointer;
-    padding: 1px 0 0 0;
-    margin: -1px auto 0 auto;
+  }
+}
+
+
+@media screen and (max-width: 680px) {
+  .tile {
+    margin-bottom: 60px;
 
     .icon {
       margin: 55px auto 0;
