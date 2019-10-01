@@ -76,3 +76,17 @@
     }
   }
 }
+
+@media screen and (max-width: 1250px) {
+  .header {
+    position: relative;
+    min-height: 100vh;
+    padding-top: 1px;
+    margin-top: -1px;
+
+    .container {
+      width: 95%;
+      margin: 34vh auto 0;
+    }
+  }
+}
