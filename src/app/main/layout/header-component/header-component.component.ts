@@ -8,7 +8,7 @@ import {particlesSettings, particlesStyle} from '../../../../configs/particles';
 })
 export class HeaderComponentComponent implements OnInit {
   myStyle: object = {};
-  myParams: object = {};
+  myParams: any;
   width: number = 100;
   height: number = 100;
   @Input() classicMode = false;
@@ -17,6 +17,8 @@ export class HeaderComponentComponent implements OnInit {
   ngOnInit() {
     this.myStyle = particlesStyle;
     this.myParams = particlesSettings;
+    this.myParams.particles.number.value = window.innerWidth / 25;
+    console.log(window.innerWidth / 25);
   }
 
 }
