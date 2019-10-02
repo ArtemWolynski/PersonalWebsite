@@ -28,7 +28,7 @@ export class AppComponent implements OnInit, OnDestroy{
     this.stepsService.setCurrentStep(this.steps[0]);
   }
 
-  @HostListener('window:resize', ['$event'])
+  @HostListener('window:resize')
   onResize() {
     this.classicMode = window.innerWidth < 1200;
     this.mobileMode = window.innerWidth < 680;

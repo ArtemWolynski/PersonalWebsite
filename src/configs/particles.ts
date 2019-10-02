@@ -13,27 +13,11 @@ export const particlesStyle = {
 export const particlesSettings = {
   particles: {
     number: {
-      value: 100,
-    },
-    density: {
-      enable: true
+      value: 0,
     },
     color: {
       value: '#ff0000'
     },
-    shape: {
-      type: 'triangle',
-    },
-    interactivity: {
-      events: {
-        onhover: {
-          enable: true,
-          mode: 'repulse'
-        }
-      }
-    },
-    move: {
-      enable:true
-    }
+
   }
 };

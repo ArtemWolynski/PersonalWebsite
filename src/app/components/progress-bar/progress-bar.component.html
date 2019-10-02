@@ -2,5 +2,5 @@
   <ul>
     <li *ngFor="let value of values" (click)="onElementClicked(value)" [style.color]="activePathValue === value ? 'rgb(255,81,81)' : 'white'">{{value}}</li>
   </ul>
-  <mat-progress-bar [color]="'warn'" [value]="progressBarValue" [bufferValue]="'100'" [mode]="'determinate'"></mat-progress-bar>
+  <mat-progress-bar [color]="'warn'" [value]="progressBarValue" [bufferValue]="100" [mode]="'determinate'"></mat-progress-bar>
 </div>

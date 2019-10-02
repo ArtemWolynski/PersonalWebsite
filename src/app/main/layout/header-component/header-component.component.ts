@@ -17,8 +17,7 @@ export class HeaderComponentComponent implements OnInit {
   ngOnInit() {
     this.myStyle = particlesStyle;
     this.myParams = particlesSettings;
-    this.myParams.particles.number.value = window.innerWidth / 25;
-    console.log(window.innerWidth / 25);
+    this.myParams.particles.number.value = window.innerWidth / 30;
   }
 
 }

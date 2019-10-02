@@ -15,7 +15,8 @@
     "compile:server": "tsc -p server.tsconfig.json",
     "generate:prerender": "cd dist && node prerender",
     "serve:prerender": "cd dist/ppLanding && http-server",
-    "webpack:server": "webpack --config webpack.server.config.js --progress --colors"
+    "webpack:server": "webpack --config webpack.server.config.js --progress --colors",
+    "postinstall": "ivy-ngcc"
   },
   "private": true,
   "dependencies": {

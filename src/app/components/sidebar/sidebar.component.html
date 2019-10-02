@@ -10,5 +10,10 @@
                       [text1]="buttonText"
                       (clicked)="onButtonClicked($event)">
   </app-primary-button>
+  <p *ngIf="!shouldShowButton">
+    Chung Cu Vista Verde<br>
+    Ho Chi Minh, 70000, Vietnam<br>
+    art.volynskiy@gmail.com
+  </p>
   <app-menu *ngIf="classicMode"></app-menu>
 </div>
