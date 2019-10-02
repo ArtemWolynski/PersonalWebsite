@@ -25,6 +25,6 @@
 </main>
 
 <app-sidebar [classicMode]="classicMode"></app-sidebar>
-<app-progress-bar  *ngIf="!classicMode"></app-progress-bar>
+<app-progress-bar  *ngIf="!classicMode" (clicked)="animateTransition()"></app-progress-bar>
 
 <div class="test" id="test"></div>

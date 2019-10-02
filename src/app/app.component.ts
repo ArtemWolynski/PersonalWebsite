@@ -41,27 +41,26 @@ export class AppComponent implements OnInit, OnDestroy{
       if (event.deltaY > 0)            // scrolling down
       {
         if (screenIndex < this.steps.length - 1) {
-          this.animateTransition(screenIndex, true);
+          this.animateTransition();
+          setTimeout(() => {
+            this.stepsService.setCurrentStep(this.steps[screenIndex + 1]);
+          }, 800);
         }
       }
       else if (event.deltaY < 0) {                             // scrolling up
         if (screenIndex > 0) {
-          this.animateTransition(screenIndex, false);
+          this.animateTransition();
+          setTimeout(() => {
+            this.stepsService.setCurrentStep(this.steps[screenIndex - 1]);
+          }, 800);
         }
       }
     }
   }
 
-  animateTransition(screenIndex, isIncrementing: boolean) {
+  animateTransition() {
     this.isTransitioning = true;
     document.getElementById('test').classList.add('anim-trans');
-    setTimeout(() => {
-      if (isIncrementing) {
-        this.stepsService.setCurrentStep(this.steps[screenIndex + 1]);
-      } else {
-        this.stepsService.setCurrentStep(this.steps[screenIndex - 1]);
-      }
-    }, 800);
     setTimeout(() => {
       document.getElementById('test').classList.remove('anim-trans');
       this.isTransitioning = false;

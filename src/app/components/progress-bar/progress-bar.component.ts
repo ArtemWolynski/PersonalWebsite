@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import {StepsService} from '../../services/steps.service';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
@@ -10,6 +10,7 @@ import {steps} from '../../configs/steps';
   styleUrls: ['./progress-bar.component.scss']
 })
 export class ProgressBarComponent implements OnInit, OnDestroy {
+  @Output() clicked: EventEmitter<boolean> = new EventEmitter();
   activePathValue;
   progressBarValue = 15;
   values: string[];
@@ -34,7 +35,10 @@ export class ProgressBarComponent implements OnInit, OnDestroy {
   onElementClicked(value: string) {
     this.activePathValue = value;
     this.setProgressBarValue(value);
-    this.stepsService.setCurrentStep(value);
+    setTimeout(() => {
+      this.stepsService.setCurrentStep(value);
+    }, 800);
+    this.clicked.next(true);
   }
 
   subscribeToCurrentStep() {
