@@ -31,7 +31,6 @@ export class SkillTileComponent implements OnInit, OnDestroy {
     this.skillItemService.activeSkill
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((activeSkill) => {
-        console.log(activeSkill, this.text);
         this.isActive = activeSkill === this.text;
       })
   }

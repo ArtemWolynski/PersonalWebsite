@@ -1,13 +1,15 @@
 .section-header {
   margin-left: 5%;
-  margin-bottom: 80px;
+  margin-bottom: 140px;
 }
 
 .get-in-touch {
-  min-height: 380px;
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
-  margin: auto auto auto 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  position: relative;
 
   .h2-container {
     margin-bottom: 30px;
@@ -25,6 +27,7 @@
   }
 
   .form-container {
+    margin-top: -8%;
     width: 100%;
     flex-wrap: nowrap;
 
@@ -135,6 +138,7 @@ input.mat-input-element {
     padding-top: 1px;
     margin-top: -1px;
     margin-left: 0;
+    height: auto;
 
 
     app-primary-button {
@@ -148,11 +152,16 @@ input.mat-input-element {
 
 @media screen and (max-width: 650px) {
 
+  .section-header {
+    margin-left: 5%;
+    margin-bottom: 30px;
+  }
+
   .headline {
     width: 90%;
     text-align: center;
-    font-size: 4vw;
-    margin: 0 auto 30px;
+    font-size: 3.3vw;
+    margin: 0 auto 70px;
     font-style: italic;
   }
 
@@ -164,7 +173,6 @@ input.mat-input-element {
 
       h2 {
         font-size: 44px;
-
       }
     }
 

@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {StepsService} from '../../services/steps.service';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
+import {steps} from '../../configs/steps';
 
 @Component({
   selector: 'app-progress-bar',
@@ -62,7 +63,7 @@ export class ProgressBarComponent implements OnInit, OnDestroy {
   }
 
   initProgressBar() {
-    this.values = ['About', 'Skills', 'Projects', 'Reviews', 'Contacts'];
+    this.values = steps;
   }
 
 }

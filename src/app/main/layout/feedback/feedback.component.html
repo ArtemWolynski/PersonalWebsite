@@ -1,15 +1,16 @@
 <h2 class="section-header" *ngIf="classicMode">Feedback</h2>
 <section class="portfolio">
+  <div>
+    <div class="feedback-container content-between">
+      <app-review [feedback]="feedback[currentIndex]"></app-review>
+      <div class="pillar"></div>
+    </div>
 
-  <div class="feedback-container content-between">
-   <app-review [feedback]="feedback[currentIndex]"></app-review>
-    <div class="pillar"></div>
-  </div>
-
-  <div class="controls content-between">
-    <p class="active"
-       (click)="slideNext()">
-      Next review
-    </p>
+    <div class="controls content-between">
+      <p class="active"
+         (click)="slideNext()">
+        Next review
+      </p>
+    </div>
   </div>
 </section>
