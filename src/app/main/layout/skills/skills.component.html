@@ -1,9 +1,8 @@
 <section class="skills-container">
   <div class="position-container container">
     <h2 class="section-header" *ngIf="classicMode">Skills</h2>
-    <div class="content-between container"   [@animateStagger]="{value:'50'}">
+    <div class="content-between container">
       <app-skill-tile    (click)="setActiveSkillSet('General Skills')"
-                         [@animate]="{value:'*',params:{y:'100%'}}"
                          [text]="'General Skills'">
       </app-skill-tile>
 
@@ -21,8 +20,7 @@
         </div>
       </div>
 
-      <app-skill-tile [@animate]="{value:'*',params:{y:'100%'}}"
-                      (click)="setActiveSkillSet('Back End')"
+      <app-skill-tile (click)="setActiveSkillSet('Back End')"
                       [text]="'Back End'">
       </app-skill-tile>
 
@@ -42,8 +40,7 @@
         </div>
       </div>
 
-      <app-skill-tile [@animate]="{value:'*',params:{y:'100%'}}"
-                      (click)="setActiveSkillSet('Front End')"
+      <app-skill-tile (click)="setActiveSkillSet('Front End')"
                       [text]="'Front End'">
       </app-skill-tile>
 

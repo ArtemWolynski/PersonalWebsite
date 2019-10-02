@@ -15,7 +15,7 @@ export class SkillsComponent implements OnInit {
   constructor(private skillItemService: SkillsService) { }
 
   ngOnInit() {
-
+    this.setActiveSkillSet(this.skillItemService.getActiveSkill())
   }
 
   setActiveSkillSet(value) {

@@ -1,5 +1,16 @@
 <div class="slides content-between">
-  <div class="slide active"></div>
-  <div class="slide"></div>
-  <div class="slide"></div>
+  <div class="slide" (click)="setActiveProject('thepuir')">
+    <div class="img"></div>
+    <div class="smoke-screen" [class.active]="activeProject === 'thepuir'"></div>
+  </div>
+
+  <div class="slide"  (click)="setActiveProject('creative digital')">
+    <div class="img"></div>
+    <div class="smoke-screen"  [class.active]="activeProject === 'creative digital'"></div>
+  </div>
+
+  <div class="slide"  (click)="setActiveProject('precious payload')">
+    <div class="img"></div>
+    <div class="smoke-screen"  [class.active]="activeProject === 'precious payload'"></div>
+  </div>
 </div>

@@ -12,6 +12,9 @@ export class SkillsService {
     this.activeSkill = new BehaviorSubject('General Skills');
   }
 
+  getActiveSkill() {
+    return this.activeSkill.getValue()
+  }
 
   get time() {
     return this.FILL_IN_TIME;

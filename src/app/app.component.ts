@@ -9,7 +9,7 @@ import {steps} from './configs/steps';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit, OnDestroy{
+export class AppComponent implements OnInit, OnDestroy {
   currentScreen;
   steps;
   classicMode: boolean;
@@ -25,7 +25,7 @@ export class AppComponent implements OnInit, OnDestroy{
     this.subscribeToCurrentStep();
     this.onResize();
     this.steps = steps;
-    this.stepsService.setCurrentStep(this.steps[0]);
+    this.stepsService.setCurrentStep(this.steps[2]);
   }
 
   @HostListener('window:resize')
