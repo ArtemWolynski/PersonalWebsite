@@ -1,5 +1,6 @@
 <main>
-  <app-header-component *ngIf="currentScreen === 'About' || classicMode">
+  <app-header-component *ngIf="currentScreen === 'About' || classicMode"
+  [classicMode]="classicMode">
   </app-header-component>
 
   <app-skills [classicMode]="classicMode"

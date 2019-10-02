@@ -20,6 +20,7 @@ import {MatFormFieldModule, MatInputModule} from '@angular/material';
 import {ButtonsModule} from './components/buttons/buttons.module';
 import {MenuModule} from './components/menu/menu.module';
 import { FooterComponent } from './components/footer/footer.component';
+import {ParticlesModule} from 'angular-particle';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { FooterComponent } from './components/footer/footer.component';
     MatFormFieldModule,
     MatInputModule,
     ButtonsModule,
-    MenuModule
+    MenuModule,
+    ParticlesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

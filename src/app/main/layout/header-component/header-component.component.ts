@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {particlesSettings, particlesStyle} from '../../../../configs/particles';
 
 @Component({
   selector: 'app-header-component',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header-component.component.scss']
 })
 export class HeaderComponentComponent implements OnInit {
-
+  myStyle: object = {};
+  myParams: object = {};
+  width: number = 100;
+  height: number = 100;
+  @Input() classicMode = false;
   constructor() { }
 
   ngOnInit() {
+    this.myStyle = particlesStyle;
+    this.myParams = particlesSettings;
   }
 
 }

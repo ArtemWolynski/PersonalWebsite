@@ -48,6 +48,7 @@ export class ProgressBarComponent implements OnInit, OnDestroy {
       )
       .subscribe((step) => {
         this.setProgressBarValue(step);
+        this.activePathValue = step;
       });
   }
 
