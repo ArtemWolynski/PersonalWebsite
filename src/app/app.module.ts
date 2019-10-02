@@ -21,6 +21,7 @@ import {ButtonsModule} from './components/buttons/buttons.module';
 import {MenuModule} from './components/menu/menu.module';
 import { FooterComponent } from './components/footer/footer.component';
 import {ParticlesModule} from 'angular-particle';
+import 'zone.js';
 
 @NgModule({
   declarations: [

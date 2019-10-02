@@ -6,11 +6,6 @@
   height: 100vh;
 
   .position-container {
-    min-height: 600px;
-
-    @media screen and (max-width: 1500px) {
-      min-height: 550px;
-    }
 
     .skills-description {
       flex-wrap: nowrap;
@@ -41,8 +36,8 @@
   .skills-container {
     position: relative;
     padding-top: 1px;
-    min-height: 65vh;
     margin: -1px auto;
+    height: auto;
 
     .container {
       justify-content: space-between;
@@ -81,7 +76,6 @@
     align-items: center;
     width: 90%;
     margin: auto;
-    height: auto;
 
     .container {
       justify-content: center;
