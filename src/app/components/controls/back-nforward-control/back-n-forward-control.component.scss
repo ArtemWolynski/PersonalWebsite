@@ -1,0 +1,28 @@
+.controls {
+  margin: 20px auto;
+  width: 250px;
+
+  p {
+
+    &.active {
+      color: #FF5252;
+
+      &::after {
+        background-color: #FF5252;
+      }
+    }
+  }
+
+  .pillar {
+    cursor: pointer;
+    width: 50px;
+    height: 10px;
+    background-color: white;
+    transition: 150ms ease-in-out;
+    margin-top: 20px;
+
+    &:hover {
+      background-color: #de4c4c;
+    }
+  }
+}

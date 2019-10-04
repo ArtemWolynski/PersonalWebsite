@@ -25,10 +25,6 @@
       padding-bottom: 20px;
     }
   }
-
-  @media screen and (max-height: 950px) {
-    height: 85vh;
-  }
 }
 
 @media screen and (max-width: 1250px) {
@@ -41,6 +37,7 @@
 
     .logo {
       margin-top: 0;
+      margin-left: 5%;
     }
 
     .btn {
@@ -55,7 +52,7 @@
       margin-bottom: 25px;
       width: 30%;
 
-      @media screen and (max-width: 700px){
+      @media screen and (max-width: 680px){
         width: 40%;
       }
     }
