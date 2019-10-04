@@ -5,12 +5,9 @@
       <app-review [feedback]="feedback[currentIndex]"></app-review>
       <div class="pillar"></div>
     </div>
-
-    <div class="controls content-between">
-      <p class="active"
-         (click)="slideNext()">
-        Next review
-      </p>
+    <div class="controls-wrapper">
+      <app-back-nforward-control (nextClicked)="slideNext()" (prevClicked)="slidePrev()">
+      </app-back-nforward-control>
     </div>
   </div>
 </section>

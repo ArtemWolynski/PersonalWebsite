@@ -1,15 +1,13 @@
+@import "../../../../styles/partials/positioning";
+@import "../../../../styles/partials/colors";
+
 .section-header {
   margin-left: 5%;
   margin-bottom: 80px;
 }
 
 .portfolio {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100%;
-  position: relative;
+  @include container(100vh, 100%, 0, 0, 0);
 
 
   .portfolio-container {
@@ -33,7 +31,7 @@
       flex-wrap: nowrap;
 
       .text-container {
-        background-color: rgb(238,243,254);
+        background-color: $secondaryColor;
         width: 50%;
         padding-top: 45px;
         padding-left: 45px;
@@ -54,7 +52,7 @@
       .pillar {
         height: available;
         width: 50%;
-        background-color: #FF5252;
+        background-color: $primaryColor;
       }
     }
 
@@ -66,10 +64,10 @@
         cursor: pointer;
 
         &.active {
-          color: #FF5252;
+          color: $primaryColor;
 
           &::after {
-            background-color: #FF5252;
+            background-color: $primaryColor;
           }
         }
 
@@ -78,7 +76,7 @@
           display: inline-block;
           width: 50px;
           height: 10px;
-          background-color: white;
+          background-color: $secondaryColor;
           margin-left: 10px;
         }
       }
@@ -88,13 +86,8 @@
 
 @media screen and (max-width: 1250px) {
   .portfolio {
-    position: relative;
-    padding-top: 1px;
-    margin-top: -1px;
-    width: 100%;
-    margin-left: 0;
-    height: auto;
-    margin-bottom: 150px;
+    @include container(auto, 100%, 0, 150px, 0);
+
 
     .portfolio-container {
       .description {

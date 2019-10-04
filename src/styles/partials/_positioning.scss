@@ -1,0 +1,19 @@
+@mixin container($min-height, $width, $margin-top, $margin-bottom, $margin-left) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: $min-height;
+  width: $width;
+  position: relative;
+  margin-left: $margin-left;
+  margin-top: $margin-top;
+  margin-bottom: $margin-bottom;
+
+  @media screen and (max-width: 1250px) {
+      position: relative;
+      padding-top: 1px;
+      margin-top: -1px;
+    }
+}
+
+

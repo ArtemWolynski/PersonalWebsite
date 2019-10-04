@@ -1,15 +1,13 @@
+@import "../../../../styles/partials/positioning";
+@import "../../../../styles/partials/colors";
+
 .section-header {
   margin-left: 5%;
   margin-bottom: 140px;
 }
 
 .get-in-touch {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100%;
-  position: relative;
+  @include container(100vh, 100%, 0, 0, 0);
 
   .h2-container {
     margin-bottom: 30px;
@@ -32,7 +30,7 @@
     flex-wrap: nowrap;
 
     .form {
-      background-color: #22211E;
+      background-color: $minorColor;
       width: 50%;
       min-height: 320px;
       text-align: center;
@@ -58,7 +56,7 @@
 
     .text-container {
       height: available;
-      background-color: #FF5252;
+      background-color: $primaryColor;
       width: 50%;
 
       .text-wrapper {
@@ -79,10 +77,10 @@
       cursor: pointer;
 
       &.active {
-        color: #FF5252;
+        color: $primaryColor;
 
         &::after {
-          background-color: #FF5252;
+          background-color: $primaryColor;
         }
       }
 
@@ -91,7 +89,7 @@
         display: inline-block;
         width: 50px;
         height: 10px;
-        background-color: white;
+        background-color: $secondaryColor;
         margin-left: 10px;
       }
 
@@ -109,36 +107,32 @@
 
 ::ng-deep .mat-focused .mat-form-field-label {
   /*change color of label*/
-  color: white !important;
+  color: $secondaryColor !important;
 }
 
 ::ng-deep  .mat-form-field-label {
   /*change color of label*/
-  color: white !important;
+  color: $secondaryColor !important;
 }
 
 ::ng-deep.mat-form-field-underline {
   /*change color of underline*/
-  background-color: white !important;
+  background-color: $secondaryColor !important;
 }
 
 ::ng-deep.mat-form-field-ripple {
   /*change color of underline when focused*/
-  background-color: white !important;;
+  background-color: $secondaryColor !important;;
 }
 
 input.mat-input-element {
-  color: #de4c4c;
+  color: $primaryColor;
 }
 
 
 @media screen and (max-width: 1250px) {
   .get-in-touch {
-    position: relative;
-    padding-top: 1px;
-    margin-top: -1px;
-    margin-left: 0;
-    height: auto;
+    @include container(auto, 100%, 0, 0, 0);
 
 
     app-primary-button {

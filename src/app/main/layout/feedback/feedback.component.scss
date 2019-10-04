@@ -1,3 +1,6 @@
+@import "../../../../styles/partials/positioning";
+@import "../../../../styles/partials/colors";
+
 .section-header {
   margin-left: 5%;
   margin-bottom: 80px;
@@ -5,78 +8,43 @@
 
 
 .portfolio {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100%;
-  position: relative;
+  @include container(100vh, 100%, 0, 0, 0);
 
 
   .feedback-container {
     position: relative;
     width: 100%;
     flex-wrap: nowrap;
-    background-color: #FF5252;
+    background-color: $primaryColor;
     min-height: 320px;
 
     .pillar {
       height: available;
-      background-color: rgb(238,243,254);
+      background-color: $secondaryColor;
       width: 10%;
     }
   }
 
-  .controls {
-    margin: 20px auto;
-    width: 350px;
-
-    p {
-      cursor: pointer;
-
-      &.active {
-        color: #FF5252;
-
-        &::after {
-          background-color: #FF5252;
-        }
-      }
-
-      &::after {
-        content: '';
-        display: inline-block;
-        width: 50px;
-        height: 10px;
-        background-color: white;
-        margin-left: 10px;
-      }
-
-      &::before {
-        content: '';
-        display: inline-block;
-        width: 50px;
-        height: 10px;
-        background-color: white;
-        margin-right: 10px;
-      }
-    }
+  .controls-wrapper {
+    width: 92.5%;
+    margin-top: 30px;
   }
 }
 
 @media screen and (max-width: 1250px) {
   .portfolio {
-    position: relative;
-    padding-top: 1px;
-    margin-top: -1px;
-    margin-left: 0;
-    margin-bottom: 60px;
-    height: auto;
+    @include container(auto, 100%, 0, 60px, 0);
 
     .controls {
       p {
         margin: 20px auto;
       }
     }
+  }
+
+  .controls-wrapper {
+    width: 100%;
+    margin-top: 30px;
   }
 }
 
@@ -94,7 +62,7 @@
       position: relative;
       width: 100%;
       flex-wrap: nowrap;
-      background-color: #FF5252;
+      background-color: $primaryColor;
       min-height: 320px;
 
       app-review {
@@ -103,43 +71,8 @@
 
       .pillar {
         height: available;
-        background-color: rgb(238,243,254);
+        background-color: $secondaryColor;
         width: 5%;
-      }
-    }
-
-    .controls {
-      margin: 20px auto;
-      width: 350px;
-
-      p {
-        cursor: pointer;
-
-        &.active {
-          color: #FF5252;
-
-          &::after {
-            background-color: #FF5252;
-          }
-        }
-
-        &::after {
-          content: '';
-          display: inline-block;
-          width: 50px;
-          height: 10px;
-          background-color: white;
-          margin-left: 10px;
-        }
-
-        &::before {
-          content: '';
-          display: inline-block;
-          width: 50px;
-          height: 10px;
-          background-color: white;
-          margin-right: 10px;
-        }
       }
     }
   }

@@ -22,6 +22,7 @@ import {MenuModule} from './components/menu/menu.module';
 import { FooterComponent } from './components/footer/footer.component';
 import {ParticlesModule} from 'angular-particle';
 import 'zone.js';
+import {ControlsModule} from './components/controls/controls.module';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import 'zone.js';
     MatInputModule,
     ButtonsModule,
     MenuModule,
-    ParticlesModule
+    ParticlesModule,
+    ControlsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

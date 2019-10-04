@@ -1,15 +1,11 @@
+@import "../../../../styles/partials/positioning";
+@import "../../../../styles/partials/colors";
+
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100%;
-  position: relative;
-  margin-left: -10%;
-  margin-top: -5%;
+  @include container(100vh, 100%, -5%, 0, -10%);
 
   @media screen and (max-width: 1480px) {
-    margin-left: 0;
+    @include container(100vh, 100%, -5%, 0,  0);
   }
 
   h1, h2, h3 {
@@ -26,10 +22,10 @@
     margin-bottom: -5px;
   }
 
-  .surname{
+  .surname {
     font-family: "Gotha Pro Bold", sans-serif;
     font-size: 94px;
-    color: #FF5252;
+    color: $primaryColor;
     text-transform: uppercase;
   }
 
@@ -50,7 +46,7 @@
       margin-right: 25px;
       width: 15px;
       height: auto;
-      background-color: #FF5252;
+      background-color: $primaryColor;
     }
 
     p {
@@ -68,11 +64,13 @@
 
 @media screen and (max-width: 1250px) {
   .header {
-    position: relative;
-    min-height: 100vh;
-    padding-top: 1px;
-    margin-top: -1px;
-    margin-left: 0;
+    @include container(100vh, 100%, 0, 0, 0);
+
+    .name {
+      font-size: 8vw;
+      letter-spacing: 8px;
+      margin-bottom: 0;
+    }
 
     .description {
       margin-left: 20%;
@@ -88,19 +86,10 @@
 
 @media screen and (max-width: 680px) {
   .header {
-    min-height: 0;
-
-    margin-left: 0;
-    margin-top: 0;
-
-    .container {
-      width: 95%;
-      margin: 10% 0 0 30px;
-    }
+    @include container(100vh, 95%, 0, 0, 0);
 
 
     .name {
-      margin-top: 90px;
       font-size: 8vw;
       letter-spacing: 8px;
       margin-bottom: 0;

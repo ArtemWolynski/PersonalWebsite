@@ -4,6 +4,8 @@
 @import "styles/normalize";
 @import "styles/helpers";
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "styles/partials/positioning";
+@import "styles/partials/colors";
 
 @font-face {
   font-family: "Gotha Pro";

@@ -25,4 +25,12 @@ export class FeedbackComponent implements OnInit {
     }
   }
 
+  slidePrev() {
+    if (this.currentIndex === 0) {
+      this.currentIndex = this.feedback.length - 1;
+    } else {
+      this.currentIndex--;
+    }
+  }
+
 }
