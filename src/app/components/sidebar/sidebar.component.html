@@ -6,11 +6,11 @@
     <li><a href="https://github.com/ArtemWolynski" target="_blank" about="Github">Github</a></li>
   </ul>
   <app-primary-button class="btn"
-                      [style.opacity]="shouldShowButton? 1: 0"
+                      *ngIf="shouldShowButton"
                       [text1]="buttonText"
                       (clicked)="onButtonClicked($event)">
   </app-primary-button>
-  <p *ngIf="!shouldShowButton">
+  <p *ngIf="!shouldShowButton && !classicMode">
     Chung Cu Vista Verde<br>
     Ho Chi Minh, 70000, Vietnam<br>
     art.volynskiy@gmail.com

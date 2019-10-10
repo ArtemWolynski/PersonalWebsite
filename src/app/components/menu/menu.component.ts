@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {steps} from '../../configs/steps';
+import {StepsService} from '../../services/steps.service';
 
 @Component({
   selector: 'app-menu',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
+  navList = steps;
+  isOpen = false;
 
-  constructor() { }
+  constructor(private stepsService: StepsService) { }
 
   ngOnInit() {
+  }
+
+  setCurrentStep(value) {
+    this.stepsService.setCurrentStep(value);
+    this.toggleMenu();
+  }
+
+  toggleMenu() {
+    this.isOpen = !this.isOpen;
   }
 
 }

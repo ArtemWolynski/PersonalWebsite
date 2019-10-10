@@ -1,1 +1,14 @@
-<p>menu works!</p>
+<div class="menu" (click)="toggleMenu()">
+  <p>Menu</p>
+  <div class="dec-container">
+    <div class="upper-column"></div>
+    <div class="lower-column"></div>
+  </div>
+  <div class="menu-navigation"></div>
+</div>
+<div class="menu-nav" [class.open]="isOpen">
+  <h3 class="close" (click)="toggleMenu()">Close X</h3>
+  <ul>
+    <li *ngFor="let step of navList" (click)="setCurrentStep(step)">{{step}}</li>
+  </ul>
+</div>

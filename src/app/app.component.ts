@@ -25,7 +25,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.subscribeToCurrentStep();
     this.onResize();
     this.steps = steps;
-    this.stepsService.setCurrentStep(this.steps[1]);
+    this.stepsService.setCurrentStep(this.steps[0]);
   }
 
   @HostListener('window:resize')
@@ -74,17 +74,27 @@ export class AppComponent implements OnInit, OnDestroy {
         takeUntil(this._unsubscribeAll)
       )
       .subscribe((step) => {
-        this.changeCurrentScreen(step);
+        if (this.classicMode) {
+          this.scrollToScreen(step);
+        } else {
+          this.changeCurrentScreen(step);
+        }
       });
+  }
+
+  scrollToScreen(screenId) {
+    const el = document.getElementById(screenId);
+    if (el) {
+    el.scrollIntoView({behavior: 'smooth'});
+    }
+  }
+
+  changeCurrentScreen(value) {
+    this.currentScreen = value;
   }
 
   ngOnDestroy() {
     this._unsubscribeAll.next();
     this._unsubscribeAll.complete();
-  }
-
-
-  changeCurrentScreen(value) {
-    this.currentScreen = value;
   }
 }
