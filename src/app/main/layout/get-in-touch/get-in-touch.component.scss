@@ -25,19 +25,23 @@
   }
 
   .form-container {
-    margin-top: -8%;
+    //margin-top: -8%;
     width: 100%;
     flex-wrap: nowrap;
 
     .form {
       background-color: $minorColor;
-      width: 50%;
+      width: 95%;
       min-height: 320px;
       text-align: center;
       position: relative;
 
+      &.active {
+        width: 50%;
+      }
+
       .form-wrapper {
-        margin: 5% 13% 3% 13%;
+        margin: 50px 13% 3%;
 
         .mat-form-field {
           width: 100%;
@@ -57,13 +61,25 @@
     .text-container {
       height: available;
       background-color: $primaryColor;
-      width: 50%;
+      width: 5%;
+      transition: 800ms ease-in-out;
+
+      &.active {
+        width: 50%;
+      }
 
       .text-wrapper {
-        margin: 8.3% 13% 3% 13%;
+        margin: 70px 13% 3%;
+        transition: 1000ms ease-in-out;
+        opacity: 0;
+
+        &.active {
+          width: 50%;
+          opacity: 1;
+        }
 
         p {
-          margin-bottom: 48px;
+          //margin-bottom: 48px;
         }
       }
     }

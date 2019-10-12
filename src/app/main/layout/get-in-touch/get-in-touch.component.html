@@ -3,7 +3,7 @@
 <section class="get-in-touch">
   <div class="form-container content-between">
     <div class="form">
-      <form [formGroup]="getInTouchForm">
+      <form [formGroup]="getInTouchForm"  [class.active]="isActive">
         <div class="form-wrapper">
           <mat-form-field>
             <input formControlName="name" name="name" matInput placeholder="Name">
@@ -20,11 +20,11 @@
       </form>
       <app-primary-button [text1]="'Submit'" [disabled]="getInTouchForm.invalid" (clicked)="onSubmit()"></app-primary-button>
     </div>
-    <div class="text-container">
-      <div class="text-wrapper">
-        <p>Oh! Hi Mike!</p>
-        <p>Thanks for sharing your details! I'll be getting back to you in no time!</p>
-        <p>But maybe, just maybe... There is something that you want to say?</p>
+    <div class="text-container" [class.active]="isActive">
+      <div class="text-wrapper" [class.active]="isActive">
+        <p>{{testText}}</p>
+        <!--<p>Thanks for sharing your details! I'll be getting back to you in no time!</p>-->
+        <!--<p>But maybe, just maybe... There is something that you want to say?</p>-->
       </div>
     </div>
   </div>
