@@ -12,8 +12,11 @@ export class GetInTouchComponent implements OnInit {
   getInTouchForm;
   interval;
   isActive: boolean;
+  isTyping: boolean;
 
-  testText = '';
+  firstLineText = '';
+  secondLineText = '';
+  thirdLineText = '';
 
   constructor(private _formBuilder: FormBuilder,) { }
 
@@ -32,29 +35,88 @@ export class GetInTouchComponent implements OnInit {
       message: ['', Validators.required]
     });
 
-    this.getInTouchForm.valueChanges.subscribe(value =>
-    {
-      if (value.name || value.email || value.message) {
-        this.isActive = true;
-        this.makeMagic();
-      } else {
-        this.isActive = false;
-        this.testText = '';
-      }
-    })
+    // this.getInTouchForm.valueChanges.subscribe(value =>
+    // {
+    //   if (value.name || value.email || value.message) {
+    //     this.isActive = true;
+    //   } else {
+    //     this.isActive = false;
+    //     this.firstLineText = '';
+    //   }
+    // })
   }
 
-  makeMagic() {
-    let text = `Oh! Hi Dude! This is a random text I'm writing to find out how it looks like on a real screen` ;
-    let interval = 0;
-    setTimeout(()=> {
-      this.interval = setInterval(()=> {
-        this.testText += text[interval];
-        interval++;
-        if (interval >= text.length) {
-          clearInterval(this.interval);
-        }}, 70);
-    }, 750);
+  setFirstLine(text) {
+    this.setActive();
+
+    if (!this.isTyping) {
+      this.isTyping = true;
+      let firstLine = `Oh! Hi ${text}`;
+      let index = 0;
+      setTimeout(()=> {
+        this.firstLineText = '';
+        this.interval = setInterval(()=> {
+          this.firstLineText += firstLine[index];
+          index++;
+          if (index >= firstLine.length) {
+            clearInterval(this.interval);
+            this.isTyping = false;
+          }}, 70);
+      }, 750)
+    }
+  }
+
+  setSecondLine(text) {
+    this.setActive();
+
+    if (!this.isTyping) {
+      this.isTyping = true;
+      let secondLine = `It's good to see you thriving, ${text}`;
+      let index = 0;
+      setTimeout(()=> {
+        this.secondLineText = '';
+        this.interval = setInterval(()=> {
+          this.secondLineText += secondLine[index];
+          index++;
+          if (index >= secondLine.length) {
+            clearInterval(this.interval);
+            this.isTyping = false;
+          }}, 70);
+      }, 750)
+    }
+  }
+
+  setThirdLine(text) {
+    this.setActive();
+
+    if (!this.isTyping) {
+      this.isTyping = true;
+      let thirdLine = `Now just hit the 'submit' button! The rest is a history`;
+      let index = 0;
+      setTimeout(()=> {
+        this.thirdLineText = '';
+        this.interval = setInterval(()=> {
+          this.thirdLineText += thirdLine[index];
+          index++;
+          if (index >= thirdLine.length) {
+            clearInterval(this.interval);
+            this.isTyping = false;
+          }}, 70);
+      }, 750)
+    }
+  }
+
+  setActive() {
+    if (!this.isActive) {
+      this.isActive = true;
+    }
+  }
+
+  writeLine(line, text) {
+   ;
+  }
+
+  makeMagic(value) {
   }
 
 }

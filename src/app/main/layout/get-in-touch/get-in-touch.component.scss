@@ -72,6 +72,7 @@
         margin: 70px 13% 3%;
         transition: 1000ms ease-in-out;
         opacity: 0;
+        width: 100%;
 
         &.active {
           width: 50%;
@@ -79,7 +80,7 @@
         }
 
         p {
-          //margin-bottom: 48px;
+          width: 150%;
         }
       }
     }

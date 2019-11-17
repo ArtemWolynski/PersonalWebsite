@@ -9,14 +9,13 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "serve:ssr": "node dist/server",
-    "build:client-and-server-bundles": "ng build --prod && ng run ppLanding:server",
+    "build:client-and-server-bundles": "ng build --prod && ng run ngWebsiteTemplate:server",
     "build:prerender": "npm run build:client-and-server-bundles && npm run compile:server && npm run generate:prerender",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
     "compile:server": "tsc -p server.tsconfig.json",
     "generate:prerender": "cd dist && node prerender",
-    "serve:prerender": "cd dist/ppLanding && http-server",
-    "webpack:server": "webpack --config webpack.server.config.js --progress --colors",
-    "postinstall": "ivy-ngcc"
+    "serve:prerender": "cd dist/ngWebsiteTemplate && http-server",
+    "webpack:server": "webpack --config webpack.server.config.js --progress --colors"
   },
   "private": true,
   "dependencies": {
@@ -35,7 +34,7 @@
     "@egjs/hammerjs": "^2.0.15",
     "@nguniversal/express-engine": "^8.1.1",
     "@nguniversal/module-map-ngfactory-loader": "^8.1.1",
-    "angular-particle": "^1.0.4",
+    "angular-particle": "1.0.4",
     "express": "^4.17.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
