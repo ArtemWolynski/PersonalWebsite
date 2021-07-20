@@ -8,7 +8,7 @@
               *ngIf="currentScreen === 'Skills' || classicMode">
   </app-skills>
 
-  <app-portfolio  [classicMode]="classicMode"  *ngIf="currentScreen === 'Projects' || classicMode">
+  <app-portfolio [classicMode]="classicMode"  *ngIf="currentScreen === 'Projects' || classicMode">
   </app-portfolio>
 
   <app-feedback  [classicMode]="classicMode"  *ngIf="currentScreen === 'Reviews' || classicMode">
@@ -25,8 +25,12 @@
 
 </main>
 
-<app-sidebar [classicMode]="classicMode"></app-sidebar>
-<app-progress-bar  *ngIf="!classicMode" (clicked)="animateTransition()"></app-progress-bar>
+<app-sidebar [classicMode]="classicMode">
+</app-sidebar>
+
+<app-progress-bar *ngIf="!classicMode"
+                  (clicked)="animateTransition()">
+</app-progress-bar>
 <!--<app-menu></app-menu>-->
 
 <div class="test" id="test"></div>

@@ -16,13 +16,14 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReviewModule} from './components/review/review.module';
 import {ProjectsModule} from './components/projects/projects.module';
 import {ReactiveFormsModule} from '@angular/forms';
-import {MatFormFieldModule, MatInputModule} from '@angular/material';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import {ButtonsModule} from './components/buttons/buttons.module';
 import {MenuModule} from './components/menu/menu.module';
 import { FooterComponent } from './components/footer/footer.component';
 import 'zone.js';
 import {ControlsModule} from './components/controls/controls.module';
-import {ParticlesModule} from 'angular-particle';
+import {NgParticlesModule} from 'ng-particles';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,7 @@ import {ParticlesModule} from 'angular-particle';
     MatInputModule,
     ButtonsModule,
     MenuModule,
-    // ParticlesModule,
+    NgParticlesModule,
     ControlsModule
   ],
   providers: [],

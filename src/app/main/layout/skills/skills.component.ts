@@ -11,7 +11,7 @@ import {SkillsService} from '../../../services/skills.service';
 export class SkillsComponent implements OnInit {
   @Input() classicMode = false;
   @Input() mobileMode = false;
-  activeSkillSet = 'General Skills';
+  activeSkillSet = 'Front End';
   constructor(private skillItemService: SkillsService) { }
 
   ngOnInit() {

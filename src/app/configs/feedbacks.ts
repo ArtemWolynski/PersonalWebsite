@@ -12,11 +12,7 @@ export const feedbacks = [
   {
     name: 'Ardrei Maximov',
     position: 'Chief Executive Officer at Precious Payload',
-    review: 'Artem is amazing, be like Artem. Artem is amazing, be like Artem.Artem is amazing, be like Artem.Artem is amazing, be like Artem.Artem is amazing, be like Artem.Artem is amazing, be like Artem.\n' +
-    '          Artem is amazing, be like Artem.Artem is amazing, be like Artem.Artem is amazing, be like Artem.\n' +
-    '          Artem is amazing, be like Artem.Artem is amazing, be like Artem.Artem is amazing, be like Artem.\n' +
-    '          Artem is amazing, be like Artem.Artem is amazing, be like Artem.\n' +
-    '          Artem is amazing, be like Artem.',
+    review: 'd',
     imgUrl: '../../../../assets/images/Artem%20Wolynski.png'
   }
 ];

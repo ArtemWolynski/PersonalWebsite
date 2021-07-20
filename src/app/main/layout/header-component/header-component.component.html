@@ -16,5 +16,8 @@
       </div>
     </div>
   </div>
-  <!--<particles *ngIf="!classicMode" [params]="myParams" [style]="myStyle" [width]="width" [height]="height"></particles>-->
+  <ng-particles *ngIf="!classicMode"
+                [options]="myParams"
+                [style]="myStyle">
+  </ng-particles>
 </header>

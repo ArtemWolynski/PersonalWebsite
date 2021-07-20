@@ -5,15 +5,18 @@
     <li><a href="" target="_blank" about="CV">CV</a></li>
     <li><a href="https://github.com/ArtemWolynski" target="_blank" about="Github">Github</a></li>
   </ul>
-  <app-primary-button class="btn"
-                      *ngIf="shouldShowButton"
-                      [text1]="buttonText"
-                      (clicked)="onButtonClicked($event)">
-  </app-primary-button>
-  <p *ngIf="!shouldShowButton && !classicMode">
-    Chung Cu Vista Verde<br>
-    Ho Chi Minh, 70000, Vietnam<br>
-    art.volynskiy@gmail.com
-  </p>
+  <div style="margin-bottom: 15%">
+    <app-primary-button class="btn"
+                        [style.opacity]="!buttonText ? 0: 1"
+                        *ngIf="shouldShowButton"
+                        [text1]="buttonText"
+                        (clicked)="onButtonClicked($event)">
+    </app-primary-button>
+    <p *ngIf="!shouldShowButton && !classicMode">
+      Chung Cu Vista Verde<br>
+      Ho Chi Minh, 70000, Vietnam<br>
+      art.volynskiy@gmail.com
+    </p>
+  </div>
   <app-menu *ngIf="classicMode"></app-menu>
 </div>

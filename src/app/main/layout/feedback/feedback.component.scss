@@ -10,7 +10,6 @@
 .portfolio {
   @include container(100vh, 100%, 0, 0, 0);
 
-
   .feedback-container {
     position: relative;
     width: 100%;
@@ -21,7 +20,7 @@
     .pillar {
       height: available;
       background-color: $secondaryColor;
-      width: 10%;
+      width: 7%;
     }
   }
 
@@ -45,6 +44,7 @@
   .controls-wrapper {
     width: 100%;
     margin-top: 30px;
+    margin-left: 3.5%;
   }
 }
 

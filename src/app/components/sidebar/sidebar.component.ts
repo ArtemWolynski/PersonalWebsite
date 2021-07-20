@@ -50,7 +50,8 @@ export class SidebarComponent implements OnInit, OnDestroy {
     } else if (value === 'Skills') {
       this.buttonText = 'To suggest project';
     } else if (value === 'Projects') {
-      this.buttonText = 'All projects';
+      this.buttonText = '';
+      // this.buttonText = 'All projects';
     } else if (value === 'Reviews') {
       this.buttonText = 'Go to contacts';
     } else if (value === 'Contacts') {

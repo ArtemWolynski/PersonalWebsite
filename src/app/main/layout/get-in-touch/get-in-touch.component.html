@@ -7,21 +7,18 @@
         <div class="form-wrapper">
           <mat-form-field>
             <input formControlName="name"
-                   (focusout)="setFirstLine(getInTouchForm.get('name').value)"
                    name="name"
                    matInput placeholder="Name">
           </mat-form-field>
 
           <mat-form-field>
             <input type="email"
-                   (focusout)="setSecondLine(getInTouchForm.get('email').value)"
                    formControlName="email" name="email"
                    matInput placeholder="Email">
           </mat-form-field>
 
           <mat-form-field>
-            <input   (focusout)="setThirdLine(getInTouchForm.get('message').value)"
-              formControlName="message" name="message"
+            <input formControlName="message" name="message"
               matInput placeholder="Your message">
           </mat-form-field>
         </div>

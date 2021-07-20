@@ -23,9 +23,10 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscribeToCurrentStep();
+    this.subscribeToCurrentStep();
     this.onResize();
     this.steps = steps;
-    this.stepsService.setCurrentStep(this.steps[4]);
+    this.stepsService.setCurrentStep(this.steps[0]);
   }
 
   @HostListener('window:resize')
