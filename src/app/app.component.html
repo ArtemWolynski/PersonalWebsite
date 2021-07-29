@@ -1,31 +1,9 @@
 <main>
   <router-outlet></router-outlet>
-<!--  <app-main-screen *ngIf="currentScreen === 'About' || classicMode"-->
-<!--                   [classicMode]="classicMode">-->
-<!--  </app-main-screen>-->
-
-<!--  <app-skills *ngIf="currentScreen === 'Skills' || classicMode"-->
-<!--              [classicMode]="classicMode"-->
-<!--              [mobileMode]="mobileMode">-->
-<!--  </app-skills>-->
-
-<!--  <app-portfolio *ngIf="currentScreen === 'Projects' || classicMode"-->
-<!--                 [classicMode]="classicMode">-->
-<!--  </app-portfolio>-->
-
-<!--  <app-feedback *ngIf="currentScreen === 'Reviews' || classicMode"-->
-<!--                [classicMode]="classicMode">-->
-<!--  </app-feedback>-->
-
-<!--  <app-get-in-touch *ngIf="currentScreen === 'Contacts' || classicMode"-->
-<!--    [mobileMode]="mobileMode"-->
-<!--    [classicMode]="classicMode">-->
-<!--  </app-get-in-touch>-->
-
-<!--  <app-footer *ngIf="classicMode">-->
-<!--  </app-footer>-->
-
 </main>
+
+<app-footer *ngIf="classicMode">
+</app-footer>
 
 <app-sidebar [classicMode]="classicMode">
 </app-sidebar>

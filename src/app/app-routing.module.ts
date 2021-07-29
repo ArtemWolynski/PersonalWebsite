@@ -10,6 +10,11 @@ import {GetInTouchComponent} from './main/get-in-touch/get-in-touch.component';
 
 export const APP_ROUTES: Routes = [
   {
+    path: '',
+    redirectTo: 'about',
+    pathMatch: 'full'
+  },
+  {
     path: 'about', component: MainScreenComponent
   },
   {

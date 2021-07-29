@@ -1,8 +1,7 @@
 import {Component, HostListener, OnDestroy, OnInit} from '@angular/core';
-import {StepsService} from './services/steps.service';
+import {ScreenTransitionService} from './services/screen-transition.service';
 import {Subject} from 'rxjs';
 import {filter, takeUntil} from 'rxjs/operators';
-import {steps} from './configs/steps';
 
 @Component({
   selector: 'app-root',
@@ -11,22 +10,19 @@ import {steps} from './configs/steps';
 })
 export class AppComponent implements OnInit, OnDestroy {
   currentScreen: string;
-  steps: string[];
 
   classicMode: boolean;
   mobileMode: boolean;
-  isTransitioning: boolean;
+
 
   private _unsubscribeAll: Subject<any>;
-  constructor(private stepsService: StepsService) {
+  constructor(private stepsService: ScreenTransitionService) {
     this._unsubscribeAll = new Subject<any>();
   }
 
   ngOnInit() {
     this.subscribeToCurrentStep();
     this.onResize();
-    this.steps = steps;
-    this.stepsService.setCurrentStep(this.steps[0]);
   }
 
   @HostListener('window:resize')
@@ -37,36 +33,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
   @HostListener("window:wheel", ['$event'])
   onWindowScroll(event) {
-    if (!this.classicMode && !this.isTransitioning) {
-      let screenIndex = this.steps.indexOf(this.currentScreen);
-      if (event.deltaY > 0)            // scrolling down
-      {
-        if (screenIndex < this.steps.length - 1) {
-          this.animateTransition();
-          setTimeout(() => {
-            this.stepsService.setCurrentStep(this.steps[screenIndex + 1]);
-          }, 800);
-        }
-      }
-      else if (event.deltaY < 0) {                             // scrolling up
-        if (screenIndex > 0) {
-          this.animateTransition();
-          setTimeout(() => {
-            this.stepsService.setCurrentStep(this.steps[screenIndex - 1]);
-          }, 800);
-        }
-      }
+    if (!this.classicMode) {
+      this.stepsService.onScroll(event);
     }
   }
 
-  animateTransition() {
-    this.isTransitioning = true;
-    document.getElementById('test').classList.add('anim-trans');
-    setTimeout(() => {
-      document.getElementById('test').classList.remove('anim-trans');
-      this.isTransitioning = false;
-    }, 2000);
-  }
 
   subscribeToCurrentStep() {
     this.stepsService.currentStep
@@ -77,8 +48,6 @@ export class AppComponent implements OnInit, OnDestroy {
       .subscribe((step: string) => {
         if (this.classicMode) {
           this.scrollToScreen(step);
-        } else {
-          this.changeCurrentScreen(step);
         }
       });
   }

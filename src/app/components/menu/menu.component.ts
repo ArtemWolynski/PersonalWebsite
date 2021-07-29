@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {steps} from '../../configs/steps';
-import {StepsService} from '../../services/steps.service';
+import {ScreenTransitionService} from '../../services/screen-transition.service';
 
 @Component({
   selector: 'app-menu',
@@ -11,7 +11,7 @@ export class MenuComponent implements OnInit {
   navList = steps;
   isOpen = false;
 
-  constructor(private stepsService: StepsService) { }
+  constructor(private stepsService: ScreenTransitionService) { }
 
   ngOnInit() {
   }

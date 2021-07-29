@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
-import {StepsService} from '../../services/steps.service';
+import {ScreenTransitionService} from '../../services/screen-transition.service';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 import {steps} from '../../configs/steps';
@@ -17,7 +17,7 @@ export class ProgressBarComponent implements OnInit, OnDestroy {
 
   private _unsubscribeAll: Subject<any>;
 
-  constructor(private stepsService: StepsService) {
+  constructor(private stepsService: ScreenTransitionService) {
     this._unsubscribeAll = new Subject();
   }
 

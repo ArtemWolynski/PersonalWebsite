@@ -1,5 +1,5 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {StepsService} from '../../services/steps.service';
+import {ScreenTransitionService} from '../../services/screen-transition.service';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 
@@ -14,7 +14,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
   shouldShowButton: boolean;
   private _unsubscribeAll: Subject<any>;
 
-  constructor(private stepsService: StepsService) {
+  constructor(private stepsService: ScreenTransitionService) {
     this._unsubscribeAll = new Subject<any>();
   }
 
