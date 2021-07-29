@@ -2,10 +2,32 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 
-const routes: Routes = [];
+import {MainScreenComponent} from './main/main-screen/main-screen.component';
+import {SkillsComponent} from './main/skills/skills.component';
+import {PortfolioComponent} from './main/portfolio/portfolio.component';
+import {FeedbackComponent} from './main/feedback/feedback.component';
+import {GetInTouchComponent} from './main/get-in-touch/get-in-touch.component';
+
+export const APP_ROUTES: Routes = [
+  {
+    path: 'about', component: MainScreenComponent
+  },
+  {
+    path: 'skills', component: SkillsComponent
+  },
+  {
+    path: 'projects', component: PortfolioComponent
+  },
+  {
+    path: 'reviews', component: FeedbackComponent
+  },
+  {
+    path: 'contacts', component: GetInTouchComponent
+  },
+]
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+  imports: [RouterModule.forRoot(APP_ROUTES)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

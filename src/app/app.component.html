@@ -1,27 +1,29 @@
 <main>
-  <app-header-component *ngIf="currentScreen === 'About' || classicMode"
-  [classicMode]="classicMode">
-  </app-header-component>
+  <router-outlet></router-outlet>
+<!--  <app-main-screen *ngIf="currentScreen === 'About' || classicMode"-->
+<!--                   [classicMode]="classicMode">-->
+<!--  </app-main-screen>-->
 
-  <app-skills [classicMode]="classicMode"
-              [mobileMode]="mobileMode"
-              *ngIf="currentScreen === 'Skills' || classicMode">
-  </app-skills>
+<!--  <app-skills *ngIf="currentScreen === 'Skills' || classicMode"-->
+<!--              [classicMode]="classicMode"-->
+<!--              [mobileMode]="mobileMode">-->
+<!--  </app-skills>-->
 
-  <app-portfolio [classicMode]="classicMode"  *ngIf="currentScreen === 'Projects' || classicMode">
-  </app-portfolio>
+<!--  <app-portfolio *ngIf="currentScreen === 'Projects' || classicMode"-->
+<!--                 [classicMode]="classicMode">-->
+<!--  </app-portfolio>-->
 
-  <app-feedback  [classicMode]="classicMode"  *ngIf="currentScreen === 'Reviews' || classicMode">
-  </app-feedback>
+<!--  <app-feedback *ngIf="currentScreen === 'Reviews' || classicMode"-->
+<!--                [classicMode]="classicMode">-->
+<!--  </app-feedback>-->
 
-  <app-get-in-touch
-    [mobileMode]="mobileMode"
-    [classicMode]="classicMode"
-    *ngIf="currentScreen === 'Contacts' || classicMode">
-  </app-get-in-touch>
+<!--  <app-get-in-touch *ngIf="currentScreen === 'Contacts' || classicMode"-->
+<!--    [mobileMode]="mobileMode"-->
+<!--    [classicMode]="classicMode">-->
+<!--  </app-get-in-touch>-->
 
-  <app-footer *ngIf="classicMode">
-  </app-footer>
+<!--  <app-footer *ngIf="classicMode">-->
+<!--  </app-footer>-->
 
 </main>
 
@@ -31,6 +33,5 @@
 <app-progress-bar *ngIf="!classicMode"
                   (clicked)="animateTransition()">
 </app-progress-bar>
-<!--<app-menu></app-menu>-->
 
 <div class="test" id="test"></div>

@@ -10,8 +10,9 @@ import {steps} from './configs/steps';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit, OnDestroy {
-  currentScreen;
-  steps;
+  currentScreen: string;
+  steps: string[];
+
   classicMode: boolean;
   mobileMode: boolean;
   isTransitioning: boolean;
@@ -22,7 +23,6 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.subscribeToCurrentStep();
     this.subscribeToCurrentStep();
     this.onResize();
     this.steps = steps;
@@ -74,7 +74,7 @@ export class AppComponent implements OnInit, OnDestroy {
         filter(value => value != null),
         takeUntil(this._unsubscribeAll)
       )
-      .subscribe((step) => {
+      .subscribe((step: string) => {
         if (this.classicMode) {
           this.scrollToScreen(step);
         } else {

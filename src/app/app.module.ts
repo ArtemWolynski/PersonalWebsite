@@ -3,18 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponentComponent } from './main/layout/header-component/header-component.component';
-import { SkillsComponent } from './main/layout/skills/skills.component';
-import { PortfolioComponent } from './main/layout/portfolio/portfolio.component';
-import { FeedbackComponent } from './main/layout/feedback/feedback.component';
-import { GetInTouchComponent } from './main/layout/get-in-touch/get-in-touch.component';
+import { FeedbackComponent } from './main/feedback/feedback.component';
+import { GetInTouchComponent } from './main/get-in-touch/get-in-touch.component';
 import {SidebarModule} from './components/sidebar/sidebar.module';
 import {ProgressBarModule} from './components/progress-bar/progress-bar.module';
-import {SkillItemModule} from './components/skill-item/skill-item.module';
-import {SkillTileModule} from './components/skill-tile/skill-tile.module';
+import {SkillTileModule} from './main/skills/skill-tile/skill-tile.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ReviewModule} from './components/review/review.module';
-import {ProjectsModule} from './components/projects/projects.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -24,15 +18,15 @@ import { FooterComponent } from './components/footer/footer.component';
 import 'zone.js';
 import {ControlsModule} from './components/controls/controls.module';
 import {NgParticlesModule} from 'ng-particles';
+import {SkillsModule} from './main/skills/skills.module';
+import {MainScreenModule} from './main/main-screen/main-screen.module';
+import {PortfolioModule} from './main/portfolio/portfolio.module';
+import {FeedbackModule} from './main/feedback/feedback.module';
+import {GetInTouchModule} from './main/get-in-touch/get-in-touch.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponentComponent,
-    SkillsComponent,
-    PortfolioComponent,
-    FeedbackComponent,
-    GetInTouchComponent,
     FooterComponent
   ],
   imports: [
@@ -40,11 +34,13 @@ import {NgParticlesModule} from 'ng-particles';
     AppRoutingModule,
     SidebarModule,
     ProgressBarModule,
-    SkillItemModule,
     SkillTileModule,
     BrowserAnimationsModule,
-    ReviewModule,
-    ProjectsModule,
+    PortfolioModule,
+    SkillsModule,
+    MainScreenModule,
+    FeedbackModule,
+    GetInTouchModule,
 
     ReactiveFormsModule,
     MatFormFieldModule,
@@ -52,7 +48,9 @@ import {NgParticlesModule} from 'ng-particles';
     ButtonsModule,
     MenuModule,
     NgParticlesModule,
-    ControlsModule
+    ControlsModule,
+    PortfolioModule,
+    FeedbackModule
   ],
   providers: [],
   bootstrap: [AppComponent]

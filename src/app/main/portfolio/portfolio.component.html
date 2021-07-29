@@ -1,0 +1,30 @@
+<h2 *ngIf="classicMode" id="Projects" class="section-header">
+  Portfolio
+</h2>
+
+<section class="portfolio">
+  <div class="portfolio-container">
+
+    <div class="h2-container">
+      <h2>{{portfolio[currentIndex].name}}</h2>
+    </div>
+
+    <div class="description content-between">
+      <div class="text-container">
+        <p class="text">{{portfolio[currentIndex].description}}</p>
+      </div>
+
+      <app-projects></app-projects>
+
+      <div class="pillar"></div>
+    </div>
+
+    <div class="controls content-between">
+      <p><a href="{{portfolio[currentIndex].link}}" target="_blank">View project</a></p>
+      <p class="active"
+         (click)="slideNext()">
+        Next project
+      </p>
+    </div>
+  </div>
+</section>

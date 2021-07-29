@@ -1,0 +1,19 @@
+<h2 *ngIf="classicMode" id="Reviews" class="section-header">
+  Feedback
+</h2>
+
+<section class="portfolio">
+  <div style="width: 100%">
+    <div class="feedback-container content-between">
+      <app-review style="margin: 0 auto; width: 100%"
+                  [feedback]="feedback[currentIndex]"></app-review>
+      <div class="pillar"></div>
+    </div>
+    <div class="controls-wrapper">
+      <app-back-nforward-control
+        (nextClicked)="slideNext()"
+        (prevClicked)="slidePrev()">
+      </app-back-nforward-control>
+    </div>
+  </div>
+</section>

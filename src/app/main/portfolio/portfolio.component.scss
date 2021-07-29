@@ -1,0 +1,200 @@
+@import "../../../styles/partials/positioning";
+@import "../../../styles/partials/colors";
+
+:host {
+
+  .section-header {
+    margin-left: 5%;
+    margin-bottom: 80px;
+  }
+
+  .portfolio {
+    @include container(100vh, 100%, 0, 0, 0);
+
+
+    .portfolio-container {
+      margin-top: -8%;
+      width: 100%;
+
+      .h2-container {
+        margin-bottom: 30px;
+        margin-left: 45px;
+
+        h2 {
+          font-family: "Gotha Pro Bold", sans-serif;
+          font-size: 44px;
+
+        }
+      }
+
+      .description {
+        position: relative;
+        width: 100%;
+        flex-wrap: nowrap;
+
+        .text-container {
+          background-color: $secondaryColor;
+          width: 50%;
+          padding-top: 45px;
+          padding-left: 45px;
+          height: 440px;
+          overflow-y: scroll;
+
+          @media screen and (max-width: 1720px) {
+            height: 380px;
+          }
+
+          .text {
+            width: 385px;
+            color: black;
+            line-height: 22px;
+          }
+        }
+
+        .pillar {
+          height: available;
+          width: 50%;
+          background-color: $primaryColor;
+        }
+      }
+
+      .controls {
+        width: 350px;
+        margin-left: 45px;
+
+        p {
+          cursor: pointer;
+
+          &.active {
+            color: $primaryColor;
+
+            &::after {
+              background-color: $primaryColor;
+            }
+          }
+
+          &::after {
+            content: '';
+            display: inline-block;
+            width: 50px;
+            height: 10px;
+            background-color: $secondaryColor;
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 1250px) {
+    .portfolio {
+      @include container(auto, 100%, 0, 150px, 0);
+
+
+      .portfolio-container {
+        .description {
+
+          .text-container {
+            width: 55%;
+            padding-top: 45px;
+            padding-left: 45px;
+            height: 440px;
+
+            .text {
+              width: 95%;
+              line-height: 22px;
+            }
+          }
+
+          .pillar {
+            width: 45%;
+          }
+        }
+
+        .controls {
+          width: 350px;
+          margin-left: 45px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 850px) {
+    .portfolio {
+
+      .portfolio-container {
+
+        .description {
+
+          .text-container {
+            width: 65%;
+            padding-top: 45px;
+            padding-left: 45px;
+            height: 440px;
+
+            .text {
+              width: 95%;
+              line-height: 22px;
+            }
+          }
+
+          .pillar {
+            width: 35%;
+          }
+        }
+
+        .controls {
+          width: 350px;
+          margin: 80px auto;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+    .portfolio {
+
+      .portfolio-container {
+
+        .h2-container {
+          margin-bottom: 70px;
+          margin-left: 0;
+          text-align: center;
+          width: 100%;
+
+          h2 {
+            font-size: 11vw;
+          }
+        }
+
+        .description {
+
+          .text-container {
+            width: 50%;
+            padding-top: 45px;
+            padding-left: 45px;
+            height: 440px;
+
+            .text {
+              width: 80%;
+              left: 10%;
+              z-index: 3;
+              line-height: 22px;
+              position: absolute;
+              color: white;
+            }
+          }
+
+          .pillar {
+            width: 50%;
+          }
+        }
+
+        .controls {
+          width: 350px;
+          margin: 80px auto 0;
+        }
+      }
+    }
+  }
+}

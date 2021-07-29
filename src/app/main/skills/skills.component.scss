@@ -1,0 +1,129 @@
+@import "../../../styles/partials/positioning";
+
+.skills-container {
+  @include container(100vh, 100%, 0, 0, 0);
+  width: 100%;
+
+  .position-container {
+    width: 100%;
+    min-height: 600px;
+
+    .skills-description {
+      flex-wrap: nowrap;
+      margin-top: 5%;
+
+      .skills {
+
+        .description {
+          max-width: 418px;
+          width: 90%;
+          margin-top: 25px;
+        }
+
+        .skills-description {
+          margin-top: 25px;
+        }
+
+        .skills {
+          margin-top: 10px;
+          width: 270px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .skills-container {
+    width: 100%;
+
+
+    .section-header {
+      margin-bottom: 40px;
+    }
+
+    @include container(auto, 100%, 0, 0, 0);
+
+    .container {
+      justify-content: space-between;
+    }
+
+    .content-between {
+      min-width: 76% !important;
+      margin: 0 auto;
+    }
+
+
+    .position-container {
+
+
+      .container {
+        width: 100%;
+      }
+
+      .skills-description {
+        flex-direction: column;
+        justify-content: flex-start;
+        height: 500px;
+
+        .description {
+          min-height: 0;
+          margin: 30px 0 40px;
+        }
+
+        .skills {
+          width: 100%;
+          margin-bottom: 60px;
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 680px) {
+
+  .skills-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+
+    .container {
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .content-between {
+      display: table;
+      min-width: 100% !important;
+      margin: 0 auto;
+    }
+
+    .position-container {
+      min-height: auto;
+
+      .skills-description {
+        flex-wrap: nowrap;
+        margin-top: 0;
+
+        .skills {
+
+          .description {
+            margin-top: 0;
+          }
+
+          .skills-description {
+            margin-top: 0;
+          }
+
+          .skills {
+            margin-top: 0;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
