@@ -54,10 +54,6 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
-  animateTransition() {
-    this.stepsService.animateTransition();
-  }
-
   subscribeToCurrentStep() {
     this.stepsService.currentStep
       .pipe(

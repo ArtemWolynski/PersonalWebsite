@@ -12,7 +12,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {ButtonsModule} from './components/buttons/buttons.module';
 import {MenuModule} from './components/menu/menu.module';
-import { FooterComponent } from './components/footer/footer.component';
 import 'zone.js';
 import {ControlsModule} from './components/controls/controls.module';
 import {NgParticlesModule} from 'ng-particles';
@@ -23,15 +22,17 @@ import {FeedbackModule} from './main/feedback/feedback.module';
 import {GetInTouchModule} from './main/get-in-touch/get-in-touch.module';
 import {StoreModule} from '@ngrx/store';
 import {layoutReducer} from './store/reducers/layout.reducer';
+import {ClassicLayoutModule} from './main/classic-layout/classic-layout.module';
+import {FooterModule} from './components/footer/footer.module';
+import {ModernLayoutModule} from './main/modern-layout/modern-layout.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FooterComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ngWebsiteTemplate'}),
-    StoreModule.forRoot( { uiState: layoutReducer}),
+    StoreModule.forRoot({uiState: layoutReducer}),
     AppRoutingModule,
     SidebarModule,
     ProgressBarModule,
@@ -51,7 +52,10 @@ import {layoutReducer} from './store/reducers/layout.reducer';
     NgParticlesModule,
     ControlsModule,
     PortfolioModule,
-    FeedbackModule
+    FeedbackModule,
+    ClassicLayoutModule,
+    FooterModule,
+    ModernLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

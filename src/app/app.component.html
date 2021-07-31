@@ -1,15 +1,12 @@
-<main>
-  <router-outlet></router-outlet>
-</main>
+<div *ngIf="appMode === 'slides'; then desctopLayout else mobileLayout"></div>
 
-<app-footer *ngIf="appMode === 'classic'">
-</app-footer>
 
-<app-sidebar [classicMode]="appMode === 'classic'">
-</app-sidebar>
+<ng-template #desctopLayout>
+  <app-modern-layout>
+  </app-modern-layout>
+</ng-template>
 
-<app-progress-bar *ngIf="appMode !== 'classic'"
-                  (clicked)="animateTransition()">
-</app-progress-bar>
-
-<div class="test" id="test"></div>
+<ng-template #mobileLayout>
+  <app-classic-layout>
+  </app-classic-layout>
+</ng-template>

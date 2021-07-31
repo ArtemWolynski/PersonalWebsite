@@ -9,15 +9,18 @@ import {ButtonsModule} from '../../components/buttons/buttons.module';
 
 
 @NgModule({
-  declarations: [
-    GetInTouchComponent
-  ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    ButtonsModule
-  ]
+    declarations: [
+        GetInTouchComponent
+    ],
+    exports: [
+        GetInTouchComponent
+    ],
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        ButtonsModule
+    ]
 })
 export class GetInTouchModule { }

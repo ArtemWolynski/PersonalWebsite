@@ -15,8 +15,9 @@ import {ControlsModule} from '../../components/controls/controls.module';
     CommonModule,
     ControlsModule
   ],
-  exports: [
-    ReviewComponent
-  ]
+    exports: [
+        ReviewComponent,
+        FeedbackComponent
+    ]
 })
 export class FeedbackModule { }
