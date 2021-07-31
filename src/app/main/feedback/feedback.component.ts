@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {feedbacks} from '../../configs/feedbacks';
+import {feedbacks} from '../../shared/configs/feedbacks';
 
 @Component({
   selector: 'app-feedback',

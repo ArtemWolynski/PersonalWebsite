@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
 import {Router} from '@angular/router';
-import {steps} from '../configs/steps';
+import {steps} from '../shared/configs/steps';
 
 @Injectable({
   providedIn: 'root'

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {fuseAnimations} from '../../animations';
+import {fuseAnimations} from '../../shared/animations';
 import {SkillsService} from '../../services/skills.service';
 
 @Component({

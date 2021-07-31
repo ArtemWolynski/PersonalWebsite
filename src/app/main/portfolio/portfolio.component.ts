@@ -1,5 +1,5 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {portfolio} from '../../configs/portfolio';
+import {portfolio} from '../../shared/configs/portfolio';
 import {PortfolioService} from '../../services/portfolio.service';
 import {Subject} from 'rxjs';
 import {filter, takeUntil} from 'rxjs/operators';

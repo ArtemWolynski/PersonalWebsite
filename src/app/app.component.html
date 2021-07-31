@@ -2,13 +2,13 @@
   <router-outlet></router-outlet>
 </main>
 
-<app-footer *ngIf="classicMode">
+<app-footer *ngIf="appMode === 'classic'">
 </app-footer>
 
-<app-sidebar [classicMode]="classicMode">
+<app-sidebar [classicMode]="appMode === 'classic'">
 </app-sidebar>
 
-<app-progress-bar *ngIf="!classicMode"
+<app-progress-bar *ngIf="appMode !== 'classic'"
                   (clicked)="animateTransition()">
 </app-progress-bar>
 

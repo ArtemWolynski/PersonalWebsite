@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {steps} from '../../configs/steps';
+import {steps} from '../../shared/configs/steps';
 import {ScreenTransitionService} from '../../services/screen-transition.service';
 
 @Component({

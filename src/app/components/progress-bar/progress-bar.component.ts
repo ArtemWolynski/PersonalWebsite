@@ -2,7 +2,7 @@ import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core'
 import {ScreenTransitionService} from '../../services/screen-transition.service';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
-import {steps} from '../../configs/steps';
+import {steps} from '../../shared/configs/steps';
 
 @Component({
   selector: 'app-progress-bar',
@@ -27,9 +27,8 @@ export class ProgressBarComponent implements OnInit, OnDestroy {
     this.subscribeToCurrentStep();
   }
 
-  ngOnDestroy() {
-    this._unsubscribeAll.next();
-    this._unsubscribeAll.complete();
+  animateTransition() {
+
   }
 
   onElementClicked(value: string) {
@@ -69,6 +68,11 @@ export class ProgressBarComponent implements OnInit, OnDestroy {
 
   initProgressBar() {
     this.values = steps;
+  }
+
+  ngOnDestroy() {
+    this._unsubscribeAll.next();
+    this._unsubscribeAll.complete();
   }
 
 }

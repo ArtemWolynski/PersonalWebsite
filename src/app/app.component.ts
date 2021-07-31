@@ -2,6 +2,10 @@ import {Component, HostListener, OnDestroy, OnInit} from '@angular/core';
 import {ScreenTransitionService} from './services/screen-transition.service';
 import {Subject} from 'rxjs';
 import {filter, takeUntil} from 'rxjs/operators';
+import {Store} from '@ngrx/store';
+import {setMode } from './store/actions/layout.actions';
+import {selectUiState} from './state/layout.selectors';
+import {LayoutState} from './core/models/layout-state';
 
 @Component({
   selector: 'app-root',
@@ -11,33 +15,48 @@ import {filter, takeUntil} from 'rxjs/operators';
 export class AppComponent implements OnInit, OnDestroy {
   currentScreen: string;
 
-  classicMode: boolean;
-  mobileMode: boolean;
-
+  appMode: string;
 
   private _unsubscribeAll: Subject<any>;
-  constructor(private stepsService: ScreenTransitionService) {
+  constructor(private stepsService: ScreenTransitionService,
+              private store: Store) {
+    this.store.select(selectUiState).subscribe((uiState: LayoutState) => {
+     this.appMode = uiState.appMode;
+    })
     this._unsubscribeAll = new Subject<any>();
   }
 
   ngOnInit() {
     this.subscribeToCurrentStep();
     this.onResize();
+
   }
 
   @HostListener('window:resize')
   onResize() {
-    this.classicMode = window.innerWidth < 1200;
-    this.mobileMode = window.innerWidth < 680;
+
+    let appMode;
+
+    if (window.innerWidth > 1200) {
+      appMode = 'slides'
+    } else if (window.innerWidth > 680) {
+      appMode = 'classic';
+    } else {
+      appMode = 'mobile';
+    }
+    this.store.dispatch( setMode( { appMode: appMode}))
   }
 
   @HostListener("window:wheel", ['$event'])
   onWindowScroll(event) {
-    if (!this.classicMode) {
+    if (this.appMode !== 'classic') {
       this.stepsService.onScroll(event);
     }
   }
 
+  animateTransition() {
+    this.stepsService.animateTransition();
+  }
 
   subscribeToCurrentStep() {
     this.stepsService.currentStep
@@ -46,7 +65,7 @@ export class AppComponent implements OnInit, OnDestroy {
         takeUntil(this._unsubscribeAll)
       )
       .subscribe((step: string) => {
-        if (this.classicMode) {
+        if (this.appMode === 'classic') {
           this.scrollToScreen(step);
         }
       });

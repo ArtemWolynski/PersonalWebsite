@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FeedbackComponent } from './main/feedback/feedback.component';
-import { GetInTouchComponent } from './main/get-in-touch/get-in-touch.component';
 import {SidebarModule} from './components/sidebar/sidebar.module';
 import {ProgressBarModule} from './components/progress-bar/progress-bar.module';
 import {SkillTileModule} from './main/skills/skill-tile/skill-tile.module';
@@ -23,6 +21,8 @@ import {MainScreenModule} from './main/main-screen/main-screen.module';
 import {PortfolioModule} from './main/portfolio/portfolio.module';
 import {FeedbackModule} from './main/feedback/feedback.module';
 import {GetInTouchModule} from './main/get-in-touch/get-in-touch.module';
+import {StoreModule} from '@ngrx/store';
+import {layoutReducer} from './store/reducers/layout.reducer';
 
 @NgModule({
   declarations: [
@@ -31,6 +31,7 @@ import {GetInTouchModule} from './main/get-in-touch/get-in-touch.module';
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ngWebsiteTemplate'}),
+    StoreModule.forRoot( { uiState: layoutReducer}),
     AppRoutingModule,
     SidebarModule,
     ProgressBarModule,
