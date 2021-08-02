@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {particlesSettings, particlesStyle} from '../../../configs/particles';
+import {particlesSettings, particlesStyle} from '../../shared/configs/particles';
 import {Store} from '@ngrx/store';
 import {selectUiState} from '../../state/layout.selectors';
 import {LayoutState} from '../../core/models/layout-state';

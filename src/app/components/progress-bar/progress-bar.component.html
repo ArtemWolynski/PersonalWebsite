@@ -2,7 +2,7 @@
   <ul>
     <li *ngFor="let value of values"
         (click)="onElementClicked(value)"
-        [style.color]="activePathValue === value ? 'rgb(255,81,81)' : 'white'">{{value}}
+        [style.color]="activePathValue === value ? 'rgb(255,81,81)' : 'white'">{{value | titlecase}}
     </li>
   </ul>
 

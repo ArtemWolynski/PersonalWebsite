@@ -1,29 +1,30 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject} from 'rxjs';
 import {Router} from '@angular/router';
-import {steps} from '../shared/configs/steps';
+import {Store} from '@ngrx/store';
+import {selectCurrentScreen} from '../state/layout.selectors';
+import {AppScreen} from '../core/enums/app-screen';
+import {setCurrentScreen} from '../store/actions/layout.actions';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ScreenTransitionService {
-  currentStep: BehaviorSubject<string>;
+  steps = JSON.parse(JSON.stringify(Object.keys(AppScreen)));
 
-  steps: string[];
-
-  currentScreen: string;
+  appScreen: AppScreen;
 
   isTransitioning: boolean;
 
-  constructor(private _router: Router) {
-    this.currentStep = new BehaviorSubject(null);
-    this.steps = JSON.parse(JSON.stringify(steps));
-    this.currentScreen = this.steps[0];
+  constructor(private _router: Router,
+              private _store: Store) {
+   this._store.select(selectCurrentScreen).subscribe((currentScreen: AppScreen) => {
+     this.appScreen = currentScreen;
+   })
   }
 
   onScroll(event) {
     if (!this.isTransitioning) {
-      let screenIndex = this.steps.indexOf(this.currentScreen);
+      let screenIndex = this.steps.indexOf(this.appScreen);
       if (event.deltaY > 0)            // scrolling down
       {
         if (screenIndex < this.steps.length - 1) {
@@ -54,9 +55,8 @@ export class ScreenTransitionService {
   }
 
 
-  setCurrentStep(stepName: string) {
-    this.currentScreen = stepName;
-    this.currentStep.next(stepName);
-    this._router.navigate([stepName.toLocaleLowerCase()]).then();
+  setCurrentStep(stepName: AppScreen) {
+    this._store.dispatch(setCurrentScreen ( { currentScreen: stepName }))
   }
+
 }

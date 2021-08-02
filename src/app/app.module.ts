@@ -25,6 +25,8 @@ import {layoutReducer} from './store/reducers/layout.reducer';
 import {ClassicLayoutModule} from './components/layout/classic-layout/classic-layout.module';
 import {FooterModule} from './components/footer/footer.module';
 import {ModernLayoutModule} from './components/layout/modern-layout/modern-layout.module';
+import {EffectsModule} from '@ngrx/effects';
+import {LayoutEffects} from './store/effects/layout-effects';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import {ModernLayoutModule} from './components/layout/modern-layout/modern-layou
   imports: [
     BrowserModule.withServerTransition({appId: 'ngWebsiteTemplate'}),
     StoreModule.forRoot({uiState: layoutReducer}),
+    EffectsModule.forRoot([LayoutEffects]),
     AppRoutingModule,
     SidebarModule,
     ProgressBarModule,

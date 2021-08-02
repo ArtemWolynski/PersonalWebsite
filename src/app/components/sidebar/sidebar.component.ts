@@ -2,6 +2,9 @@ import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {ScreenTransitionService} from '../../services/screen-transition.service';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
+import {Store} from '@ngrx/store';
+import {selectCurrentScreen} from '../../state/layout.selectors';
+import {AppScreen} from '../../core/enums/app-screen';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,11 +13,13 @@ import {takeUntil} from 'rxjs/operators';
 })
 export class SidebarComponent implements OnInit, OnDestroy {
   @Input() classicMode = false;
+
   buttonText: string;
   shouldShowButton: boolean;
   private _unsubscribeAll: Subject<any>;
 
-  constructor(private stepsService: ScreenTransitionService) {
+  constructor(private stepsService: ScreenTransitionService,
+              private _store: Store) {
     this._unsubscribeAll = new Subject<any>();
   }
 
@@ -34,11 +39,11 @@ export class SidebarComponent implements OnInit, OnDestroy {
   }
 
   subscribeToCurrentStep() {
-    this.stepsService.currentStep
+    this._store.select(selectCurrentScreen)
       .pipe(
         takeUntil(this._unsubscribeAll)
       )
-      .subscribe((step) => {
+      .subscribe((step: AppScreen) => {
         this.setButtonContent(step);
       });
   }

@@ -9,6 +9,6 @@
 <div class="menu-nav" [class.open]="isOpen">
   <h3 class="close" (click)="toggleMenu()">Close X</h3>
   <ul>
-    <li *ngFor="let step of navList" (click)="setCurrentStep(step)">{{step}}</li>
+    <li *ngFor="let step of navList" (click)="setCurrentStep(step)">{{step | titlecase}}</li>
   </ul>
 </div>

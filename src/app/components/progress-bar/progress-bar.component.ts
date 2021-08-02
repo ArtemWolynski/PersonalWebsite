@@ -2,7 +2,11 @@ import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core'
 import {ScreenTransitionService} from '../../services/screen-transition.service';
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
-import {steps} from '../../shared/configs/steps';
+import {Store} from '@ngrx/store';
+import {selectCurrentScreen} from '../../state/layout.selectors';
+import {ActivatedRoute} from '@angular/router';
+import {AppScreen} from '../../core/enums/app-screen';
+import {setCurrentScreen} from '../../store/actions/layout.actions';
 
 @Component({
   selector: 'app-progress-bar',
@@ -10,42 +14,36 @@ import {steps} from '../../shared/configs/steps';
   styleUrls: ['./progress-bar.component.scss']
 })
 export class ProgressBarComponent implements OnInit, OnDestroy {
+
   @Output() clicked: EventEmitter<boolean> = new EventEmitter();
-  activePathValue;
-  progressBarValue = 15;
-  values: string[];
+  activePathValue: string;
+  progressBarValue: number;
+  values = Object.keys(AppScreen);
 
   private _unsubscribeAll: Subject<any>;
 
-  constructor(private stepsService: ScreenTransitionService) {
+  constructor(private stepsService: ScreenTransitionService,
+              private _route: ActivatedRoute,
+              private _store: Store) {
     this._unsubscribeAll = new Subject();
   }
 
   ngOnInit() {
-    this.initProgressBar();
-    this.activePathValue = this.values[0];
     this.subscribeToCurrentStep();
   }
 
-  animateTransition() {
-
-  }
-
   onElementClicked(value: string) {
-    this.activePathValue = value;
     this.setProgressBarValue(value);
     setTimeout(() => {
-      this.stepsService.setCurrentStep(value);
+      this._store.dispatch(setCurrentScreen( { currentScreen: <AppScreen>value}));
     }, 800);
     this.clicked.next(true);
   }
 
   subscribeToCurrentStep() {
-    this.stepsService.currentStep
-      .pipe(
-        takeUntil(this._unsubscribeAll)
-      )
-      .subscribe((step) => {
+    this._store.select(selectCurrentScreen)
+      .pipe(takeUntil(this._unsubscribeAll))
+      .subscribe((step: string) => {
         this.setProgressBarValue(step);
         this.activePathValue = step;
       });
@@ -64,10 +62,6 @@ export class ProgressBarComponent implements OnInit, OnDestroy {
     }  else if (index === 4) {
       this.progressBarValue = 80;
     }
-  }
-
-  initProgressBar() {
-    this.values = steps;
   }
 
   ngOnDestroy() {

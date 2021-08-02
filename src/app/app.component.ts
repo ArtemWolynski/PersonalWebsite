@@ -3,9 +3,11 @@ import {ScreenTransitionService} from './services/screen-transition.service';
 import {Subject} from 'rxjs';
 import {filter, takeUntil} from 'rxjs/operators';
 import {Store} from '@ngrx/store';
-import {setMode} from './store/actions/layout.actions';
-import {selectAppMode} from './state/layout.selectors';
+import {setCurrentScreen, setMode} from './store/actions/layout.actions';
+import {selectAppMode, selectCurrentScreen} from './state/layout.selectors';
 import {AppMode} from './core/enums/app-mode';
+import {AppScreen} from './core/enums/app-screen';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +21,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private _unsubscribeAll: Subject<any>;
   constructor(private stepsService: ScreenTransitionService,
+              public location: Location,
               private store: Store) {
     this._unsubscribeAll = new Subject<any>();
   }
@@ -29,6 +32,8 @@ export class AppComponent implements OnInit, OnDestroy {
     this.store.select(selectAppMode).subscribe((appMode: AppMode) => {
       this.appMode = appMode;
     });
+
+    this.store.dispatch(setCurrentScreen( { currentScreen: <AppScreen> this.location.path().substr(1).toUpperCase()}))
   }
 
   get AppMode() {
@@ -58,19 +63,19 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   subscribeToCurrentStep() {
-    this.stepsService.currentStep
+    this.store.select(selectCurrentScreen)
       .pipe(
         filter(value => value != null),
         takeUntil(this._unsubscribeAll)
       )
-      .subscribe((step: string) => {
+      .subscribe((step: AppScreen) => {
         if (this.appMode !== AppMode.SLIDES) {
           this.scrollToScreen(step);
         }
       });
   }
 
-  scrollToScreen(screenId) {
+  scrollToScreen(screenId: AppScreen) {
     const el = document.getElementById(screenId);
     if (el) {
     el.scrollIntoView({behavior: 'smooth'});
