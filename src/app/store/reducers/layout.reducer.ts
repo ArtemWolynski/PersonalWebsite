@@ -1,10 +1,11 @@
-import { createReducer, on } from '@ngrx/store';
+import {createReducer, on} from '@ngrx/store';
 import {setMode, toggleMenu} from '../actions/layout.actions';
 import {LayoutState} from '../../core/models/layout-state';
+import {AppMode} from '../../core/enums/app-mode';
 
 export const initialState: LayoutState = {
   isMenuOpen: false,
-  appMode: 'slides'
+  appMode: AppMode.SLIDES
 };
 
 export const layoutReducer = createReducer(
