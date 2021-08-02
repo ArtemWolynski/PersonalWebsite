@@ -1,5 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { FormBuilder, Validators} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {selectAppMode} from '../../state/layout.selectors';
+import {AppMode} from '../../core/enums/app-mode';
+import {Store} from '@ngrx/store';
 
 @Component({
   selector: 'app-get-in-touch',
@@ -7,10 +11,11 @@ import { FormBuilder, Validators} from '@angular/forms';
   styleUrls: ['./get-in-touch.component.scss']
 })
 export class GetInTouchComponent implements OnInit {
-  @Input() classicMode = false;
-  @Input() mobileMode = false;
+
+  appMode$: Observable<AppMode> = this._store.select(selectAppMode);
+
   getInTouchForm;
-  interval;
+  interval: number;
   isActive: boolean;
   isTyping: boolean;
 
@@ -18,10 +23,15 @@ export class GetInTouchComponent implements OnInit {
   secondLineText = '';
   thirdLineText = '';
 
-  constructor(private _formBuilder: FormBuilder,) { }
+  constructor(private _formBuilder: FormBuilder,
+              private _store: Store) { }
 
   ngOnInit() {
     this.initForm();
+  }
+
+  get AppMode() {
+    return AppMode;
   }
 
   onSubmit() {

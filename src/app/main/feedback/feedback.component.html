@@ -1,4 +1,4 @@
-<h2 *ngIf="classicMode" id="Reviews" class="section-header">
+<h2 *ngIf="(appMode$ | async) === AppMode.CLASSIC" id="Reviews" class="section-header">
   Feedback
 </h2>
 

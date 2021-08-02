@@ -1,4 +1,5 @@
-<h2 *ngIf="classicMode" id="Projects" class="section-header">
+<h2 *ngIf="(appMode$ | async) === AppMode.CLASSIC"
+    id="Projects" class="section-header">
   Portfolio
 </h2>
 

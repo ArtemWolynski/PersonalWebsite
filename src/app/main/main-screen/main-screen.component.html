@@ -12,7 +12,7 @@
       </div>
     </div>
   </div>
-  <ng-particles *ngIf="!classicMode"
+  <ng-particles *ngIf="appMode !== AppMode.CLASSIC"
                 [options]="myParams"
                 [style]="myStyle">
   </ng-particles>

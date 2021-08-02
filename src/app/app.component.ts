@@ -4,8 +4,7 @@ import {Subject} from 'rxjs';
 import {filter, takeUntil} from 'rxjs/operators';
 import {Store} from '@ngrx/store';
 import {setMode} from './store/actions/layout.actions';
-import {selectUiState} from './state/layout.selectors';
-import {LayoutState} from './core/models/layout-state';
+import {selectAppMode} from './state/layout.selectors';
 import {AppMode} from './core/enums/app-mode';
 
 @Component({
@@ -21,15 +20,19 @@ export class AppComponent implements OnInit, OnDestroy {
   private _unsubscribeAll: Subject<any>;
   constructor(private stepsService: ScreenTransitionService,
               private store: Store) {
-    this.store.select(selectUiState).subscribe((uiState: LayoutState) => {
-     this.appMode = uiState.appMode;
-    })
     this._unsubscribeAll = new Subject<any>();
   }
 
   ngOnInit() {
     this.subscribeToCurrentStep();
     this.onResize();
+    this.store.select(selectAppMode).subscribe((appMode: AppMode) => {
+      this.appMode = appMode;
+    });
+  }
+
+  get AppMode() {
+    return AppMode;
   }
 
   @HostListener('window:resize')

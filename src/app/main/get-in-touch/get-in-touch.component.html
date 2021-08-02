@@ -1,8 +1,8 @@
-<h2 *ngIf="classicMode" id="Contacts" class="section-header">
+<h2 *ngIf="(appMode$ | async) === AppMode.CLASSIC" id="Contacts" class="section-header">
   Contact
 </h2>
 
-<h3 *ngIf="mobileMode" class="headline">
+<h3 *ngIf="(appMode$ | async) === AppMode.MOBILE" class="headline">
   Have a question or want<br> to work together?
 </h3>
 

@@ -1,12 +1,13 @@
 <section class="skills-container" id="Skills">
+
   <div class="position-container container">
-    <h2 class="section-header" *ngIf="classicMode">Skills</h2>
+    <h2 class="section-header" *ngIf="(appMode$ | async) === AppMode.CLASSIC">Skills</h2>
     <div class="content-between">
       <app-skill-tile    (click)="setActiveSkillSet('General Skills')"
                          [text]="'General Skills'">
       </app-skill-tile>
 
-      <div class="content-between skills-description"  *ngIf="activeSkillSet === 'General Skills' && mobileMode">
+      <div class="content-between skills-description"  *ngIf="activeSkillSet === 'General Skills' && (appMode$ | async) === AppMode.MOBILE">
         <div class="description"   [@animate]="{value:'*',params:{y:'100%'}}">
           <p>I have skills and I like em.</p>
 
@@ -24,7 +25,7 @@
                       [text]="'Back End'">
       </app-skill-tile>
 
-      <div class="content-between skills-description"  *ngIf="activeSkillSet === 'Back End' && mobileMode">
+      <div class="content-between skills-description"  *ngIf="activeSkillSet === 'Back End' && (appMode$ | async) === AppMode.MOBILE">
         <div class="description"   [@animate]="{value:'*',params:{y:'100%'}}">
           <p>Creating cook architecture for your companies. Like, subscribe.</p>
 
@@ -44,7 +45,7 @@
                       [text]="'Front End'">
       </app-skill-tile>
 
-      <div class="content-between skills-description"  *ngIf="activeSkillSet === 'Front End' && mobileMode">
+      <div class="content-between skills-description"  *ngIf="activeSkillSet === 'Front End' && (appMode$ | async) === AppMode.MOBILE">
         <div class="description"   [@animate]="{value:'*',params:{y:'100%'}}">
           <p>Creating wonderful interfaces for your companies. Like, subscribe.</p>
 
@@ -62,7 +63,7 @@
         </div>
       </div>
     </div>
-    <div class="content-between skills-description"  *ngIf="activeSkillSet === 'General Skills' && !mobileMode">
+    <div class="content-between skills-description"  *ngIf="activeSkillSet === 'General Skills' && (appMode$ | async) !== AppMode.MOBILE">
       <div class="description"   [@animate]="{value:'*',params:{y:'100%'}}">
         <p>I have skills and I like em.</p>
 
@@ -76,7 +77,7 @@
       </div>
     </div>
 
-    <div class="content-between skills-description"  *ngIf="activeSkillSet === 'Front End' && !mobileMode">
+    <div class="content-between skills-description"  *ngIf="activeSkillSet === 'Front End' && (appMode$ | async) !== AppMode.MOBILE">
       <div class="description"   [@animate]="{value:'*',params:{y:'100%'}}">
         <p>Creating wonderful interfaces for your companies. Like, subscribe.</p>
 
@@ -94,7 +95,7 @@
       </div>
     </div>
 
-    <div class="content-between skills-description"  *ngIf="activeSkillSet === 'Back End' && !mobileMode">
+    <div class="content-between skills-description"  *ngIf="activeSkillSet === 'Back End' && (appMode$ | async) !== AppMode.MOBILE">
       <div class="description"   [@animate]="{value:'*',params:{y:'100%'}}">
         <p>Creating cook architecture for your companies. Like, subscribe.</p>
 

@@ -1,5 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {feedbacks} from '../../shared/configs/feedbacks';
+import {Observable} from 'rxjs';
+import {selectAppMode} from '../../state/layout.selectors';
+import {AppMode} from '../../core/enums/app-mode';
+import {Store} from '@ngrx/store';
 
 @Component({
   selector: 'app-feedback',
@@ -7,14 +11,20 @@ import {feedbacks} from '../../shared/configs/feedbacks';
   styleUrls: ['./feedback.component.scss']
 })
 export class FeedbackComponent implements OnInit {
-  @Input() classicMode = false;
+
+  appMode$: Observable<AppMode> = this._store.select(selectAppMode);
+
   feedback: any[];
   currentIndex = 0;
 
-  constructor() { }
+  constructor(private _store: Store) { }
 
   ngOnInit() {
     this.feedback = feedbacks;
+  }
+
+  get AppMode() {
+    return AppMode;
   }
 
   slideNext() {

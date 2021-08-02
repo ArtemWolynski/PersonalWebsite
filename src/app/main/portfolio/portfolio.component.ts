@@ -1,8 +1,11 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {portfolio} from '../../shared/configs/portfolio';
 import {PortfolioService} from '../../services/portfolio.service';
-import {Subject} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import {filter, takeUntil} from 'rxjs/operators';
+import {selectAppMode} from '../../state/layout.selectors';
+import {AppMode} from '../../core/enums/app-mode';
+import {Store} from '@ngrx/store';
 
 @Component({
   selector: 'app-portfolio',
@@ -10,23 +13,25 @@ import {filter, takeUntil} from 'rxjs/operators';
   styleUrls: ['./portfolio.component.scss'],
 })
 export class PortfolioComponent implements OnInit, OnDestroy {
-  @Input() classicMode = false;
-  currentIndex = 0;
 
-  portfolio;
+  appMode$: Observable<AppMode> = this._store.select(selectAppMode);
+
+  currentIndex = 0;
+  portfolio = portfolio;
+
   private _unsubscribeAll: Subject<any>;
-  constructor(private portfolioService: PortfolioService) {
+
+  constructor(private _portfolioService: PortfolioService,
+              private _store: Store) {
     this._unsubscribeAll = new Subject<any>();
   }
 
   ngOnInit() {
-    this.portfolio = portfolio;
     this.subscribeToPortfolio();
   }
 
-  ngOnDestroy() {
-    this._unsubscribeAll.next();
-    this._unsubscribeAll.complete();
+  get AppMode() {
+    return AppMode;
   }
 
   slideNext() {
@@ -35,11 +40,11 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     } else {
       this.currentIndex++;
     }
-    this.portfolioService.setActiveItem(this.portfolio[this.currentIndex].name);
+    this._portfolioService.setActiveItem(this.portfolio[this.currentIndex].name);
   }
 
   subscribeToPortfolio() {
-    this.portfolioService.activeItem
+    this._portfolioService.activeItem
       .pipe(
         filter(value => value != null),
         takeUntil(this._unsubscribeAll)
@@ -47,6 +52,11 @@ export class PortfolioComponent implements OnInit, OnDestroy {
       .subscribe((activeProject) => {
         this.currentIndex = this.portfolio.indexOf(this.portfolio.find(portfolioItem => portfolioItem.name === activeProject));
       });
+  }
+
+  ngOnDestroy() {
+    this._unsubscribeAll.next();
+    this._unsubscribeAll.complete();
   }
 
 }
