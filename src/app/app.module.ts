@@ -22,9 +22,9 @@ import {FeedbackModule} from './main/feedback/feedback.module';
 import {GetInTouchModule} from './main/get-in-touch/get-in-touch.module';
 import {StoreModule} from '@ngrx/store';
 import {layoutReducer} from './store/reducers/layout.reducer';
-import {ClassicLayoutModule} from './main/classic-layout/classic-layout.module';
+import {ClassicLayoutModule} from './components/layout/classic-layout/classic-layout.module';
 import {FooterModule} from './components/footer/footer.module';
-import {ModernLayoutModule} from './main/modern-layout/modern-layout.module';
+import {ModernLayoutModule} from './components/layout/modern-layout/modern-layout.module';
 
 @NgModule({
   declarations: [

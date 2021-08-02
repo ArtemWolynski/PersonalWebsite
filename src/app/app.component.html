@@ -1,8 +1,11 @@
-<div *ngIf="appMode === 'slides'; then desctopLayout else mobileLayout"></div>
-
+<div *ngIf="appMode === 'slides';
+     then desctopLayout
+     else mobileLayout">
+</div>
 
 <ng-template #desctopLayout>
   <app-modern-layout>
+    <router-outlet>  </router-outlet>
   </app-modern-layout>
 </ng-template>
 

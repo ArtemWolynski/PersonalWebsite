@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ScreenTransitionService} from '../../services/screen-transition.service';
+import {ScreenTransitionService} from '../../../services/screen-transition.service';
 
 @Component({
   selector: 'app-modern-layout',
