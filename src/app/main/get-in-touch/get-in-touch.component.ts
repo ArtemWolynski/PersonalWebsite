@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import { FormBuilder, Validators} from '@angular/forms';
 import {Observable} from 'rxjs';
-import {selectAppMode} from '../../state/layout.selectors';
+import {uiSelectAppMode} from '../../state/layout.selectors';
 import {AppMode} from '../../core/enums/app-mode';
 import {Store} from '@ngrx/store';
+import {AppScreen} from '../../core/enums/app-screen';
 
 @Component({
   selector: 'app-get-in-touch',
@@ -12,7 +13,7 @@ import {Store} from '@ngrx/store';
 })
 export class GetInTouchComponent implements OnInit {
 
-  appMode$: Observable<AppMode> = this._store.select(selectAppMode);
+  appMode$: Observable<AppMode> = this._store.select(uiSelectAppMode);
 
   getInTouchForm;
   interval: number;
@@ -32,6 +33,10 @@ export class GetInTouchComponent implements OnInit {
 
   get AppMode() {
     return AppMode;
+  }
+
+  get AppScreen() {
+    return AppScreen;
   }
 
   onSubmit() {

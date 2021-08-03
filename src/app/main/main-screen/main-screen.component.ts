@@ -1,9 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {particlesSettings, particlesStyle} from '../../shared/configs/particles';
 import {Store} from '@ngrx/store';
-import {selectUiState} from '../../state/layout.selectors';
+import {uiSelectState} from '../../state/layout.selectors';
 import {LayoutState} from '../../core/models/layout-state';
 import {AppMode} from '../../core/enums/app-mode';
+import {AppScreen} from '../../core/enums/app-screen';
 
 @Component({
   selector: 'app-main-screen',
@@ -20,13 +21,17 @@ export class MainScreenComponent implements OnInit {
   appMode: AppMode;
 
   constructor(private store: Store) {
-    this.store.select(selectUiState).subscribe((uiState: LayoutState) => {
+    this.store.select(uiSelectState).subscribe((uiState: LayoutState) => {
       this.appMode = uiState.appMode;
     })
   }
 
   get AppMode() {
     return AppMode;
+  }
+
+  get AppScreen() {
+    return AppScreen;
   }
 
   ngOnInit() {

@@ -26,7 +26,8 @@ import {ClassicLayoutModule} from './components/layout/classic-layout/classic-la
 import {FooterModule} from './components/footer/footer.module';
 import {ModernLayoutModule} from './components/layout/modern-layout/modern-layout.module';
 import {EffectsModule} from '@ngrx/effects';
-import {LayoutEffects} from './store/effects/layout-effects';
+import {NavigationEffects} from './store/effects/navigation.effects';
+import {navigationReducer} from './store/reducers/navigation.reducer';
 
 @NgModule({
   declarations: [
@@ -34,8 +35,8 @@ import {LayoutEffects} from './store/effects/layout-effects';
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ngWebsiteTemplate'}),
-    StoreModule.forRoot({uiState: layoutReducer}),
-    EffectsModule.forRoot([LayoutEffects]),
+    StoreModule.forRoot({uiState: layoutReducer, navigation: navigationReducer}),
+    EffectsModule.forRoot([NavigationEffects]),
     AppRoutingModule,
     SidebarModule,
     ProgressBarModule,

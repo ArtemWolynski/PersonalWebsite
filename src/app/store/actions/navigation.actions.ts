@@ -1,11 +1,12 @@
 import { createAction, props } from '@ngrx/store';
+import {AppScreen} from '../../core/enums/app-screen';
 
-export const navigateToElement = createAction(
+export const navSlideToElement = createAction(
   '[Navigation] Navigate To Element',
-  props< { screenName: string } >()
+  props< { currentScreen: AppScreen } >()
 );
 
-export const scrollToElement = createAction(
+export const navScrollToElement = createAction(
   '[Navigation] Scroll To Element',
-  props< { screenName: string } >()
+  props< { currentScreen: AppScreen } >()
 )

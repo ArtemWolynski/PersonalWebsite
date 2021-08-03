@@ -1,9 +1,10 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {feedbacks} from '../../shared/configs/feedbacks';
 import {Observable} from 'rxjs';
-import {selectAppMode} from '../../state/layout.selectors';
+import {uiSelectAppMode} from '../../state/layout.selectors';
 import {AppMode} from '../../core/enums/app-mode';
 import {Store} from '@ngrx/store';
+import {AppScreen} from '../../core/enums/app-screen';
 
 @Component({
   selector: 'app-feedback',
@@ -12,7 +13,7 @@ import {Store} from '@ngrx/store';
 })
 export class FeedbackComponent implements OnInit {
 
-  appMode$: Observable<AppMode> = this._store.select(selectAppMode);
+  appMode$: Observable<AppMode> = this._store.select(uiSelectAppMode);
 
   feedback: any[];
   currentIndex = 0;
@@ -25,6 +26,10 @@ export class FeedbackComponent implements OnInit {
 
   get AppMode() {
     return AppMode;
+  }
+
+  get AppScreen() {
+    return AppScreen;
   }
 
   slideNext() {

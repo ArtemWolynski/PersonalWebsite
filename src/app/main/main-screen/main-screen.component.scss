@@ -1,121 +1,122 @@
 @import "../../../styles/partials/positioning";
 @import "../../../styles/partials/colors";
 
-.header {
-  @include container(100vh, 100%, -5%, 0, -10%);
+:host {
+  .header {
+    @include container(100vh, 100%, -5%, 0, -10%);
 
-  @media screen and (max-width: 1480px) {
-    @include container(100vh, 100%, -5%, 0,  0);
-  }
-
-  h1, h2, h3 {
-    margin: 0;
-    padding: 0;
-  }
-
-  .name {
-    font-family: "Gotha Pro", sans-serif;
-    font-weight: lighter;
-    font-size: 36px;
-    letter-spacing: 8px;
-    text-transform: uppercase;
-    margin-bottom: -5px;
-  }
-
-  .surname {
-    font-family: "Gotha Pro Bold", sans-serif;
-    font-size: 94px;
-    color: $primaryColor;
-    text-transform: uppercase;
-  }
-
-  .position{
-    padding-left: 372px;
-    font-family: "Gotha Pro", sans-serif;
-    font-weight: lighter;
-    font-size: 16px;
-  }
-
-  .description {
-    margin-left: 400px;
-    max-width: 521px;
-    margin-top: 25px;
-    display: flex;
-
-    .pillar{
-      margin-right: 25px;
-      width: 15px;
-      height: auto;
-      background-color: $primaryColor;
+    @media screen and (max-width: 1480px) {
+      @include container(100vh, 100%, -5%, 0,  0);
     }
 
-    p {
-      padding: 0;
+    h1, h2, h3 {
       margin: 0;
-
-      &:first-child {
-        padding-bottom: 20px;
-      }
+      padding: 0;
     }
-  }
-}
-
-
-
-@media screen and (max-width: 1250px) {
-  .header {
-    @include container(100vh, 100%, 0, 0, 0);
 
     .name {
-      font-size: 8vw;
+      font-family: "Gotha Pro", sans-serif;
+      font-weight: lighter;
+      font-size: 36px;
       letter-spacing: 8px;
-      margin-bottom: 0;
+      text-transform: uppercase;
+      margin-bottom: -5px;
     }
 
-    .description {
-      margin-left: 20%;
-    }
-
-    .container {
-      width: 95%;
-      margin: 34vh auto 0;
-    }
-  }
-}
-
-
-@media screen and (max-width: 680px) {
-  .header {
-    @include container(100vh, 95%, 0, 0, 0);
-
-
-    .name {
-      font-size: 8vw;
-      letter-spacing: 8px;
-      margin-bottom: 0;
-    }
-
-    .surname{
-      font-size: 16vw;
+    .surname {
+      font-family: "Gotha Pro Bold", sans-serif;
+      font-size: 94px;
+      color: $primaryColor;
+      text-transform: uppercase;
     }
 
     .position{
-      padding-left: 5px;
-      padding-top: 5px;
-      font-size: 5vw;
+      padding-left: 372px;
+      font-family: "Gotha Pro", sans-serif;
       font-weight: lighter;
+      font-size: 16px;
     }
 
     .description {
-      margin-left: -10px;
+      margin-left: 400px;
       max-width: 521px;
-      margin-top: 70px;
+      margin-top: 25px;
+      display: flex;
 
       .pillar{
-        margin-right: 13px;
-        width: 25px;
+        margin-right: 25px;
+        width: 15px;
+        height: auto;
+        background-color: $primaryColor;
+      }
+
+      p {
+        padding: 0;
+        margin: 0;
+
+        &:first-child {
+          padding-bottom: 20px;
+        }
       }
     }
   }
 
+
+
+  @media screen and (max-width: 1250px) {
+    .header {
+      @include container(100vh, 100%, 0, 0, 0);
+
+      .name {
+        font-size: 8vw;
+        letter-spacing: 8px;
+        margin-bottom: 0;
+      }
+
+      .description {
+        margin-left: 20%;
+      }
+
+      .container {
+        width: 95%;
+        margin: 34vh auto 0;
+      }
+    }
+  }
+
+
+  @media screen and (max-width: 680px) {
+    .header {
+      @include container(100vh, 95%, 0, 0, 0);
+
+
+      .name {
+        font-size: 8vw;
+        letter-spacing: 8px;
+        margin-bottom: 0;
+      }
+
+      .surname{
+        font-size: 16vw;
+      }
+
+      .position{
+        padding-left: 5px;
+        padding-top: 5px;
+        font-size: 5vw;
+        font-weight: lighter;
+      }
+
+      .description {
+        margin-left: -10px;
+        max-width: 521px;
+        margin-top: 70px;
+
+        .pillar{
+          margin-right: 13px;
+          width: 25px;
+        }
+      }
+    }
+  }
 }

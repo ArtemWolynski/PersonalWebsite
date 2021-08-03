@@ -3,8 +3,8 @@ import {ScreenTransitionService} from '../../services/screen-transition.service'
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 import {Store} from '@ngrx/store';
-import {selectCurrentScreen} from '../../state/layout.selectors';
 import {AppScreen} from '../../core/enums/app-screen';
+import {navSelectCurrentScreen} from '../../state/navigation.selectors';
 
 @Component({
   selector: 'app-sidebar',
@@ -39,7 +39,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
   }
 
   subscribeToCurrentStep() {
-    this._store.select(selectCurrentScreen)
+    this._store.select(navSelectCurrentScreen)
       .pipe(
         takeUntil(this._unsubscribeAll)
       )

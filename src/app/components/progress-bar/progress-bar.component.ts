@@ -3,10 +3,10 @@ import {ScreenTransitionService} from '../../services/screen-transition.service'
 import {Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 import {Store} from '@ngrx/store';
-import {selectCurrentScreen} from '../../state/layout.selectors';
 import {ActivatedRoute} from '@angular/router';
 import {AppScreen} from '../../core/enums/app-screen';
-import {setCurrentScreen} from '../../store/actions/layout.actions';
+import {navSlideToElement} from '../../store/actions/navigation.actions';
+import {navSelectCurrentScreen} from '../../state/navigation.selectors';
 
 @Component({
   selector: 'app-progress-bar',
@@ -35,13 +35,13 @@ export class ProgressBarComponent implements OnInit, OnDestroy {
   onElementClicked(value: string) {
     this.setProgressBarValue(value);
     setTimeout(() => {
-      this._store.dispatch(setCurrentScreen( { currentScreen: <AppScreen>value}));
+      this._store.dispatch(navSlideToElement( { currentScreen : <AppScreen>value}));
     }, 800);
     this.clicked.next(true);
   }
 
   subscribeToCurrentStep() {
-    this._store.select(selectCurrentScreen)
+    this._store.select(navSelectCurrentScreen)
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((step: string) => {
         this.setProgressBarValue(step);

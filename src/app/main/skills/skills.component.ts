@@ -4,7 +4,8 @@ import {SkillsService} from '../../services/skills.service';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
 import {AppMode} from '../../core/enums/app-mode';
-import {selectAppMode} from '../../state/layout.selectors';
+import {uiSelectAppMode} from '../../state/layout.selectors';
+import {AppScreen} from '../../core/enums/app-screen';
 
 @Component({
   selector: 'app-skills',
@@ -14,7 +15,7 @@ import {selectAppMode} from '../../state/layout.selectors';
 })
 export class SkillsComponent implements OnInit {
 
-  appMode$: Observable<AppMode> = this._store.select(selectAppMode);
+  appMode$: Observable<AppMode> = this._store.select(uiSelectAppMode);
 
   activeSkillSet = 'Front End';
 
@@ -27,6 +28,10 @@ export class SkillsComponent implements OnInit {
 
   get AppMode() {
     return AppMode;
+  }
+
+  get AppScreen() {
+    return AppScreen;
   }
 
   setActiveSkillSet(value) {

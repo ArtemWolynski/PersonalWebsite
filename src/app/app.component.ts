@@ -3,11 +3,14 @@ import {ScreenTransitionService} from './services/screen-transition.service';
 import {Subject} from 'rxjs';
 import {filter, takeUntil} from 'rxjs/operators';
 import {Store} from '@ngrx/store';
-import {setCurrentScreen, setMode} from './store/actions/layout.actions';
-import {selectAppMode, selectCurrentScreen} from './state/layout.selectors';
+import {setMode} from './store/actions/layout.actions';
+import {uiSelectAppMode} from './state/layout.selectors';
 import {AppMode} from './core/enums/app-mode';
 import {AppScreen} from './core/enums/app-screen';
 import {Location} from '@angular/common';
+import {navSlideToElement} from './store/actions/navigation.actions';
+import {navSelectCurrentScreen} from './state/navigation.selectors';
+// import {navSelectAppScreen} from './state/navigation.selectors';
 
 @Component({
   selector: 'app-root',
@@ -29,11 +32,11 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscribeToCurrentStep();
     this.onResize();
-    this.store.select(selectAppMode).subscribe((appMode: AppMode) => {
+    this.store.select(uiSelectAppMode).subscribe((appMode: AppMode) => {
       this.appMode = appMode;
     });
 
-    this.store.dispatch(setCurrentScreen( { currentScreen: <AppScreen> this.location.path().substr(1).toUpperCase()}))
+    this.store.dispatch(navSlideToElement( { currentScreen: <AppScreen> this.location.path().substr(1).toUpperCase()}))
   }
 
   get AppMode() {
@@ -63,7 +66,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   subscribeToCurrentStep() {
-    this.store.select(selectCurrentScreen)
+    this.store.select(navSelectCurrentScreen)
       .pipe(
         filter(value => value != null),
         takeUntil(this._unsubscribeAll)
