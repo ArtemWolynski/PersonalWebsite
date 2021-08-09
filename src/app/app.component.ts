@@ -10,7 +10,7 @@ import {AppScreen} from './core/enums/app-screen';
 import {Location} from '@angular/common';
 import {navSlideToElement} from './store/actions/navigation.actions';
 import {navSelectCurrentScreen} from './state/navigation.selectors';
-// import {navSelectAppScreen} from './state/navigation.selectors';
+import {IconRegistryService} from './services/icon-registry.service';
 
 @Component({
   selector: 'app-root',
@@ -25,11 +25,13 @@ export class AppComponent implements OnInit, OnDestroy {
   private _unsubscribeAll: Subject<any>;
   constructor(private stepsService: ScreenTransitionService,
               public location: Location,
+              private _iconRegistry: IconRegistryService,
               private store: Store) {
     this._unsubscribeAll = new Subject<any>();
   }
 
   ngOnInit() {
+    this._iconRegistry.registerIcons();
     this.subscribeToCurrentStep();
     this.onResize();
     this.store.select(uiSelectAppMode).subscribe((appMode: AppMode) => {

@@ -1,7 +1,7 @@
-<div *ngIf="appMode === AppMode.SLIDES;
+<ng-container *ngIf="appMode === AppMode.SLIDES;
      then desctopLayout
      else mobileLayout">
-</div>
+</ng-container>
 
 <ng-template #desctopLayout>
   <app-modern-layout>

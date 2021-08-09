@@ -1,114 +1,54 @@
-<section id="{{AppScreen.SKILLS}}">
+<section *ngIf="appMode$ | async as appMode"
+         id="{{AppScreen.SKILLS}}"
+         class="skills-container">
 
   <div class="position-container container">
-    <h2 class="section-header" *ngIf="(appMode$ | async) === AppMode.CLASSIC">Skills</h2>
+
+    <h2 *ngIf="appMode === AppMode.CLASSIC"
+        class="section-header">
+      Skills
+    </h2>
+
     <div class="content-between">
-      <app-skill-tile    (click)="setActiveSkillSet('General Skills')"
-                         [text]="'General Skills'">
-      </app-skill-tile>
 
-      <div class="content-between skills-description"  *ngIf="activeSkillSet === 'General Skills' && (appMode$ | async) === AppMode.MOBILE">
-        <div class="description"   [@animate]="{value:'*',params:{y:'100%'}}">
-          <p>I have skills and I like em.</p>
+      <div *ngFor="let skillSet of (skillSets$ | async)"
+           class="content-between">
+        <app-skill-tile (click)="setActiveSkillSet(skillSet)"
+                        [text]="skillSet.name"
+                        [icon]="skillSet.icon"
+                        [isActive]="(activeSkillSet$ | async)?.name === skillSet.name">
 
-          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur..</p>
-        </div>
-        <div class="skills">
-          <app-skill-item [text]="'Spring Boot'" [maxValue]="80"></app-skill-item>
-          <app-skill-item [text]="'Hibernate'" [maxValue]="70"></app-skill-item>
-          <app-skill-item [text]="'Postgres'"  [maxValue]="75"></app-skill-item>
-        </div>
+          <ng-container *ngIf="appMode === AppMode.MOBILE
+                        && (activeSkillSet$ | async)?.name === skillSet.name
+                        then skillsContainer;">
+          </ng-container>
+
+        </app-skill-tile>
       </div>
 
-      <app-skill-tile (click)="setActiveSkillSet('Back End')"
-                      [text]="'Back End'">
-      </app-skill-tile>
+      <ng-container *ngIf="appMode !== AppMode.MOBILE
+                     then skillsContainer;">
+      </ng-container>
 
-      <div class="content-between skills-description"  *ngIf="activeSkillSet === 'Back End' && (appMode$ | async) === AppMode.MOBILE">
-        <div class="description"   [@animate]="{value:'*',params:{y:'100%'}}">
-          <p>Creating cook architecture for your companies. Like, subscribe.</p>
-
-          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur..</p>
-        </div>
-        <div class="skills">
-          <app-skill-item [text]="'Spring Boot'" [maxValue]="80"></app-skill-item>
-          <app-skill-item [text]="'Hibernate'" [maxValue]="70"></app-skill-item>
-          <app-skill-item [text]="'Postgres'"  [maxValue]="75"></app-skill-item>
-          <app-skill-item [text]="'Spring Boot'" [maxValue]="80"></app-skill-item>
-          <app-skill-item [text]="'Spring Boot'" [maxValue]="80"></app-skill-item>
-        </div>
-      </div>
-
-      <app-skill-tile (click)="setActiveSkillSet('Front End')"
-                      [text]="'Front End'">
-      </app-skill-tile>
-
-      <div class="content-between skills-description"  *ngIf="activeSkillSet === 'Front End' && (appMode$ | async) === AppMode.MOBILE">
-        <div class="description"   [@animate]="{value:'*',params:{y:'100%'}}">
-          <p>Creating wonderful interfaces for your companies. Like, subscribe.</p>
-
-          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur..</p>
-
-          <p>Excepteur sint occaecat cup idatat non proident, sunt in cu
-            lpa qui officia deser unt mollit animid est laborum..</p>
-        </div>
-        <div class="skills">
-          <app-skill-item [text]="'Spring Boot'" [maxValue]="80"></app-skill-item>
-          <app-skill-item [text]="'Hibernate'" [maxValue]="70"></app-skill-item>
-          <app-skill-item [text]="'Hibernate'" [maxValue]="70"></app-skill-item>
-          <app-skill-item [text]="'Postgres'"  [maxValue]="75"></app-skill-item>
-        </div>
-      </div>
-    </div>
-    <div class="content-between skills-description"  *ngIf="activeSkillSet === 'General Skills' && (appMode$ | async) !== AppMode.MOBILE">
-      <div class="description"   [@animate]="{value:'*',params:{y:'100%'}}">
-        <p>I have skills and I like em.</p>
-
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur..</p>
-      </div>
-      <div class="skills">
-          <app-skill-item [text]="'Spring Boot'" [maxValue]="80"></app-skill-item>
-          <app-skill-item [text]="'Hibernate'" [maxValue]="70"></app-skill-item>
-          <app-skill-item [text]="'Postgres'"  [maxValue]="75"></app-skill-item>
-      </div>
     </div>
 
-    <div class="content-between skills-description"  *ngIf="activeSkillSet === 'Front End' && (appMode$ | async) !== AppMode.MOBILE">
-      <div class="description"   [@animate]="{value:'*',params:{y:'100%'}}">
-        <p>Creating wonderful interfaces for your companies. Like, subscribe.</p>
-
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur..</p>
-
-        <p>Excepteur sint occaecat cup idatat non proident, sunt in cu
-          lpa qui officia deser unt mollit animid est laborum..</p>
-      </div>
-      <div class="skills">
-        <app-skill-item [text]="'Spring Boot'" [maxValue]="80"></app-skill-item>
-        <app-skill-item [text]="'Hibernate'" [maxValue]="70"></app-skill-item>
-        <app-skill-item [text]="'Hibernate'" [maxValue]="70"></app-skill-item>
-        <app-skill-item [text]="'Postgres'"  [maxValue]="75"></app-skill-item>
-      </div>
-    </div>
-
-    <div class="content-between skills-description"  *ngIf="activeSkillSet === 'Back End' && (appMode$ | async) !== AppMode.MOBILE">
-      <div class="description"   [@animate]="{value:'*',params:{y:'100%'}}">
-        <p>Creating cook architecture for your companies. Like, subscribe.</p>
-
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-          cillum dolore eu fugiat nulla pariatur..</p>
-      </div>
-      <div class="skills">
-        <app-skill-item [text]="'Spring Boot'" [maxValue]="80"></app-skill-item>
-        <app-skill-item [text]="'Hibernate'" [maxValue]="70"></app-skill-item>
-        <app-skill-item [text]="'Postgres'"  [maxValue]="75"></app-skill-item>
-        <app-skill-item [text]="'Spring Boot'" [maxValue]="80"></app-skill-item>
-        <app-skill-item [text]="'Spring Boot'" [maxValue]="80"></app-skill-item>
-      </div>
-    </div>
   </div>
 </section>
+
+<ng-template #skillsContainer>
+  <div *ngIf="(activeSkillSet$ | async) as activeSkillSet"
+       class="content-between skills-description">
+
+    <div [@animate]="{value:'*',params:{y:'100%'}}"
+         class="description">
+      <p>{{activeSkillSet.description}}</p>
+    </div>
+
+    <div class="skills">
+      <app-skill-item *ngFor="let skill of activeSkillSet.skills"
+                      [text]="skill.name"
+                      [maxValue]="skill.proficiency">
+      </app-skill-item>
+    </div>
+  </div>
+</ng-template>

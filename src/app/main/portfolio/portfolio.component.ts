@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {portfolio} from '../../shared/configs/portfolio';
-import {PortfolioService} from '../../services/portfolio.service';
+import {PortfolioService} from './portfolio.service';
 import {Observable, Subject} from 'rxjs';
 import {filter, takeUntil} from 'rxjs/operators';
 import {uiSelectAppMode} from '../../state/layout.selectors';

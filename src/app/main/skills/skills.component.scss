@@ -5,12 +5,13 @@
   width: 100%;
 
   .position-container {
-    width: 100%;
     min-height: 600px;
+    min-width: 100%;
 
     .skills-description {
       flex-wrap: nowrap;
       margin-top: 5%;
+      width: 100%;
 
       .skills {
 
@@ -53,9 +54,7 @@
       margin: 0 auto;
     }
 
-
     .position-container {
-
 
       .container {
         width: 100%;

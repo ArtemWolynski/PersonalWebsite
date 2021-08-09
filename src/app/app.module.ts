@@ -28,6 +28,9 @@ import {ModernLayoutModule} from './components/layout/modern-layout/modern-layou
 import {EffectsModule} from '@ngrx/effects';
 import {NavigationEffects} from './store/effects/navigation.effects';
 import {navigationReducer} from './store/reducers/navigation.reducer';
+import {skillsReducer} from './store/reducers/skills.reducer';
+import {SkillsEffects} from './store/effects/skills.effects';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -35,9 +38,10 @@ import {navigationReducer} from './store/reducers/navigation.reducer';
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ngWebsiteTemplate'}),
-    StoreModule.forRoot({uiState: layoutReducer, navigation: navigationReducer}),
-    EffectsModule.forRoot([NavigationEffects]),
+    StoreModule.forRoot({uiState: layoutReducer, navigation: navigationReducer, skills: skillsReducer}),
+    EffectsModule.forRoot([NavigationEffects, SkillsEffects]),
     AppRoutingModule,
+    HttpClientModule,
     SidebarModule,
     ProgressBarModule,
     SkillTileModule,
