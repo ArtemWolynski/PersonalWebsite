@@ -4,6 +4,7 @@ import {SkillsComponent} from './skills.component';
 import {SkillTileModule} from './skill-tile/skill-tile.module';
 import {SkillItemComponent} from './skill-item/skill-item.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {FlexModule} from '@angular/flex-layout';
 
 
 
@@ -16,6 +17,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     CommonModule,
     SkillTileModule,
     MatProgressBarModule,
+    FlexModule,
   ],
   exports: [
     SkillsComponent

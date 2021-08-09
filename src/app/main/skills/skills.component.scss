@@ -2,34 +2,38 @@
 
 :host {
   @include container(100vh, 100%, 0, 0, 0);
-  width: 100%;
+
+  .skills-container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
 
   .position-container {
     min-height: 600px;
-    min-width: 100%;
+    width: 100%;
 
     .skills-description {
       flex-wrap: nowrap;
       margin-top: 5%;
       width: 100%;
 
-      .skills {
-
-        .description {
-          max-width: 418px;
-          width: 90%;
-          margin-top: 25px;
-        }
-
-        .skills-description {
-          margin-top: 25px;
-        }
-
-        .skills {
-          margin-top: 10px;
-          width: 270px;
-        }
+      p {
+        margin: 0;
       }
+
+      .description {
+        max-width: 500px;
+        width: 90%;
+        margin-top: 25px;
+        white-space: pre-line;
+      }
+
+      .skills-description {
+        margin-top: 25px;
+      }
+
     }
   }
 }
