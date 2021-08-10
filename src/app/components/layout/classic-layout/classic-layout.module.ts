@@ -6,7 +6,7 @@ import {SidebarModule} from '../../sidebar/sidebar.module';
 import {SkillsModule} from '../../../main/skills/skills.module';
 import {FooterModule} from '../../footer/footer.module';
 import {PortfolioModule} from '../../../main/portfolio/portfolio.module';
-import {FeedbackModule} from '../../../main/feedback/feedback.module';
+import {RecommendationsModule} from '../../../main/feedback/recommendations.module';
 import {GetInTouchModule} from '../../../main/get-in-touch/get-in-touch.module';
 
 
@@ -22,7 +22,7 @@ import {GetInTouchModule} from '../../../main/get-in-touch/get-in-touch.module';
     SkillsModule,
     FooterModule,
     PortfolioModule,
-    FeedbackModule,
+    RecommendationsModule,
     GetInTouchModule
   ],
   exports: [

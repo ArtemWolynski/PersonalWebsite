@@ -1,7 +1,7 @@
-export interface Review {
+export interface Recommendation {
   id: number,
   author: string,
   position: string,
   text: string,
-  img: string,
+  imgUrl: string,
 }

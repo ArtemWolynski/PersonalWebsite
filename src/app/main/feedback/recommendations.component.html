@@ -4,13 +4,18 @@
   Feedback
 </h2>
 
-<section class="portfolio">
+<section *ngIf="(recommendations$ | async) as recommendations"
+         class="portfolio">
   <div style="width: 100%">
+
     <div class="feedback-container content-between">
       <app-review style="margin: 0 auto; width: 100%"
-                  [feedback]="feedback[currentIndex]"></app-review>
-      <div class="pillar"></div>
+                  [recommendation]="recommendations[currentRecommendationIndex]">
+      </app-review>
+      <div class="pillar">
+      </div>
     </div>
+
     <div class="controls-wrapper">
       <app-back-nforward-control
         (nextClicked)="slideNext()"
@@ -18,4 +23,5 @@
       </app-back-nforward-control>
     </div>
   </div>
+
 </section>

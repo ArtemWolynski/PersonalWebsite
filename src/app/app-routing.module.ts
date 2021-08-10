@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {MainScreenComponent} from './main/main-screen/main-screen.component';
 import {SkillsComponent} from './main/skills/skills.component';
 import {PortfolioComponent} from './main/portfolio/portfolio.component';
-import {FeedbackComponent} from './main/feedback/feedback.component';
+import {RecommendationsComponent} from './main/feedback/recommendations.component';
 import {GetInTouchComponent} from './main/get-in-touch/get-in-touch.component';
 
 export const APP_ROUTES: Routes = [
@@ -24,7 +24,7 @@ export const APP_ROUTES: Routes = [
     path: 'projects', component: PortfolioComponent
   },
   {
-    path: 'reviews', component: FeedbackComponent
+    path: 'reviews', component: RecommendationsComponent
   },
   {
     path: 'contacts', component: GetInTouchComponent

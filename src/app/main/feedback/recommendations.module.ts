@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {FeedbackComponent} from './feedback.component';
+import {RecommendationsComponent} from './recommendations.component';
 import {ReviewComponent} from './review/review.component';
 import {ControlsModule} from '../../components/controls/controls.module';
 
@@ -8,7 +8,7 @@ import {ControlsModule} from '../../components/controls/controls.module';
 
 @NgModule({
   declarations: [
-    FeedbackComponent,
+    RecommendationsComponent,
     ReviewComponent
   ],
   imports: [
@@ -17,7 +17,7 @@ import {ControlsModule} from '../../components/controls/controls.module';
   ],
     exports: [
         ReviewComponent,
-        FeedbackComponent
+        RecommendationsComponent
     ]
 })
-export class FeedbackModule { }
+export class RecommendationsModule { }

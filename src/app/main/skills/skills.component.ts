@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {fuseAnimations} from '../../shared/animations';
-import {SkillsService} from './skills.service';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
 import {AppMode} from '../../core/enums/app-mode';
@@ -28,8 +27,7 @@ export class SkillsComponent implements OnInit {
       tap((skillSet: SkillSet[]) => this.setActiveSkillSet(skillSet[0]))
     );
 
-  constructor(private _skillService: SkillsService,
-              private _store: Store) { }
+  constructor(private _store: Store) { }
 
   ngOnInit() {
     this._store.dispatch(skillsLoad());

@@ -18,7 +18,7 @@ import {NgParticlesModule} from 'ng-particles';
 import {SkillsModule} from './main/skills/skills.module';
 import {MainScreenModule} from './main/main-screen/main-screen.module';
 import {PortfolioModule} from './main/portfolio/portfolio.module';
-import {FeedbackModule} from './main/feedback/feedback.module';
+import {RecommendationsModule} from './main/feedback/recommendations.module';
 import {GetInTouchModule} from './main/get-in-touch/get-in-touch.module';
 import {StoreModule} from '@ngrx/store';
 import {layoutReducer} from './store/reducers/layout.reducer';
@@ -31,6 +31,8 @@ import {navigationReducer} from './store/reducers/navigation.reducer';
 import {skillsReducer} from './store/reducers/skills.reducer';
 import {SkillsEffects} from './store/effects/skills.effects';
 import {HttpClientModule} from '@angular/common/http';
+import {recommendationsReducer} from './store/reducers/recommendations.reducer';
+import {RecommendationsEffects} from './store/effects/recommendations-effects.service';
 
 @NgModule({
   declarations: [
@@ -38,8 +40,18 @@ import {HttpClientModule} from '@angular/common/http';
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'ngWebsiteTemplate'}),
-    StoreModule.forRoot({uiState: layoutReducer, navigation: navigationReducer, skills: skillsReducer}),
-    EffectsModule.forRoot([NavigationEffects, SkillsEffects]),
+    StoreModule.forRoot({
+      uiState: layoutReducer,
+      navigation: navigationReducer,
+      skills: skillsReducer,
+      recommendations: recommendationsReducer
+    }),
+    EffectsModule.forRoot(
+      [
+        NavigationEffects,
+        SkillsEffects,
+        RecommendationsEffects,
+      ]),
     AppRoutingModule,
     HttpClientModule,
     SidebarModule,
@@ -49,7 +61,7 @@ import {HttpClientModule} from '@angular/common/http';
     PortfolioModule,
     SkillsModule,
     MainScreenModule,
-    FeedbackModule,
+    RecommendationsModule,
     GetInTouchModule,
 
     ReactiveFormsModule,
@@ -60,7 +72,7 @@ import {HttpClientModule} from '@angular/common/http';
     NgParticlesModule,
     ControlsModule,
     PortfolioModule,
-    FeedbackModule,
+    RecommendationsModule,
     ClassicLayoutModule,
     FooterModule,
     ModernLayoutModule
