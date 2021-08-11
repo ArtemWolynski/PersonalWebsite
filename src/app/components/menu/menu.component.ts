@@ -1,5 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {ScreenTransitionService} from '../../services/screen-transition.service';
+import {Component} from '@angular/core';
 import {AppScreen} from '../../core/enums/app-screen';
 import {Store} from '@ngrx/store';
 import {navScrollToElement} from '../../store/actions/navigation.actions';
@@ -9,14 +8,12 @@ import {navScrollToElement} from '../../store/actions/navigation.actions';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent {
   navList = Object.keys(AppScreen);
   isOpen = false;
 
   constructor(private _store: Store) { }
 
-  ngOnInit() {
-  }
 
   scrollToElement(value: string) {
     this._store.dispatch(navScrollToElement ({ currentScreen: <AppScreen>value}));
