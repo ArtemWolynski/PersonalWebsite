@@ -27,20 +27,20 @@
   }
 }
 
-//@media screen and (max-width: 850px) {
-//  .slides {
-//    left: 65%;
-//    width: 30%;
-//  }
-//}
-//
-//
-//@media screen and (max-width: 650px) {
-//  .slides {
-//    left: 0;
-//    width: 90%;
-//    margin-left: 5%;
-//    height: 120%;
-//    top: -10%;
-//  }
-//}
+@media screen and (max-width: 850px) {
+  .slides {
+    left: 65%;
+    width: 30%;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .slides {
+    left: 0;
+    width: 90%;
+    margin-left: 5%;
+    height: 120%;
+    top: -10%;
+  }
+}

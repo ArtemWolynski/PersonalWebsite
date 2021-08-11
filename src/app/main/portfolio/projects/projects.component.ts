@@ -36,6 +36,11 @@ export class ProjectsComponent implements OnInit  {
   detectVisibleProjects(index: number): void {
     if (index < 0) return;
 
+    if (this.numberOfVisibleProjects === 3) {
+      this.visibleProjects = this.projects;
+      return;
+    }
+
     const arrayCopy = JSON.parse(JSON.stringify(this.projects));
     const extraElements = (index + this.numberOfVisibleProjects) - arrayCopy.length;
 
@@ -53,7 +58,6 @@ export class ProjectsComponent implements OnInit  {
     const innerWidth = window.innerWidth;
     let numberOfProjects;
 
-    console.log(innerWidth);
     if (innerWidth > 1200) {
       numberOfProjects = 3;
     } else if (innerWidth > 750) {
@@ -62,7 +66,6 @@ export class ProjectsComponent implements OnInit  {
       numberOfProjects = 1;
     }
     this.numberOfVisibleProjects = numberOfProjects;
-    console.log(this.numberOfVisibleProjects);
   }
 
   selectProject(project: Project) {
