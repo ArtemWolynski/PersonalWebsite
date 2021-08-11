@@ -33,6 +33,8 @@ import {SkillsEffects} from './store/effects/skills.effects';
 import {HttpClientModule} from '@angular/common/http';
 import {recommendationsReducer} from './store/reducers/recommendations.reducer';
 import {RecommendationsEffects} from './store/effects/recommendations-effects.service';
+import {projectsReducer} from './store/reducers/projects.reducer';
+import {ProjectsEffects} from './store/effects/projects.effects';
 
 @NgModule({
   declarations: [
@@ -44,13 +46,15 @@ import {RecommendationsEffects} from './store/effects/recommendations-effects.se
       uiState: layoutReducer,
       navigation: navigationReducer,
       skills: skillsReducer,
-      recommendations: recommendationsReducer
+      recommendations: recommendationsReducer,
+      projects: projectsReducer
     }),
     EffectsModule.forRoot(
       [
         NavigationEffects,
         SkillsEffects,
         RecommendationsEffects,
+        ProjectsEffects,
       ]),
     AppRoutingModule,
     HttpClientModule,

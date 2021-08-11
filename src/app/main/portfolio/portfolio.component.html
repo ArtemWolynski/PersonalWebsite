@@ -1,9 +1,10 @@
 <h2 *ngIf="(appMode$ | async) === AppMode.CLASSIC"
-    id="{{AppScreen.PROJECTS}}" class="section-header">
+    id="{{AppScreen.PROJECTS}}"
+    class="section-header">
   Portfolio
 </h2>
 
-<section class="portfolio">
+<section *ngIf="(projects$ | async) as portfolio" class="portfolio">
   <div class="portfolio-container">
 
     <div class="h2-container">
@@ -12,10 +13,16 @@
 
     <div class="description content-between">
       <div class="text-container">
-        <p class="text">{{portfolio[currentIndex].description}}</p>
+
+        <p class="text">
+          {{portfolio[currentIndex].description}}
+        </p>
       </div>
 
-      <app-projects></app-projects>
+      <app-project-tile [projects]="portfolio"
+                        [index]="currentIndex"
+      (selected)="setActiveProject($event)">
+      </app-project-tile>
 
       <div class="pillar"></div>
     </div>

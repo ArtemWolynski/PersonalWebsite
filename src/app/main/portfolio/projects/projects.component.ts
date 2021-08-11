@@ -1,38 +1,73 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {PortfolioService} from '../portfolio.service';
-import {Subject} from 'rxjs';
-import {filter, takeUntil} from 'rxjs/operators';
+import {Component, Input, OnInit, Output, EventEmitter, HostListener} from '@angular/core';
+import {Project} from '../../../core/models/project';
 
 @Component({
-  selector: 'app-projects',
+  selector: 'app-project-tile',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss']
 })
-export class ProjectsComponent implements OnInit, OnDestroy  {
-  activeProject;
-  private _unsubscribeAll: Subject<any>;
-  constructor(private portfolioService: PortfolioService) {
-    this._unsubscribeAll = new Subject<any>();
+export class ProjectsComponent implements OnInit  {
+
+  @Input() projects: Project[];
+  @Input() set index(index: number){
+    // Set timeout is needed to let angular to run through the lifecycle hooks before executing this function
+    setTimeout(() => {
+      this.detectVisibleProjects(index);
+      this.currentIndex =
+        this.visibleProjects
+          .indexOf(this.visibleProjects
+            .find((p: Project) => p.id === this.projects[index].id));
+    });
+  }
+
+  @Output() selected = new EventEmitter<number>();
+
+  visibleProjects: Project[];
+  numberOfVisibleProjects: number;
+  currentIndex: number;
+
+  constructor() {
   }
 
   ngOnInit() {
-    this.portfolioService.activeItem
-      .pipe(
-        filter(value => value != null),
-        takeUntil(this._unsubscribeAll)
-      )
-      .subscribe((activeProject) => {
-        this.activeProject = activeProject;
-      })
+    this.setNumberOfVisibleProjects();
   }
 
-  ngOnDestroy() {
-    this._unsubscribeAll.next();
-    this._unsubscribeAll.complete();
+  detectVisibleProjects(index: number): void {
+    if (index < 0) return;
+
+    const arrayCopy = JSON.parse(JSON.stringify(this.projects));
+    const extraElements = (index + this.numberOfVisibleProjects) - arrayCopy.length;
+
+    // If the projects array has enough elements to display from index to array end, we simply display it
+    // Else we take n elements from the array end + number of items to display - already displayed items from the beginning
+    if (extraElements > -1) {
+      this.visibleProjects = Array.of(...arrayCopy.splice(index), ...arrayCopy.splice(0, extraElements));
+    } else {
+      this.visibleProjects = Array.of(...arrayCopy.splice(index, this.numberOfVisibleProjects))
+    }
   }
 
-  setActiveProject(projectName: string) {
-    this.portfolioService.setActiveItem(projectName);
+  @HostListener('window:resize', ['$event'])
+  setNumberOfVisibleProjects() {
+    const innerWidth = window.innerWidth;
+    let numberOfProjects;
+
+    console.log(innerWidth);
+    if (innerWidth > 1200) {
+      numberOfProjects = 3;
+    } else if (innerWidth > 750) {
+      numberOfProjects = 2;
+    } else {
+      numberOfProjects = 1;
+    }
+    this.numberOfVisibleProjects = numberOfProjects;
+    console.log(this.numberOfVisibleProjects);
+  }
+
+  selectProject(project: Project) {
+    const elementIndex = this.projects.indexOf(this.projects.find(p => p.id === project.id));
+    this.selected.next(elementIndex);
   }
 
 }
