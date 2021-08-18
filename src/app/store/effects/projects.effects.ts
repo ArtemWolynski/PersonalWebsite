@@ -4,7 +4,7 @@ import {catchError, map, switchMap} from 'rxjs/operators';
 import {of} from 'rxjs';
 import {ProjectsService} from '../../main/portfolio/projects.service';
 import {Project} from '../../core/models/project';
-import {projectsError, projectsLoad, projectsLoaded} from '../actions/projects.antions';
+import {projectsError, projectsLoad, projectsLoaded} from '../actions/projects.actions';
 
 @Injectable()
 export class ProjectsEffects {

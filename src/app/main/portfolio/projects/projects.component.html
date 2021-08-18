@@ -1,8 +1,9 @@
-<div class="slides" fxLayout="row">
-  <app-project-item *ngFor="let project of visibleProjects"
-                    [project]="project"
-                    [isActive]="project === visibleProjects[currentIndex]"
-                    (projectSelected)="selectProject($event)"
-                    class="slide">
-  </app-project-item>
-</div>
+<ul class="slides" fxLayout="row">
+  <li *ngFor="let project of visibleProjects">
+    <app-project-item [project]="project"
+                      [isActive]="project === visibleProjects[currentIndex]"
+                      (projectSelected)="selectProject($event)"
+                      class="slide">
+    </app-project-item>
+  </li>
+</ul>

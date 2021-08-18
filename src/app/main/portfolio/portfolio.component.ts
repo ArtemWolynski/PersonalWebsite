@@ -6,7 +6,7 @@ import {uiSelectAppMode} from '../../state/layout.selectors';
 import {AppMode} from '../../core/enums/app-mode';
 import {Store} from '@ngrx/store';
 import {AppScreen} from '../../core/enums/app-screen';
-import {projectsLoad} from '../../store/actions/projects.antions';
+import {projectsLoad} from '../../store/actions/projects.actions';
 import {selectProjects} from '../../state/projects.selectors';
 import {Project} from '../../core/models/project';
 

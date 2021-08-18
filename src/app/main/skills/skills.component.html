@@ -9,21 +9,22 @@
       Skills
     </h2>
 
+    <ul fxLayoutAlign="space-between" fxLayout.lt-sm="column" fxLayoutGap="10px">
+      <li *ngFor="let skillSet of (skillSets$ | async)">
+        <app-skill-tile (click)="setActiveSkillSet(skillSet)"
+                        [text]="skillSet.name"
+                        [icon]="skillSet.icon"
+                        [isActive]="(activeSkillSet$ | async)?.name === skillSet.name">
 
-    <div fxLayoutAlign="space-between" fxLayoutGap="10px">
-      <app-skill-tile *ngFor="let skillSet of (skillSets$ | async)"
-                      (click)="setActiveSkillSet(skillSet)"
-                      [text]="skillSet.name"
-                      [icon]="skillSet.icon"
-                      [isActive]="(activeSkillSet$ | async)?.name === skillSet.name">
-
-        <ng-container *ngIf="appMode === AppMode.MOBILE
+          <ng-container *ngIf="appMode === AppMode.MOBILE
                         && (activeSkillSet$ | async)?.name === skillSet.name
                         then skillsContainer;">
-        </ng-container>
+          </ng-container>
 
-      </app-skill-tile>
-    </div>
+        </app-skill-tile>
+      </li>
+
+    </ul>
 
     <div *ngIf="appMode !== AppMode.MOBILE
                      then skillsContainer;">
@@ -35,10 +36,12 @@
 <ng-template #skillsContainer>
   <div *ngIf="(activeSkillSet$ | async) as activeSkillSet"
        fxLayoutAlign="space-between"
+       fxLayout.lt-sm="column"
+       fxLayoutAlign.lt-sm="center center"
        fxLayoutGap="10px"
-       class="skills-description">
+      class="skills-description">
 
-    <div [@animate]="{value:'*',params:{y:'100%'}}"
+    <div [@animate]="{value:'*', params: { y:'100%' }}"
          class="description">
       <p>{{activeSkillSet.description}}</p>
     </div>

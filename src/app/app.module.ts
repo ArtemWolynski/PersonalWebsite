@@ -35,6 +35,9 @@ import {recommendationsReducer} from './store/reducers/recommendations.reducer';
 import {RecommendationsEffects} from './store/effects/recommendations-effects.service';
 import {projectsReducer} from './store/reducers/projects.reducer';
 import {ProjectsEffects} from './store/effects/projects.effects';
+import {BREAKPOINTS, DEFAULT_BREAKPOINTS} from '@angular/flex-layout';
+import {updateBreakpoints} from './shared/configs/breakpoints';
+import {validateSuffixes} from '@angular/flex-layout/typings/core/breakpoints/breakpoint-tools';
 
 @NgModule({
   declarations: [
@@ -81,7 +84,14 @@ import {ProjectsEffects} from './store/effects/projects.effects';
     FooterModule,
     ModernLayoutModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: BREAKPOINTS,
+      useFactory: function customizeBraskPoints() {
+        return DEFAULT_BREAKPOINTS.map(updateBreakpoints);
+      }
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

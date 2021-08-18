@@ -52,7 +52,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
     if (window.innerWidth > 1200) {
       appMode = AppMode.SLIDES
-    } else if (window.innerWidth > 680) {
+    } else if (window.innerWidth > 740) {
       appMode = AppMode.CLASSIC;
     } else {
       appMode = AppMode.MOBILE;

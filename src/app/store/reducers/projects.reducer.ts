@@ -1,6 +1,6 @@
 import {ProjectsState} from '../../core/models/projects-state';
 import {createReducer, on} from '@ngrx/store';
-import {projectsLoad, projectsLoaded} from '../actions/projects.antions';
+import {projectsLoad, projectsLoaded} from '../actions/projects.actions';
 
 export const initialState: ProjectsState = {
   projects: []
