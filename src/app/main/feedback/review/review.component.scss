@@ -1,3 +1,6 @@
+@import "../../../../styles/partials/colors";
+
+
 .feedback {
   width: 90%;
   padding-top: 45px;
@@ -15,8 +18,11 @@
     max-width: 120px;
     max-height: 120px;
     border-radius: 50%;
+    background-color: $primaryColor;
 
     img {
+      min-width: 120px;
+      min-height: 120px;
       max-width:100%;
       max-height:100%;
     }

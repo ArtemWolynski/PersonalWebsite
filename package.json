@@ -45,6 +45,7 @@
     "@egjs/hammerjs": "2.0.15",
     "@ngrx/effects": "^12.3.0",
     "@ngrx/store": "12.2.0",
+    "@nguniversal/express-engine": "^12.1.0",
     "angular-particle": "^1.0.4",
     "express": "4.17.1",
     "ng-particles": "2.14.1",

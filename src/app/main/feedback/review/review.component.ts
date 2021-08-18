@@ -5,7 +5,6 @@ import {Recommendation} from '../../../core/models/recommendation';
   selector: 'app-review',
   templateUrl: './review.component.html',
   styleUrls: ['./review.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ReviewComponent implements OnInit {
   @Input() recommendation: Recommendation;

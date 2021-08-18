@@ -5,19 +5,18 @@ import {ReviewComponent} from './review/review.component';
 import {ControlsModule} from '../../components/controls/controls.module';
 
 
-
 @NgModule({
   declarations: [
     RecommendationsComponent,
-    ReviewComponent
+    ReviewComponent,
   ],
-  imports: [
-    CommonModule,
-    ControlsModule
-  ],
-    exports: [
-        ReviewComponent,
-        RecommendationsComponent
-    ]
+    imports: [
+        CommonModule,
+        ControlsModule,
+    ],
+  exports: [
+    ReviewComponent,
+    RecommendationsComponent,
+  ]
 })
 export class RecommendationsModule { }

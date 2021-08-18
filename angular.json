@@ -112,28 +112,6 @@
             ]
           }
         },
-        "server": {
-          "builder": "@angular-devkit/build-angular:server",
-          "options": {
-            "outputPath": "dist/server",
-            "main": "src/main.server.ts",
-            "tsConfig": "src/tsconfig.server.json",
-            "sourceMap": true,
-            "optimization": false
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ]
-            ,              "optimization": true
-}
-          },
-          "defaultConfiguration": ""
-        },
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {

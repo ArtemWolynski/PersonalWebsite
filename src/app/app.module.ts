@@ -37,7 +37,6 @@ import {projectsReducer} from './store/reducers/projects.reducer';
 import {ProjectsEffects} from './store/effects/projects.effects';
 import {BREAKPOINTS, DEFAULT_BREAKPOINTS} from '@angular/flex-layout';
 import {updateBreakpoints} from './shared/configs/breakpoints';
-import {validateSuffixes} from '@angular/flex-layout/typings/core/breakpoints/breakpoint-tools';
 
 @NgModule({
   declarations: [
@@ -79,7 +78,6 @@ import {validateSuffixes} from '@angular/flex-layout/typings/core/breakpoints/br
     NgParticlesModule,
     ControlsModule,
     PortfolioModule,
-    RecommendationsModule,
     ClassicLayoutModule,
     FooterModule,
     ModernLayoutModule

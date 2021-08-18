@@ -4,6 +4,7 @@ import {PortfolioComponent} from './portfolio.component';
 import {ProjectsComponent} from './projects/projects.component';
 import {ProjectItemComponent} from './projects/project-item/project-item.component';
 import {FlexModule} from '@angular/flex-layout';
+import {DirectivesModule} from '../../shared/directives/directives.module';
 
 
 
@@ -15,7 +16,8 @@ import {FlexModule} from '@angular/flex-layout';
     ],
   imports: [
     CommonModule,
-    FlexModule
+    FlexModule,
+    DirectivesModule,
   ],
   exports: [
     PortfolioComponent,
