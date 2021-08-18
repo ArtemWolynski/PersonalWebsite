@@ -24,28 +24,28 @@
             <input type="email"
                    formControlName="email" name="email"
                    matInput placeholder="Email">
+            <mat-error>Please enter a valid email</mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <input formControlName="message" name="message"
+            <textarea formControlName="message" name="message"
+                      rows="3"
               matInput placeholder="Your message">
+            </textarea>
           </mat-form-field>
         </div>
       </form>
 
-      <app-primary-button [text1]="'Submit'"
+      <app-primary-button [text]="'Submit'"
+
                           [disabled]="getInTouchForm.invalid"
                           (clicked)="onSubmit()">
       </app-primary-button>
     </div>
 
     <div class="text-container" [class.active]="isActive">
-      <div class="text-wrapper" [class.active]="isActive">
-        <p>{{firstLineText}}</p>
-        <p>{{secondLineText}}</p>
-        <p>{{thirdLineText}}</p>
-        <!--<p>Thanks for sharing your details! I'll be getting back to you in no time!</p>-->
-        <!--<p>But maybe, just maybe... There is something that you want to say?</p>-->
+      <div [class.active]="isActive" class="text-wrapper">
+        <p>Thanks for reaching out! I'll be getting back to you in no time!</p>
       </div>
     </div>
   </div>

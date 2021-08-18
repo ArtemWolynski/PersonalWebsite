@@ -1,3 +1,5 @@
+@import "../../../styles/partials/colors";
+
 .sidebar {
   position: fixed;
   left: 0;
@@ -25,6 +27,14 @@
   .controls {
     li {
       padding-bottom: 20px;
+
+      a {
+        transition: ease-in-out 200ms;
+
+        &:hover {
+          color: $primaryColor;
+        }
+      }
     }
   }
 }

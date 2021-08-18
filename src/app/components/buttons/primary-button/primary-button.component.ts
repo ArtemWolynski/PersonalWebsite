@@ -1,22 +1,18 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-primary-button',
   templateUrl: './primary-button.component.html',
   styleUrls: ['./primary-button.component.scss']
 })
-export class PrimaryButtonComponent implements OnInit {
-  @Input() text1;
+export class PrimaryButtonComponent {
+  @Input() text: string;
+  @Input() disabled: boolean;
+
   @Output() clicked: EventEmitter<string> = new EventEmitter();
-  @Input() disabled;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
   onClicked() {
-    this.clicked.next(this.text1);
+    this.clicked.next(this.text);
   }
 
 }

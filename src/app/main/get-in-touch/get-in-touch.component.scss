@@ -20,13 +20,12 @@
 
       }
 
-      p, input, mat-form-field, .mat-form-field {
+      p, input, textarea, mat-form-field, .mat-form-field {
         color: white !important;
       }
     }
 
     .form-container {
-      //margin-top: -8%;
       width: 100%;
       flex-wrap: nowrap;
 
@@ -52,7 +51,6 @@
         }
 
         app-primary-button {
-          position: absolute;
           bottom: -7.5%;
           left: 0;
           right: 0;
@@ -72,52 +70,13 @@
         .text-wrapper {
           margin: 70px 13% 3%;
           transition: 1000ms ease-in-out;
+          transition-delay: 600ms;
           opacity: 0;
-          width: 100%;
 
           &.active {
-            width: 50%;
+            width: 80%;
             opacity: 1;
           }
-
-          p {
-            width: 150%;
-          }
-        }
-      }
-    }
-
-    .controls {
-      margin: 20px auto;
-      width: 350px;
-
-      p {
-        cursor: pointer;
-
-        &.active {
-          color: $primaryColor;
-
-          &::after {
-            background-color: $primaryColor;
-          }
-        }
-
-        &::after {
-          content: '';
-          display: inline-block;
-          width: 50px;
-          height: 10px;
-          background-color: $secondaryColor;
-          margin-left: 10px;
-        }
-
-        &::before {
-          content: '';
-          display: inline-block;
-          width: 50px;
-          height: 10px;
-          background-color: white;
-          margin-right: 10px;
         }
       }
     }
@@ -143,8 +102,12 @@
     background-color: $secondaryColor !important;;
   }
 
-  input.mat-input-element {
+  input, textarea {
     color: $primaryColor;
+  }
+
+  textarea {
+    resize: none;
   }
 
 

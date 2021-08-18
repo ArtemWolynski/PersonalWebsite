@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { FormBuilder, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {uiSelectAppMode} from '../../state/layout.selectors';
 import {AppMode} from '../../core/enums/app-mode';
@@ -15,14 +15,9 @@ export class GetInTouchComponent implements OnInit {
 
   appMode$: Observable<AppMode> = this._store.select(uiSelectAppMode);
 
-  getInTouchForm;
-  interval: number;
-  isActive: boolean;
-  isTyping: boolean;
+  getInTouchForm: FormGroup;
 
-  firstLineText = '';
-  secondLineText = '';
-  thirdLineText = '';
+  isActive: boolean;
 
   constructor(private _formBuilder: FormBuilder,
               private _store: Store) { }
@@ -40,7 +35,8 @@ export class GetInTouchComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('test');
+    this.isActive = true;
+    this.getInTouchForm.reset();
   }
 
   initForm() {
@@ -49,16 +45,6 @@ export class GetInTouchComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       message: ['', Validators.required]
     });
-
-    // this.getInTouchForm.valueChanges.subscribe(value =>
-    // {
-    //   if (value.name || value.email || value.message) {
-    //     this.isActive = true;
-    //   } else {
-    //     this.isActive = false;
-    //     this.firstLineText = '';
-    //   }
-    // })
   }
 
   // setFirstLine(text) {
