@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProjectsService} from './projects.service';
 import {Observable, Subject} from 'rxjs';
 import {tap} from 'rxjs/operators';
@@ -15,10 +15,11 @@ import {Project} from '../../core/models/project';
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.scss'],
 })
-export class PortfolioComponent implements OnInit, OnDestroy {
+export class PortfolioComponent implements OnInit {
 
   appMode$: Observable<AppMode> = this._store.select(uiSelectAppMode);
-  projects$ =  this._store.select(selectProjects)
+
+  projects$ = this._store.select(selectProjects)
     .pipe(
       tap((projects: Project[]) => this.arrayLength = projects.length)
     );
@@ -26,11 +27,8 @@ export class PortfolioComponent implements OnInit, OnDestroy {
   arrayLength: number;
   currentIndex = 0;
 
-  private _unsubscribeAll: Subject<any>;
-
   constructor(private _portfolioService: ProjectsService,
               private _store: Store) {
-    this._unsubscribeAll = new Subject<any>();
   }
 
   ngOnInit() {
@@ -55,11 +53,6 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     } else {
       this.currentIndex++;
     }
-  }
-
-  ngOnDestroy() {
-    this._unsubscribeAll.next();
-    this._unsubscribeAll.complete();
   }
 
 }

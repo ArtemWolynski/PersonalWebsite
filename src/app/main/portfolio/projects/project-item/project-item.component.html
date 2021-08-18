@@ -1,4 +1,4 @@
-<div class="slide" (click)="selectProject()">
-  <img src="{{project.imgUrl}}" alt="{{project.name}}">
+<div class="project-item" (click)="selectProject()">
+  <img src="{{project.imgUrl}}"  alt="{{project.name}}">
   <div class="smoke-screen" [class.active]="isActive"></div>
 </div>

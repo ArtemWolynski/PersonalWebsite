@@ -15,7 +15,7 @@ export const recommendations: Recommendation[] = [
     id: 1,
     author: 'Ardrew Maximov',
     position: 'Chief Executive Officer at Precious Payload',
-    text: 'Excellent soft skillSets, great team player, perfect fit for a remote team, ' +
+    text: 'Excellent soft skills, great team player, perfect fit for a remote team, ' +
       'self-assessment and self-reflection, always learning new technologies. ' +
       'I would recommend Artem for any startup as a lead developer and a great addition to the product team. ' +
       'Artem used to be employee #2 at Precious Payload and I cannot recommend him more!',

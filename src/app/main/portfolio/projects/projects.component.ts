@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output, EventEmitter, HostListener} from '@angular/core';
+import {Component, Input, Output, EventEmitter, HostListener, ViewChild, ElementRef, AfterViewInit, ChangeDetectorRef} from '@angular/core';
 import {Project} from '../../../core/models/project';
 
 @Component({
@@ -6,13 +6,19 @@ import {Project} from '../../../core/models/project';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss']
 })
-export class ProjectsComponent implements OnInit  {
+export class ProjectsComponent implements AfterViewInit  {
+
+  @ViewChild('slidesContainer') slidesEl: ElementRef;
 
   @Input() projects: Project[];
-  @Input() set index(index: number){
+
+  @Input() set index(index: number) {
+
     // Set timeout is needed to let angular to run through the lifecycle hooks before executing this function
     setTimeout(() => {
+
       this.detectVisibleProjects(index);
+
       this.currentIndex =
         this.visibleProjects
           .indexOf(this.visibleProjects
@@ -26,10 +32,10 @@ export class ProjectsComponent implements OnInit  {
   numberOfVisibleProjects: number;
   currentIndex: number;
 
-  constructor() {
+  constructor(private cdr: ChangeDetectorRef) {
   }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     this.setNumberOfVisibleProjects();
   }
 
@@ -55,17 +61,21 @@ export class ProjectsComponent implements OnInit  {
 
   @HostListener('window:resize', ['$event'])
   setNumberOfVisibleProjects() {
-    const innerWidth = window.innerWidth;
+    const innerWidth = this.slidesEl.nativeElement.clientWidth;
+
     let numberOfProjects;
 
-    if (innerWidth > 1200) {
+    if (innerWidth > 750) { //TODO breakpoints should be stored somewhere as variables
       numberOfProjects = 3;
-    } else if (innerWidth > 750) {
+    } else if (innerWidth > 450) {
       numberOfProjects = 2;
     } else {
       numberOfProjects = 1;
     }
+
     this.numberOfVisibleProjects = numberOfProjects;
+    this.detectVisibleProjects(this.currentIndex);
+    this.cdr.detectChanges();
   }
 
   selectProject(project: Project) {

@@ -1,9 +1,8 @@
-<ul class="slides" fxLayout="row">
+<ul class="slides" fxLayout="row" fxLayoutAlign="row" fxLayoutAlign.lt-lg="flex-end" #slidesContainer>
   <li *ngFor="let project of visibleProjects">
     <app-project-item [project]="project"
                       [isActive]="project === visibleProjects[currentIndex]"
-                      (projectSelected)="selectProject($event)"
-                      class="slide">
+                      (projectSelected)="selectProject($event)">
     </app-project-item>
   </li>
 </ul>

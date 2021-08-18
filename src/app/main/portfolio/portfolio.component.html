@@ -12,8 +12,8 @@
     </div>
 
     <div class="description content-between">
-      <div class="text-container">
 
+      <div class="text-container">
         <p class="text">
           {{portfolio[currentIndex].description}}
         </p>
@@ -25,14 +25,22 @@
       </app-project-tile>
 
       <div class="pillar"></div>
+
     </div>
 
     <div class="controls content-between">
-      <p><a href="{{portfolio[currentIndex].link}}" target="_blank">View project</a></p>
+
+      <p>
+        <a href="{{portfolio[currentIndex].link}}"
+            target="_blank">
+        View project</a>
+      </p>
+
       <p class="active"
          (click)="slideNext()">
         Next project
       </p>
+
     </div>
   </div>
 </section>
