@@ -18,7 +18,7 @@ import {IconRegistryService} from './services/icon-registry.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit, OnDestroy {
-  currentScreen: string;
+  currentScreen: AppScreen;
 
   appMode: AppMode;
 
@@ -38,11 +38,21 @@ export class AppComponent implements OnInit, OnDestroy {
       this.appMode = appMode;
     });
 
-    this.store.dispatch(navSlideToElement( { currentScreen: <AppScreen> this.location.path().substr(1).toUpperCase()}))
+   this.setInitialScreen();
   }
 
   get AppMode() {
     return AppMode;
+  }
+
+  setInitialScreen(): void {
+    let initialScreen =  <AppScreen> this.location.path().substr(1);
+
+    if (!initialScreen) {
+      initialScreen = AppScreen.ABOUT;
+    }
+
+    this.store.dispatch(navSlideToElement( { currentScreen:  initialScreen}))
   }
 
   @HostListener('window:resize')

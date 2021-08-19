@@ -9,7 +9,7 @@ import {navSlideToElement} from '../store/actions/navigation.actions';
   providedIn: 'root'
 })
 export class ScreenTransitionService {
-  steps = JSON.parse(JSON.stringify(Object.keys(AppScreen)));
+  steps = JSON.parse(JSON.stringify(Object.values(AppScreen)));
 
   currentScreen: AppScreen;
 

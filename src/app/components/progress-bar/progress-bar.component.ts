@@ -16,9 +16,19 @@ import {navSelectCurrentScreen} from '../../state/navigation.selectors';
 export class ProgressBarComponent implements OnInit, OnDestroy {
 
   @Output() clicked: EventEmitter<boolean> = new EventEmitter();
+
+  values = Object.values(AppScreen);
   activePathValue: string;
-  progressBarValue: number;
-  values = Object.keys(AppScreen);
+  index: number;
+
+
+  indexToProgressbarValue: Map<number, number> = new Map([
+    [0, 15],
+    [1, 31],
+    [2, 47],
+    [3, 64],
+    [4, 80],
+  ]);
 
   private _unsubscribeAll: Subject<any>;
 
@@ -43,25 +53,14 @@ export class ProgressBarComponent implements OnInit, OnDestroy {
   subscribeToCurrentStep() {
     this._store.select(navSelectCurrentScreen)
       .pipe(takeUntil(this._unsubscribeAll))
-      .subscribe((step: string) => {
+      .subscribe((step: AppScreen) => {
         this.setProgressBarValue(step);
         this.activePathValue = step;
       });
   }
 
   setProgressBarValue(value) {
-    const index = this.values.indexOf(value);
-    if (index === 0) {
-      this.progressBarValue = 15;
-    } else if (index === 1) {
-      this.progressBarValue = 31;
-    } else if (index === 2) {
-      this.progressBarValue = 47;
-    } else if (index === 3) {
-      this.progressBarValue = 64;
-    }  else if (index === 4) {
-      this.progressBarValue = 80;
-    }
+    this.index = this.values.indexOf(value);
   }
 
   ngOnDestroy() {
