@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
-import {AppScreen} from '../../core/enums/app-screen';
+import {AppScreen} from '../../../core/enums/app-screen';
 import {Store} from '@ngrx/store';
-import {navScrollToElement} from '../../store/actions/navigation.actions';
+import {navScrollToElement} from '../../../store/actions/navigation.actions';
 
 @Component({
   selector: 'app-menu',
@@ -13,7 +13,6 @@ export class MenuComponent {
   isOpen = false;
 
   constructor(private _store: Store) { }
-
 
   scrollToElement(value: AppScreen) {
     this._store.dispatch(navScrollToElement ({ currentScreen: value}));
