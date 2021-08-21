@@ -1,25 +1,9 @@
 .slides {
   position: absolute;
-  width: 60%;
+  width: 100%;
   max-width: 960px;
   height: 120%;
-  right: 2%;
   top: -10%;
   flex-wrap: nowrap;
-
-  @media screen and (max-width: 1520px) {
-    width: 50%;
-  }
-}
-
-@media screen and (max-width: 930px) {
-  .slides {
-    right: 5%;
-  }
-}
-
-@media screen and (max-width: 650px) {
-  .slides {
-    display: none !important;
-  }
+  right: 5px;
 }

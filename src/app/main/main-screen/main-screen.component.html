@@ -1,21 +1,33 @@
-<header class="header" id="{{AppScreen.ABOUT}}">
+<header class="header" id="{{AppScreen.ABOUT}}"
+        [class.tablet]="appMode === AppMode.CLASSIC"
+        [class.mobile]="appMode === AppMode.MOBILE">
+
   <div class="container">
+
     <h2 class="name">
       Artem
     </h2>
+
     <h1 class="surname">Wolynski</h1>
+
     <h3 class="position">Software Engineer</h3>
+
     <div class="description">
+
       <div class="pillar"></div>
-      <div>
+
         <p>Hi! I’m a software engineer from the sunny city of Ho Chi Minh. I have 6 years of
           work experience as Java and Full Stack developer. I’ve founded a web studio, worked for one
-          of the largest banks in Russia and created an amazing software for the US space startup. </p>
-      </div>
+          of the largest banks in Russia and created an amazing software for the US space startup.
+        </p>
+
     </div>
+
   </div>
-  <ng-particles *ngIf="appMode !== AppMode.CLASSIC"
+
+  <ng-particles *ngIf="appMode === AppMode.SLIDES"
                 [options]="myParams"
                 [style]="myStyle">
   </ng-particles>
+
 </header>

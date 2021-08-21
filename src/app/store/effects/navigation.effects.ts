@@ -17,7 +17,7 @@ export class NavigationEffects {
   changeUrl = createEffect(() => this.actions$.pipe(
     ofType(navSlideToElement),
     map(action => {
-      this._router.navigate([action.currentScreen.toLocaleLowerCase()]).then();
+      this._router.navigate([action.currentScreen]).then();
       }
     )
   ), { dispatch: false});

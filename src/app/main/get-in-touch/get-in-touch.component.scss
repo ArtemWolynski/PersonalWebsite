@@ -61,6 +61,7 @@
         height: available;
         background-color: $primaryColor;
         width: 5%;
+        overflow: hidden;
         transition: 800ms ease-in-out;
 
         &.active {
@@ -71,9 +72,11 @@
           margin: 70px 13% 3%;
           transition: 1000ms ease-in-out;
           transition-delay: 600ms;
+          visibility: hidden;
           opacity: 0;
 
           &.active {
+            visibility: visible;
             width: 80%;
             opacity: 1;
           }
@@ -133,11 +136,8 @@
     }
 
     .headline {
-      width: 90%;
-      text-align: center;
       font-size: 3.3vw;
-      margin: 0 auto 70px;
-      font-style: italic;
+      margin: 20px;
     }
 
     .get-in-touch {
@@ -179,7 +179,7 @@
             margin: 0;
 
             p {
-              display: none;
+              padding: 10px;
             }
           }
         }

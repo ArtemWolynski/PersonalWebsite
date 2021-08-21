@@ -1,18 +1,40 @@
-<div class="sidebar">
+<div class="sidebar"
+     [class.classic]="classicMode">
+
   <app-logo class="logo"></app-logo>
+
   <ul class="controls">
-    <li><a href="https://www.linkedin.com/feed/" target="_blank" about="LinkedIn">LinkedIn</a></li>
-    <li><a href="https://awfiledump.s3.us-east-2.amazonaws.com/Full+Stack+Developer+(Artem+Wolynski).pdf" target="_blank" about="CV">CV</a></li>
-    <li><a href="https://github.com/ArtemWolynski" target="_blank" about="Github">Github</a></li>
+    <li>
+      <a href="https://www.linkedin.com/feed/"
+         target="_blank"
+         about="LinkedIn">
+        LinkedIn
+      </a>
+    </li>
+    <li>
+      <a href="https://awfiledump.s3.us-east-2.amazonaws.com/Full+Stack+Developer+(Artem+Wolynski).pdf"
+         target="_blank"
+         about="CV">
+        CV
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/ArtemWolynski"
+         target="_blank"
+         about="Github">
+        Github
+      </a>
+    </li>
   </ul>
-  <div style="margin-bottom: 15%">
 
-
+  <div class="address">
     <p *ngIf="!classicMode">
       Chung Cu Vista Verde<br>
       Ho Chi Minh, 70000, Vietnam<br>
       art.volynskiy@gmail.com
     </p>
   </div>
+
   <app-menu *ngIf="classicMode"></app-menu>
+
 </div>

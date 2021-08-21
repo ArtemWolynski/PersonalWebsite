@@ -6,3 +6,6 @@ export const updateBreakpoints = ((it:BreakPoint) => {
   }
   return it;
 });
+
+export const mobileBreakpoint = 740;
+export const tabletBreakpoint = 1270;

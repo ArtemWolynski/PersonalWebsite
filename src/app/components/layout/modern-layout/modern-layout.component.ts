@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {ScreenTransitionService} from '../../../services/screen-transition.service';
+import {AppMode} from '../../../core/enums/app-mode';
 
 @Component({
   selector: 'app-modern-layout',
   templateUrl: './modern-layout.component.html',
   styleUrls: ['./modern-layout.component.scss']
 })
-export class ModernLayoutComponent implements OnInit {
+export class ModernLayoutComponent {
+
+  @Input() appMode: AppMode;
 
   constructor(private stepsService: ScreenTransitionService,) { }
-
-  ngOnInit(): void {
-  }
 
   animateTransition() {
     this.stepsService.animateTransition();

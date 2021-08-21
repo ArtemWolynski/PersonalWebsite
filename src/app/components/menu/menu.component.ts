@@ -9,14 +9,14 @@ import {navScrollToElement} from '../../store/actions/navigation.actions';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent {
-  navList = Object.keys(AppScreen);
+  navList = Object.values(AppScreen);
   isOpen = false;
 
   constructor(private _store: Store) { }
 
 
-  scrollToElement(value: string) {
-    this._store.dispatch(navScrollToElement ({ currentScreen: <AppScreen>value}));
+  scrollToElement(value: AppScreen) {
+    this._store.dispatch(navScrollToElement ({ currentScreen: value}));
     this.toggleMenu();
   }
 

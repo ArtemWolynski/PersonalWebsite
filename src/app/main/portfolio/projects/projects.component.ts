@@ -65,9 +65,9 @@ export class ProjectsComponent implements AfterViewInit  {
 
     let numberOfProjects;
 
-    if (innerWidth > 750) { //TODO breakpoints should be stored somewhere as variables
+    if (innerWidth > 700) { //TODO breakpoints should be stored somewhere as variables
       numberOfProjects = 3;
-    } else if (innerWidth > 450) {
+    } else if (innerWidth > 400) {
       numberOfProjects = 2;
     } else {
       numberOfProjects = 1;

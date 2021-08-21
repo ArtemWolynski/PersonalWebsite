@@ -11,11 +11,9 @@
   .portfolio {
     @include container(100vh, 100%, 0, 0, 0);
 
-
     .portfolio-container {
       margin-top: -6%;
       width: 100%;
-      max-width: 1500px;
 
       .h2-container {
         margin-bottom: 30px;
@@ -24,7 +22,6 @@
         h2 {
           font-family: "Gotha Pro Bold", sans-serif;
           font-size: 44px;
-
         }
       }
 
@@ -35,27 +32,27 @@
 
         .text-container {
           background-color: $secondaryColor;
-          width: 50%;
-          padding-top: 45px;
-          padding-left: 45px;
-          height: 440px;
-          overflow-y: scroll;
+          width: 35%;
+          padding: 3%;
+          overflow: auto;
+          height: 40vh;
 
-          @media screen and (max-width: 1720px) {
-            height: 380px;
+          @media screen and (max-width: 1600px) {
+            width: 50%;
           }
 
           .text {
-            width: 385px;
             color: black;
+            padding-right: 5%;
             line-height: 22px;
           }
         }
 
         .pillar {
           height: available;
-          width: 50%;
+          flex-grow: 100;
           background-color: $primaryColor;
+          position: relative;
         }
       }
 
@@ -88,27 +85,22 @@
   }
 
   @media screen and (max-width: 1250px) {
+
+    .section-header {
+      margin-bottom: 30px;
+    }
+
     .portfolio {
-      @include container(auto, 100%, 0, 150px, 0);
-
-
       .portfolio-container {
         .description {
-
           .text-container {
-            width: 45%;
             padding-top: 45px;
             padding-left: 45px;
-            height: 440px;
+            min-height: 440px;
 
             .text {
-              width: 95%;
               line-height: 22px;
             }
-          }
-
-          .pillar {
-            width: 45%;
           }
         }
 
@@ -122,28 +114,7 @@
 
   @media screen and (max-width: 930px) {
     .portfolio {
-
       .portfolio-container {
-
-        .description {
-
-          .text-container {
-            width: 65%;
-            padding-top: 45px;
-            padding-left: 45px;
-            height: 440px;
-
-            .text {
-              width: 75%;
-              line-height: 22px;
-            }
-          }
-
-          .pillar {
-            width: 35%;
-          }
-        }
-
         .controls {
           width: 350px;
           margin: 80px auto;
@@ -154,9 +125,7 @@
 
   @media screen and (max-width: 650px) {
     .portfolio {
-
       .portfolio-container {
-
         .h2-container {
           margin-bottom: 70px;
           margin-left: 0;
@@ -169,29 +138,17 @@
         }
 
         .description {
-
           .text-container {
             background-color: $secondaryColor;
-            overflow-y: auto;
             width: 100%;
-            height: auto;
-            padding-bottom: 30px;
-
-            .text {
-              width: 90%;
-              line-height: 22px;
-            }
-          }
-
-          .pillar {
-            display: none !important;
+            height: fit-content;
+            min-height: 380px;
           }
         }
 
         .controls {
           width: 350px;
           margin-top: 10px;
-          //margin: 80px auto 0;
         }
       }
     }

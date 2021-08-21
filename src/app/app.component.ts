@@ -11,6 +11,7 @@ import {Location} from '@angular/common';
 import {navSlideToElement} from './store/actions/navigation.actions';
 import {navSelectCurrentScreen} from './state/navigation.selectors';
 import {IconRegistryService} from './services/icon-registry.service';
+import {mobileBreakpoint, tabletBreakpoint} from './shared/configs/breakpoints';
 
 @Component({
   selector: 'app-root',
@@ -60,13 +61,16 @@ export class AppComponent implements OnInit, OnDestroy {
 
     let appMode;
 
-    if (window.innerWidth > 1200) {
-      appMode = AppMode.SLIDES
-    } else if (window.innerWidth > 740) {
-      appMode = AppMode.CLASSIC;
+    const innerWidth = window.innerWidth;
+
+    if (innerWidth <= mobileBreakpoint) {
+      appMode = AppMode.MOBILE
+    } else if (innerWidth <= tabletBreakpoint) {
+      appMode = AppMode.CLASSIC
     } else {
-      appMode = AppMode.MOBILE;
+      appMode = AppMode.SLIDES;
     }
+
     this.store.dispatch( setMode( { appMode: appMode}))
   }
 

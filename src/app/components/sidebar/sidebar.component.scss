@@ -39,8 +39,8 @@
   }
 }
 
-@media screen and (max-width: 1250px) {
-  .sidebar {
+.sidebar {
+  &.classic {
     flex-direction: row;
     justify-content: space-around;
     height: auto;
@@ -55,6 +55,10 @@
     }
 
     .btn {
+      display: none;
+    }
+
+    .address {
       display: none;
     }
 

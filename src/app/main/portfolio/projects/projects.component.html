@@ -1,4 +1,7 @@
-<ul class="slides" fxLayout="row" fxLayoutAlign="row" fxLayoutAlign.lt-lg="flex-end" #slidesContainer>
+<ul class="slides"
+    fxLayout="row"
+    fxLayoutAlign="row"
+    #slidesContainer>
   <li *ngFor="let project of visibleProjects">
     <app-project-item [project]="project"
                       [isActive]="project === visibleProjects[currentIndex]"

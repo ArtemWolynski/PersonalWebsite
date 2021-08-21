@@ -5,6 +5,15 @@
 
   .skills-container {
     width: 100%;
+
+    &.tablet {
+      transform: scale(1);
+      height: 700px;
+    }
+  }
+
+  .skills {
+    width: 70%;
   }
 
   .position-container {
@@ -33,11 +42,10 @@
   }
 }
 
-@media screen and (max-width: 1250px) {
+@media screen and (max-width: 1360px) {
   .skills-container {
+    transform: scale(0.9);
     padding: 20px;
-    display: flex;
-    justify-content: center;
 
     .section-header {
       margin-bottom: 40px;
@@ -50,6 +58,7 @@
 
   .skills-container {
     margin-bottom: 150px !important;
+    transform: scale(1);
 
     .skills-description {
 

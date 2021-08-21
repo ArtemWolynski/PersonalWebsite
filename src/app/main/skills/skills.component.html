@@ -1,11 +1,12 @@
 <section *ngIf="appMode$ | async as appMode"
+         [class.tablet]="appMode === AppMode.CLASSIC"
          id="{{AppScreen.SKILLS}}"
          fxLayoutAlign="center"
          class="skills-container">
 
   <div class="position-container container">
 
-    <h2 *ngIf="appMode === AppMode.CLASSIC"
+    <h2 *ngIf="appMode !== AppMode.SLIDES"
         class="section-header">
       Skills
     </h2>
@@ -39,7 +40,7 @@
        fxLayoutAlign="space-between"
        fxLayout.lt-sm="column"
        fxLayoutAlign.lt-sm="center center"
-       fxLayoutGap="10px"
+       fxLayoutGap="20px"
       class="skills-description">
 
     <div [@animate]="{value:'*', params: { y:'100%' }}"

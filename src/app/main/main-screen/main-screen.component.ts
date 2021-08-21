@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {particlesSettings, particlesStyle} from '../../shared/configs/particles';
 import {Store} from '@ngrx/store';
 import {uiSelectState} from '../../state/layout.selectors';
