@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {fuseAnimations} from '../../shared/animations';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
@@ -8,6 +8,7 @@ import {AppScreen} from '../../core/enums/app-screen';
 import {skillsLoad, skillsSetActiveSkillSet} from '../../store/actions/skills.actions';
 import {skillSelectActiveSkillSet, skillSelectSkillSets} from '../../state/skills.selectors';
 import {SkillSet} from '../../core/models/skill-set';
+import {ScreenTransitionService} from '../../services/screen-transition.service';
 import {tap} from 'rxjs/operators';
 
 @Component({
@@ -24,17 +25,26 @@ export class SkillsComponent implements OnInit {
 
   skillSets$ = this._store.select(skillSelectSkillSets)
     .pipe(
-      tap((skillSet: SkillSet[]) => this.setActiveSkillSet(skillSet[0]))
+      tap((skillSet: SkillSet[]) => {
+        this._store.dispatch(skillsSetActiveSkillSet( { activeSkillSet: skillSet[0] } ));
+      })
     );
 
-  constructor(private _store: Store) { }
+  constructor(private _store: Store,
+              private _transitionService: ScreenTransitionService) { }
 
   ngOnInit() {
     this._store.dispatch(skillsLoad());
   }
 
-  setActiveSkillSet(value: SkillSet) {
+  setActiveSkillSet(value: SkillSet, appMode: AppMode) {
     this._store.dispatch(skillsSetActiveSkillSet( { activeSkillSet: value } ));
+
+    if (appMode === AppMode.MOBILE) {
+      setTimeout(() => {
+        this._transitionService.scrollToElement(value.name);
+      })
+    }
   }
 
   get AppMode() {

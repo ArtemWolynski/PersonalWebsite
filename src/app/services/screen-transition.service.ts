@@ -45,7 +45,7 @@ export class ScreenTransitionService {
     }
   }
 
-  scrollToElement(screen: AppScreen) {
+  scrollToElement(screen: string) {
     const targetElement = document.getElementById(screen);
 
     const y = targetElement.getBoundingClientRect().top + window.scrollY;

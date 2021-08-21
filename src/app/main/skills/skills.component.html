@@ -13,7 +13,8 @@
 
     <ul fxLayoutAlign="space-between" fxLayout.lt-sm="column" fxLayoutGap="10px">
       <li *ngFor="let skillSet of (skillSets$ | async)">
-        <app-skill-tile (click)="setActiveSkillSet(skillSet)"
+        <app-skill-tile id="{{skillSet.name}}"
+                        (click)="setActiveSkillSet(skillSet, appMode)"
                         [text]="skillSet.name"
                         [icon]="skillSet.icon"
                         [isActive]="(activeSkillSet$ | async)?.name === skillSet.name">
