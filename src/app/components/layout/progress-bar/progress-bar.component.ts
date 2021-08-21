@@ -16,8 +16,7 @@ export class ProgressBarComponent {
 
   currentScreen$ = this._store.select(navSelectCurrentScreen)
     .pipe(
-      tap((currentScreen: AppScreen) => this.setCurrentScreen(currentScreen)),
-      tap(test => console.log(test))
+      tap((currentScreen: AppScreen) => this.setCurrentScreen(currentScreen))
     );
 
   values = Object.values(AppScreen);
@@ -26,7 +25,7 @@ export class ProgressBarComponent {
 
   /**
    * I know that manual value control is kind of lame in terms of extensibility, but I wanted to have a manual control
-   * to find a coolest look possible. This whole project is about a cool look.
+   * to find a coolest look possible. This whole project is about a cool look, you know.
    */
   indexToProgressbarValue: Map<number, number> = new Map([
     [0, 15],
@@ -39,14 +38,15 @@ export class ProgressBarComponent {
   constructor(private _store: Store) {}
 
   onElementClicked(value: string) {
-    console.log(value, 'here')
-    this.setCurrentScreen(<AppScreen> value);
+    const screen = <AppScreen> value;
+
+    this.setCurrentScreen(screen);
+    this.clicked.next(true);
 
     setTimeout(() => {
-      this._store.dispatch(navSlideToElement( { currentScreen : <AppScreen>value}));
+      this._store.dispatch(navSlideToElement( { currentScreen : screen}));
     }, 800);
 
-    this.clicked.next(true);
   }
 
   setCurrentScreen(currentScreen: AppScreen) {

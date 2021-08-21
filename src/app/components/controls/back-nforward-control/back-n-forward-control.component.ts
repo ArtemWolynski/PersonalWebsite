@@ -1,25 +1,22 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-back-nforward-control',
   templateUrl: './back-n-forward-control.component.html',
-  styleUrls: ['./back-n-forward-control.component.scss']
+  styleUrls: ['./back-n-forward-control.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BackNForwardControlComponent implements OnInit {
+export class BackNForwardControlComponent {
+  @Input() text: string;
+
   @Output() prevClicked: EventEmitter<boolean> = new EventEmitter();
   @Output() nextClicked: EventEmitter<boolean> = new EventEmitter();
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-  prevClickedd() {
+  prev() {
     this.prevClicked.next(true);
   }
 
-  nextClickedd() {
+  next() {
     this.nextClicked.next(true);
   }
-
 }

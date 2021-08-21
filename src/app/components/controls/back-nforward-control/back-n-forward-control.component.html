@@ -1,7 +1,12 @@
-<div class="controls content-between">
-  <div class="pillar" (click)="prevClickedd()"></div>
+<div class="controls"
+     fxLayout="row"
+     fxLayoutAlign="space-between">
+
+  <div class="pillar" (click)="prev()"></div>
+
   <p class="active">
-    Next review
+    {{text}}
   </p>
-  <div class="pillar" (click)="nextClickedd()"></div>
+
+  <div class="pillar" (click)="next()"></div>
 </div>
