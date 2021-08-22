@@ -22,14 +22,14 @@ export class AppComponent implements OnInit {
 
   constructor( private stepsService: ScreenTransitionService,
                public location: Location,
-               private _iconRegistry: IconRegistryService,
+               private iconRegistry: IconRegistryService,
                private store: Store) {}
 
   ngOnInit() {
     this.onResize();
     this.getAppMode();
     this.setInitialScreen();
-    this._iconRegistry.registerIcons();
+    this.iconRegistry.registerIcons();
   }
 
   getAppMode(): void {
@@ -43,13 +43,13 @@ export class AppComponent implements OnInit {
   }
 
   setInitialScreen(): void {
-    let initialScreen =  <AppScreen> this.location.path().substr(1);
+    let initialScreen =  this.location.path().substr(1) as AppScreen;
 
     if (!initialScreen) {
       initialScreen = AppScreen.ABOUT;
     }
 
-    this.store.dispatch(navSlideToElement( { currentScreen:  initialScreen}))
+    this.store.dispatch(navSlideToElement( { currentScreen:  initialScreen}));
   }
 
   @HostListener('window:resize')
@@ -59,17 +59,17 @@ export class AppComponent implements OnInit {
     const innerWidth = window.innerWidth;
 
     if (innerWidth <= mobileBreakpoint) {
-      appMode = AppMode.MOBILE
+      appMode = AppMode.MOBILE;
     } else if (innerWidth <= tabletBreakpoint) {
-      appMode = AppMode.CLASSIC
+      appMode = AppMode.CLASSIC;
     } else {
       appMode = AppMode.SLIDES;
     }
 
-    this.store.dispatch( setMode( { appMode: appMode}))
+    this.store.dispatch( setMode( { appMode}));
   }
 
-  @HostListener("window:wheel", ['$event'])
+  @HostListener('window:wheel', ['$event'])
   onWindowScroll(event) {
     if (this.appMode === AppMode.SLIDES) {
       this.stepsService.onScroll(event);
