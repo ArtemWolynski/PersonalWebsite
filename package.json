@@ -20,6 +20,9 @@
     "prepare": "husky install"
   },
   "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix"
+    ],
     "*.ts": "prettier --write"
   },
   "private": true,
