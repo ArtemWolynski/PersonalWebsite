@@ -1,6 +1,6 @@
 <ng-container *ngIf="appMode === AppMode.SLIDES;
      then desctopLayout
-     else mobileLayout">
+     else classicLayout">
 </ng-container>
 
 <ng-template #desctopLayout>
@@ -9,7 +9,7 @@
   </app-modern-layout>
 </ng-template>
 
-<ng-template #mobileLayout>
+<ng-template #classicLayout>
   <app-classic-layout>
   </app-classic-layout>
 </ng-template>

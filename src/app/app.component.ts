@@ -1,7 +1,5 @@
-import {Component, HostListener, OnDestroy, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {ScreenTransitionService} from './services/screen-transition.service';
-import {Subject} from 'rxjs';
-import {filter, takeUntil} from 'rxjs/operators';
 import {Store} from '@ngrx/store';
 import {setMode} from './store/actions/layout.actions';
 import {uiSelectAppMode} from './state/layout.selectors';
@@ -9,7 +7,6 @@ import {AppMode} from './core/enums/app-mode';
 import {AppScreen} from './core/enums/app-screen';
 import {Location} from '@angular/common';
 import {navSlideToElement} from './store/actions/navigation.actions';
-import {navSelectCurrentScreen} from './state/navigation.selectors';
 import {IconRegistryService} from './services/icon-registry.service';
 import {mobileBreakpoint, tabletBreakpoint} from './shared/configs/breakpoints';
 
@@ -18,28 +15,27 @@ import {mobileBreakpoint, tabletBreakpoint} from './shared/configs/breakpoints';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit {
   currentScreen: AppScreen;
 
   appMode: AppMode;
 
-  private _unsubscribeAll: Subject<any>;
-  constructor(private stepsService: ScreenTransitionService,
-              public location: Location,
-              private _iconRegistry: IconRegistryService,
-              private store: Store) {
-    this._unsubscribeAll = new Subject<any>();
-  }
+  constructor( private stepsService: ScreenTransitionService,
+               public location: Location,
+               private _iconRegistry: IconRegistryService,
+               private store: Store) {}
 
   ngOnInit() {
-    this._iconRegistry.registerIcons();
-    this.subscribeToCurrentStep();
     this.onResize();
+    this.getAppMode();
+    this.setInitialScreen();
+    this._iconRegistry.registerIcons();
+  }
+
+  getAppMode(): void {
     this.store.select(uiSelectAppMode).subscribe((appMode: AppMode) => {
       this.appMode = appMode;
     });
-
-   this.setInitialScreen();
   }
 
   get AppMode() {
@@ -57,9 +53,8 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   @HostListener('window:resize')
-  onResize() {
-
-    let appMode;
+  onResize(): void {
+    let appMode: AppMode;
 
     const innerWidth = window.innerWidth;
 
@@ -81,32 +76,7 @@ export class AppComponent implements OnInit, OnDestroy {
     }
   }
 
-  subscribeToCurrentStep() {
-    this.store.select(navSelectCurrentScreen)
-      .pipe(
-        filter(value => value != null),
-        takeUntil(this._unsubscribeAll)
-      )
-      .subscribe((step: AppScreen) => {
-        if (this.appMode !== AppMode.SLIDES) {
-          this.scrollToScreen(step);
-        }
-      });
-  }
-
-  scrollToScreen(screenId: AppScreen) {
-    const el = document.getElementById(screenId);
-    if (el) {
-    el.scrollIntoView({behavior: 'smooth'});
-    }
-  }
-
   changeCurrentScreen(value) {
     this.currentScreen = value;
-  }
-
-  ngOnDestroy() {
-    this._unsubscribeAll.next();
-    this._unsubscribeAll.complete();
   }
 }

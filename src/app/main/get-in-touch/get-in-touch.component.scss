@@ -62,7 +62,7 @@
         background-color: $primaryColor;
         width: 5%;
         overflow: hidden;
-        transition: 800ms ease-in-out;
+        transition: 800ms ease-in;
 
         &.active {
           width: 50%;
@@ -70,7 +70,7 @@
 
         .text-wrapper {
           margin: 70px 13% 3%;
-          transition: 1000ms ease-in-out;
+          transition: 1000ms ease-in;
           transition-delay: 600ms;
           visibility: hidden;
           opacity: 0;

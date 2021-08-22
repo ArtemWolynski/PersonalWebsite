@@ -1,26 +1,43 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Observable} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import {uiSelectAppMode} from '../../state/layout.selectors';
 import {AppMode} from '../../core/enums/app-mode';
 import {Store} from '@ngrx/store';
 import {AppScreen} from '../../core/enums/app-screen';
+import {EmailService} from '../../services/api/email.service';
+import {gitMessageSent, gitSendMessage} from '../../store/actions/get-in-touch.actions';
+import {gitMessageSentSuccess} from '../../state/get-in-touch.selectors';
+import {takeUntil, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-get-in-touch',
   templateUrl: './get-in-touch.component.html',
-  styleUrls: ['./get-in-touch.component.scss']
+  styleUrls: ['./get-in-touch.component.scss'],
+  providers: [EmailService]
 })
-export class GetInTouchComponent implements OnInit {
+export class GetInTouchComponent implements OnInit, OnDestroy {
 
   appMode$: Observable<AppMode> = this._store.select(uiSelectAppMode);
 
+  subscriptions: Subject<void>;
+
+  success$ = this._store.select(gitMessageSentSuccess)
+    .pipe(
+      tap((isSuccess: boolean) => {
+        if (isSuccess) {
+          this.getInTouchForm.reset();
+        }
+      })
+    );
+
   getInTouchForm: FormGroup;
 
-  isActive: boolean;
-
-  constructor(private _formBuilder: FormBuilder,
-              private _store: Store) { }
+  constructor( private _emailService: EmailService,
+               private _formBuilder: FormBuilder,
+               private _store: Store) {
+    this.subscriptions = new Subject();
+  }
 
   ngOnInit() {
     this.initForm();
@@ -35,8 +52,7 @@ export class GetInTouchComponent implements OnInit {
   }
 
   onSubmit() {
-    this.isActive = true;
-    this.getInTouchForm.reset();
+    this._store.dispatch(gitSendMessage({ message : this.getInTouchForm.value }));
   }
 
   initForm() {
@@ -45,79 +61,17 @@ export class GetInTouchComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       message: ['', Validators.required]
     });
+
+    this.getInTouchForm.valueChanges
+      .pipe(takeUntil(this.subscriptions))
+      .subscribe((value =>  {
+      if (value.name || value.email || value.text) {
+      this._store.dispatch(gitMessageSent( { success: false }))
+      }
+    }))
   }
 
-  // setFirstLine(text) {
-  //   this.setActive();
-  //
-  //   if (!this.isTyping) {
-  //     this.isTyping = true;
-  //     let firstLine = `Oh! Hi ${text}`;
-  //     let index = 0;
-  //     setTimeout(()=> {
-  //       this.firstLineText = '';
-  //       this.interval = setInterval(()=> {
-  //         this.firstLineText += firstLine[index];
-  //         index++;
-  //         if (index >= firstLine.length) {
-  //           clearInterval(this.interval);
-  //           this.isTyping = false;
-  //         }}, 70);
-  //     }, 750)
-  //   }
-  // }
-  //
-  // setSecondLine(text) {
-  //   this.setActive();
-  //
-  //   if (!this.isTyping) {
-  //     this.isTyping = true;
-  //     let secondLine = `It's good to see you thriving, ${text}`;
-  //     let index = 0;
-  //     setTimeout(()=> {
-  //       this.secondLineText = '';
-  //       this.interval = setInterval(()=> {
-  //         this.secondLineText += secondLine[index];
-  //         index++;
-  //         if (index >= secondLine.length) {
-  //           clearInterval(this.interval);
-  //           this.isTyping = false;
-  //         }}, 70);
-  //     }, 750)
-  //   }
-  // }
-  //
-  // setThirdLine(text) {
-  //   this.setActive();
-  //
-  //   if (!this.isTyping) {
-  //     this.isTyping = true;
-  //     let thirdLine = `Now just hit the 'submit' button! The rest is a history`;
-  //     let index = 0;
-  //     setTimeout(()=> {
-  //       this.thirdLineText = '';
-  //       this.interval = setInterval(()=> {
-  //         this.thirdLineText += thirdLine[index];
-  //         index++;
-  //         if (index >= thirdLine.length) {
-  //           clearInterval(this.interval);
-  //           this.isTyping = false;
-  //         }}, 70);
-  //     }, 750)
-  //   }
-  // }
-
-  setActive() {
-    if (!this.isActive) {
-      this.isActive = true;
-    }
+  ngOnDestroy() {
+    this.subscriptions.unsubscribe();
   }
-
-  writeLine(line, text) {
-   ;
-  }
-
-  makeMagic(value) {
-  }
-
 }

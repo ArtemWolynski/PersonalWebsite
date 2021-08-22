@@ -32,11 +32,13 @@ import {skillsReducer} from './store/reducers/skills.reducer';
 import {SkillsEffects} from './store/effects/skills.effects';
 import {HttpClientModule} from '@angular/common/http';
 import {recommendationsReducer} from './store/reducers/recommendations.reducer';
-import {RecommendationsEffects} from './store/effects/recommendations-effects.service';
+import {RecommendationsEffects} from './store/effects/recommendations-effects';
 import {projectsReducer} from './store/reducers/projects.reducer';
 import {ProjectsEffects} from './store/effects/projects.effects';
 import {BREAKPOINTS, DEFAULT_BREAKPOINTS} from '@angular/flex-layout';
 import {updateBreakpoints} from './shared/configs/breakpoints';
+import {getInTouchReducer} from './store/reducers/get-in-touch.reducer';
+import {GetInTouchEffects} from './store/effects/get-in-touch.effects';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import {updateBreakpoints} from './shared/configs/breakpoints';
       navigation: navigationReducer,
       skills: skillsReducer,
       recommendations: recommendationsReducer,
-      projects: projectsReducer
+      projects: projectsReducer,
+      message: getInTouchReducer
     }),
     EffectsModule.forRoot(
       [
@@ -57,6 +60,7 @@ import {updateBreakpoints} from './shared/configs/breakpoints';
         SkillsEffects,
         RecommendationsEffects,
         ProjectsEffects,
+        GetInTouchEffects,
       ]),
     AppRoutingModule,
     HttpClientModule,
