@@ -39,6 +39,7 @@ import {BREAKPOINTS, DEFAULT_BREAKPOINTS} from '@angular/flex-layout';
 import {updateBreakpoints} from './shared/configs/breakpoints';
 import {getInTouchReducer} from './store/reducers/get-in-touch.reducer';
 import {GetInTouchEffects} from './store/effects/get-in-touch.effects';
+import {LocationStrategy, PathLocationStrategy} from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,10 @@ import {GetInTouchEffects} from './store/effects/get-in-touch.effects';
       useFactory: function customizeBraskPoints() {
         return DEFAULT_BREAKPOINTS.map(updateBreakpoints);
       }
+    },
+    {
+      provide: LocationStrategy,
+      useClass: PathLocationStrategy
     }
   ],
   bootstrap: [AppComponent]
