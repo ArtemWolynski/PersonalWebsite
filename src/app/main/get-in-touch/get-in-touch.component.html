@@ -1,16 +1,17 @@
-<h2 *ngIf="(appMode$ | async) === AppMode.CLASSIC"
-    id="{{AppScreen.CONTACTS}}"
-    class="section-header">
-  Contact
-</h2>
+<section id="{{AppScreen.CONTACTS}}"
+         class="get-in-touch"
+*ngIf="(appMode$ | async) as appMode">
 
-<h3 *ngIf="(appMode$ | async) === AppMode.MOBILE"
-    class="headline">
-  Have a question or want<br>
-  to work together?
-</h3>
+  <h2 *ngIf="appMode === AppMode.CLASSIC"
+      class="section-header">
+    Contact
+  </h2>
 
-<section class="get-in-touch">
+  <h3 *ngIf="appMode === AppMode.MOBILE"
+      class="headline">
+    Have a question or want<br>
+    to work together?
+  </h3>
 
   <div class="form-container content-between">
 
@@ -35,7 +36,7 @@
           <mat-form-field>
             <textarea formControlName="message" name="message"
                       rows="3"
-              matInput placeholder="Your message">
+                      matInput placeholder="Your message">
             </textarea>
           </mat-form-field>
 

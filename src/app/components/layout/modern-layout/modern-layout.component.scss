@@ -1,19 +1,14 @@
 main {
-  margin-left: 25%;
-  width: 75%;
+  width: 100%;
   position: relative;
   height: 100vh;
   padding-top: 1px;
   margin-top: -1px;
 
-  @media screen and (max-width: 1350px) {
-    margin-left: 20%;
-    width: 80%;
-  }
+
 
   @media screen and (max-width: 1250px) {
     margin: -1px auto;
-    //width: 100%;
   }
 }
 

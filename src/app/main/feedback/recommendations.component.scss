@@ -1,73 +1,74 @@
 @import "../../../styles/partials/positioning";
 @import "../../../styles/partials/colors";
 
-.section-header {
-  margin-left: 5%;
-  margin-bottom: 80px;
-}
+
+:host {
+  display: flex;
+  flex-direction: row-reverse;
 
 
-.portfolio {
-  @include container(100vh, 100%, 0, 0, 0);
+  .recommendations {
+    @include container(fit-content, 90%, 5%, 0, 0);
 
-  .feedback-container {
-    position: relative;
-    width: 100%;
-    flex-wrap: nowrap;
-    background-color: $primaryColor;
-    min-height: 320px;
-
-    .pillar {
-      height: available;
-      background-color: $secondaryColor;
-      width: 7%;
+    .section-header {
+      margin-bottom: 80px;
+      width: 95%;
+      margin-left: 5%;
     }
-  }
 
-  .controls-wrapper {
-    width: 90%;
-    margin-top: 30px;
-  }
-}
-
-@media screen and (max-width: 1250px) {
-  .portfolio {
-    @include container(auto, 100%, 0, 60px, 0);
-
-    .controls {
-      p {
-        margin: 20px auto;
-      }
+    &.tablet {
+      flex-direction: column;
     }
-  }
-
-  .controls-wrapper {
-    width: 100%;
-    margin-top: 30px;
-    margin-left: 3.5%;
-  }
-}
-
-@media screen and (max-width: 680px) {
-  .section-header {
-    margin-left: 5%;
-    margin-bottom: 80px;
-  }
-
-
-  .portfolio {
-
 
     .feedback-container {
-      position: relative;
       width: 100%;
       flex-wrap: nowrap;
       background-color: $primaryColor;
-      min-height: 320px;
+      height: 60vh;
+      max-height: 420px;
 
-      app-review {
-        width: 95%;
+      .pillar {
+        height: available;
+        background-color: $secondaryColor;
+        width: 7%;
       }
+    }
+
+    .controls-wrapper {
+      width: 90%;
+      margin-top: 30px;
+    }
+  }
+
+  @media screen and (max-width: 1250px) {
+    .recommendations {
+      @include container(auto, 100%, 0, 60px, 0);
+      margin-top: 100px !important;
+
+      .controls {
+        p {
+          margin: 20px auto;
+        }
+      }
+    }
+
+    .controls-wrapper {
+      width: 100%;
+      margin-top: 30px;
+      margin-left: 3.5%;
+    }
+  }
+
+  @media screen and (max-width: 680px) {
+    .section-header {
+      margin-bottom: 80px;
+    }
+
+
+    .feedback-container {
+      background-color: $primaryColor;
+      min-height: 500px;
+      max-height: fit-content;
 
       .pillar {
         height: available;
@@ -77,4 +78,3 @@
     }
   }
 }
-

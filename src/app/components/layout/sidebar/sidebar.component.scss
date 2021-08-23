@@ -1,9 +1,8 @@
 @import "../../../../styles/partials/colors";
 
 .sidebar {
-  position: fixed;
-  left: 0;
-  top: 0;
+
+  width: 300px;
   display: flex;
   height: 89vh;
   flex-direction: column;
@@ -25,6 +24,7 @@
   }
 
   .controls {
+    gap: 5px;
     li {
       padding-bottom: 20px;
 
@@ -41,6 +41,8 @@
 
 .sidebar {
   &.classic {
+    position: fixed;
+    top: 0;
     flex-direction: row;
     justify-content: space-around;
     height: auto;
@@ -48,6 +50,7 @@
     width: 100%;
     background-color: #22211E;
     margin: 0;
+    gap: 5px;
 
     .logo {
       margin-top: 0;

@@ -2,6 +2,7 @@
 @import "../../../styles/partials/colors";
 
 :host {
+  margin: 0 auto;
   .header {
     @include container(100vh, 100%, -5%, 0, -10%);
 
@@ -77,7 +78,7 @@
 
       .container {
         width: 95%;
-        margin: 18vh auto 0;
+        margin: auto 0;
       }
     }
   }

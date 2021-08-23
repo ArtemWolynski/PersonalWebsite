@@ -1,12 +1,16 @@
 <div *ngIf="recommendation" class="feedback">
+
   <div class="photo">
     <img src="{{recommendation.imgUrl}}" alt="Feedback" imgLoad/>
   </div>
+
   <div class="bio">
     <h2>{{recommendation.author}}</h2>
     <h3>{{recommendation.position}}</h3>
   </div>
+
   <div class="feedback-text">
     <p>{{recommendation.text}}</p>
   </div>
+
 </div>

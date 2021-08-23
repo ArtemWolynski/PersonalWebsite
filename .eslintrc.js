@@ -15,16 +15,16 @@ module.exports = {
         // AirBnB Styleguide rules
         'airbnb-typescript/base',
         // Settings for Prettier
-        'prettier/@typescript-eslint',
         'plugin:prettier/recommended'
       ],
       rules: {
-
+        "import/prefer-default-export": "off",
       }
     },
     {
       files: ["*.component.html"],
-      extends: ["plugin:@angular-eslint/template/recommended"],
+      "plugins": ['@typescript-eslint'],
+      "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
       rules: {
         "max-len": ["error", { "code": 140 }]
       }

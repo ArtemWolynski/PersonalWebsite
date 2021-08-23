@@ -9,11 +9,7 @@
   }
 
   .portfolio {
-    @include container(100vh, 100%, 0, 0, 0);
-
-    .portfolio-container {
-      margin-top: -6%;
-      width: 100%;
+    @include container(100vh, 100%, -2%, 0, 0);
 
       .h2-container {
         margin-bottom: 30px;
@@ -80,7 +76,6 @@
             margin-left: 10px;
           }
         }
-      }
     }
   }
 
@@ -91,7 +86,6 @@
     }
 
     .portfolio {
-      .portfolio-container {
         .description {
           .text-container {
             padding-top: 45px;
@@ -109,23 +103,19 @@
           margin-left: 45px;
         }
       }
-    }
   }
 
   @media screen and (max-width: 930px) {
     .portfolio {
-      .portfolio-container {
         .controls {
           width: 350px;
           margin: 80px auto;
         }
-      }
     }
   }
 
   @media screen and (max-width: 650px) {
     .portfolio {
-      .portfolio-container {
         .h2-container {
           margin-bottom: 70px;
           margin-left: 0;
@@ -151,6 +141,5 @@
           margin-top: 10px;
         }
       }
-    }
   }
 }

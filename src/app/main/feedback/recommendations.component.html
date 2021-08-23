@@ -1,13 +1,14 @@
-<h2 *ngIf="(appMode$ | async) !== AppMode.SLIDES"
-  id="{{AppScreen.REVIEWS}}"
-    class="section-header">
-  Feedback
-</h2>
-
 <section *ngIf="(recommendations$ | async) as recommendations"
-         class="portfolio">
-  <div style="width: 100%">
+         class="recommendations"
+        [class.tablet]="(appMode$ | async) !== AppMode.SLIDES">
 
+  <h2 *ngIf="(appMode$ | async) !== AppMode.SLIDES"
+      id="{{AppScreen.REVIEWS}}"
+      class="section-header">
+    Feedback
+  </h2>
+
+  <div>
     <div class="feedback-container content-between">
       <app-review style="margin: 0 auto; width: 100%"
                   [recommendation]="recommendations[currentRecommendationIndex]">

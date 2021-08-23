@@ -1,48 +1,50 @@
-<h2 *ngIf="(appMode$ | async) !== AppMode.SLIDES"
-    id="{{AppScreen.PROJECTS}}"
-    class="section-header">
-  Portfolio
-</h2>
+<div>
+  <h2 *ngIf="(appMode$ | async) !== AppMode.SLIDES"
+      id="{{AppScreen.PROJECTS}}"
+      class="section-header">
+    Portfolio
+  </h2>
 
-<section *ngIf="(projects$ | async) as portfolio"
-         class="portfolio">
-  <div class="portfolio-container">
+  <section *ngIf="(projects$ | async) as portfolio"
+           class="portfolio">
+    <div>
 
-    <div class="h2-container">
-      <h2>{{portfolio[currentIndex].name}}</h2>
-    </div>
+      <div class="h2-container">
+        <h2>{{portfolio[currentIndex].name}}</h2>
+      </div>
 
-    <div class="description" fxLayout="row" >
+      <div class="description" fxLayout="row" >
 
-      <div class="text-container">
-        <p class="text">
-          {{portfolio[currentIndex].description}}
+        <div class="text-container">
+          <p class="text">
+            {{portfolio[currentIndex].description}}
+          </p>
+        </div>
+
+
+        <div class="pillar">
+          <app-project-tile [projects]="portfolio"
+                            [index]="currentIndex"
+                            (selected)="setActiveProject($event)">
+          </app-project-tile>
+        </div>
+
+      </div>
+
+      <div class="controls content-between">
+
+        <p>
+          <a href="{{portfolio[currentIndex].link}}"
+             target="_blank">
+            View project</a>
         </p>
+
+        <p class="active"
+           (click)="slideNext()">
+          Next project
+        </p>
+
       </div>
-
-
-      <div class="pillar">
-        <app-project-tile [projects]="portfolio"
-                          [index]="currentIndex"
-                          (selected)="setActiveProject($event)">
-        </app-project-tile>
-      </div>
-
     </div>
-
-    <div class="controls content-between">
-
-      <p>
-        <a href="{{portfolio[currentIndex].link}}"
-            target="_blank">
-        View project</a>
-      </p>
-
-      <p class="active"
-         (click)="slideNext()">
-        Next project
-      </p>
-
-    </div>
-  </div>
-</section>
+  </section>
+</div>

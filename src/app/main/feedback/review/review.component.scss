@@ -2,18 +2,16 @@
 
 
 .feedback {
-  width: 90%;
-  padding-top: 45px;
-  padding-left: 45px;
   text-align: center;
-  min-height: 350px;
+
 
   .feedback-text {
     text-align: left;
+    padding: 20px;
   }
 
   .photo {
-    margin: -110px auto 0;
+    margin: -65px auto 0;
     overflow: hidden;
     max-width: 120px;
     max-height: 120px;
@@ -31,10 +29,12 @@
 
 @media screen and (max-width: 680px) {
   .feedback {
-    padding-top: 45px;
     padding-bottom: 40px;
     width: 85%;
     margin: 0 auto;
 
+    .feedback-text {
+      padding: 0;
+    }
   }
 }

@@ -1,15 +1,11 @@
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
-import {Store} from '@ngrx/store';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidebarComponent {
   @Input() classicMode = false;
-
-  constructor(private _store: Store) {
-  }
 }
