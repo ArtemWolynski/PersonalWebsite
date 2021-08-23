@@ -24,7 +24,7 @@ export const portfolio: Project[] = [
     "First experience with angular and a thing that helped me to make first money from programming and gain first experience. " +
     "I'm deliberately keeping it as it was when I wrote it, to remind myself about those days. " +
     "Go visit the website and check out how I was able to create an adaptive layout without even knowing what the hell it is.",
-    link: 'https://creativedigital.com.ru/',
+    link: 'https://creativedigitalvn.com/',
     imgUrl: '../../assets/images/cd.png',
   },
   {
