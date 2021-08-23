@@ -6,7 +6,7 @@ export const portfolio: Project[] = [
     name: 'thepuir',
     description:
       "This project is here because it looks dope! And yeah, I'm the one who created it. " +
-      "Another thing that makes it special is that it was not created as a freelance job (I've never done freelance, at least now the classic version of it). " +
+      "Another thing that makes it special is that it was not created as a freelance job (I've never done freelance, at least not the classic version of it). " +
       'It was a (quite unusual) present for a very good friend of mine, trying to start a new business. Some things are worth doing for free, you know. ' +
       "Once again, as a part of the project I've worked with designers to create the concept of the landing page. Set up the customer care pipeline. " +
       'Taught people how to track conversion rates. Set up the adSense and CRM systems to attract and track leads. ' +
@@ -34,7 +34,8 @@ export const portfolio: Project[] = [
     name: 'precious payload',
     description:
       'Precious payload it here for many reasons. First of all it is a place where I met lots of amazing people. ' +
-      'Place where I was able to learn what the real responsibility is. Place where I was able to create multiple projects from scratch. ' +
+      'Place where I was able to learn what the real responsibility is and learned how to lead people.' +
+      ' Place where I was able to create multiple projects from scratch. ' +
       "Precious Payload is a place where you can grow like crazy and feel that your work means something. I've spent four years there. " +
       'Was responsible for all the software company generated, literally.' +
       " And yeah, we've helped to send those tiny metal boxes called smallsats (fancy word for small satellites) " +

@@ -4,7 +4,7 @@ export const recommendations: Recommendation[] = [
   {
     id: 0,
     author: 'Andrei Rebrov',
-    position: 'CTO & Co-founder at Scentfird & Deck of Scarlet',
+    position: 'CTO & Co-founder at Scentbird & Deck of Scarlet',
     text:
       'It was great to work with Artem. ' +
       'He was eager to learn new things both in engineering and people management, ' +
