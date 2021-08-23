@@ -6,8 +6,10 @@
   width: 100%;
 
   .feedback-text {
-    text-align: left;
     padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
   }
 
   .photo {

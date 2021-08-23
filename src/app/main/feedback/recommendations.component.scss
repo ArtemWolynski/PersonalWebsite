@@ -5,6 +5,7 @@
 :host {
   display: flex;
   flex-direction: row-reverse;
+  width: 100%;
 
   .recommendations {
     @include container(fit-content, 90%, 5%, 0, 0);
