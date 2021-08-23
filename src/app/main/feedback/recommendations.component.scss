@@ -6,7 +6,6 @@
   display: flex;
   flex-direction: row-reverse;
 
-
   .recommendations {
     @include container(fit-content, 90%, 5%, 0, 0);
 
@@ -26,6 +25,10 @@
       background-color: $primaryColor;
       height: 60vh;
       max-height: 420px;
+
+      .feedback {
+        width: 100%;
+      }
 
       .pillar {
         height: available;
